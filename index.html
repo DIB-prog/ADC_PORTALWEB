@@ -1,0 +1,1026 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildFuture - Construye el futuro con hormigón prefabricado</title>
+    <meta name="description" content="Únete a la revolución del hormigón prefabricado. Innovación, sostenibilidad y oportunidades para jóvenes arquitectos e ingenieros.">
+
+    <!-- Fuentes modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS para animaciones -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Build<span class="accent">Future</span></h2>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#explora" class="nav-link">Explora</a>
+                <a href="#inspirate" class="nav-link">Inspírate</a>
+                <a href="#carreras" class="nav-link">Carreras</a>
+                <a href="#academia" class="nav-link">Academia</a>
+                <a href="#premios" class="nav-link">Premios</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-video">
+            <video autoplay muted loop>
+                <source src="videos/hero-construction.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Efectos interactivos elegantes -->
+        <div class="interactive-bg" id="interactive-bg">
+            <canvas id="particles-canvas"></canvas>
+        </div>
+
+        <!-- Formas geométricas sutiles -->
+        <div class="geometric-bg">
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+            <div class="geometric-shape shape-4"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="hero-title" data-aos="fade-up">
+                Construye el FUTURO que imaginas
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Prefabricado = innovación, sostenibilidad y oportunidades ilimitadas
+            </p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                <a href="#explora" class="btn btn-primary">Explora</a>
+                <a href="#inspirate" class="btn btn-secondary">Inspírate</a>
+                <a href="#carreras" class="btn btn-accent">Únete</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll para descubrir</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Construcción eco-friendly que respeta el planeta</p>
+                </div>
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="highlight-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Tecnología Digital</h3>
+                    <p>BIM, automatización y las últimas innovaciones</p>
+                </div>
+                <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="highlight-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Carreras con Futuro</h3>
+                    <p>Oportunidades laborales en un sector en crecimiento</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mini Preview -->
+    <section class="mini-preview">
+        <div class="container">
+            <div class="preview-content">
+                <div class="preview-text" data-aos="fade-right">
+                    <h2>Proyectos que <span class="accent">inspiran</span></h2>
+                    <p>Descubre edificios, puentes e infraestructuras creadas con tecnología prefabricada</p>
+                    <a href="#explora" class="btn btn-primary">Ver galería completa</a>
+                </div>
+                <div class="preview-image" data-aos="fade-left">
+                    <img src="images/modern-building.jpg" alt="Edificio moderno prefabricado">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Rápido -->
+    <section class="quick-cta">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2>¿Listo para el <span class="accent">reto</span>?</h2>
+                <p>Únete a nuestra academia online y participa en el concurso joven</p>
+                <div class="cta-buttons">
+                    <a href="#academia" class="btn btn-primary">Academia Online</a>
+                    <a href="#premios" class="btn btn-accent">Premios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explora Section -->
+    <section class="explora section" id="explora">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Explora <span class="accent">proyectos épicos</span></h2>
+                <p>Galería visual de proyectos que están transformando el mundo</p>
+            </div>
+
+            <div class="projects-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project1.jpg" alt="Edificio residencial moderno">
+                        <div class="project-overlay">
+                            <h3>Residencial Moderno</h3>
+                            <p>120 viviendas en tiempo récord</p>
+                            <div class="project-stats">
+                                <span><i class="fas fa-clock"></i> 6 meses</span>
+                                <span><i class="fas fa-leaf"></i> -40% CO2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="Puente prefabricado">
+                        <div class="project-overlay">
+                            <h3>Puente Inteligente</h3>
+                            <p>Infraestructura del siglo XXI</p>
+                            <div class="project-stats">
+                                <span><i class="fas fa-wifi"></i> IoT integrado</span>
+                                <span><i class="fas fa-shield-alt"></i> 100 años vida</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project3.jpg" alt="Centro comercial sostenible">
+                        <div class="project-overlay">
+                            <h3>Centro Comercial Verde</h3>
+                            <p>Eficiencia energética máxima</p>
+                            <div class="project-stats">
+                                <span><i class="fas fa-solar-panel"></i> Energía solar</span>
+                                <span><i class="fas fa-recycle"></i> Materiales reciclados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparaciones antes/después -->
+            <div class="before-after" data-aos="fade-up">
+                <h3>El poder del prefabricado en acción</h3>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="before-after-slider">
+                            <img src="images/before1.jpg" alt="Antes del montaje">
+                            <img src="images/after1.jpg" alt="Después del montaje">
+                        </div>
+                        <p>De 0 a edificio completo en 48 horas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspírate Section -->
+    <section class="inspirate section" id="inspirate">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Inspírate con <span class="accent">historias reales</span></h2>
+                <p>Conoce a jóvenes que ya están construyendo el futuro</p>
+            </div>
+
+            <div class="stories-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="story-card">
+                    <div class="story-video">
+                        <video poster="images/story1-thumb.jpg">
+                            <source src="videos/story1.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <h3>María, 24 años</h3>
+                        <p>"Aquí no solo trabajas, creas ciudad"</p>
+                        <span class="story-role">Ingeniera de Diseño BIM</span>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-video">
+                        <video poster="images/story2-thumb.jpg">
+                            <source src="videos/story2.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <h3>Carlos, 26 años</h3>
+                        <p>"Cada día es un reto diferente"</p>
+                        <span class="story-role">Jefe de Montaje</span>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-video">
+                        <video poster="images/story3-thumb.jpg">
+                            <source src="videos/story3.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="story-content">
+                        <h3>Ana, 23 años</h3>
+                        <p>"Innovación + sostenibilidad = mi pasión"</p>
+                        <span class="story-role">Arquitecta Técnica</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inspiration-quotes" data-aos="fade-up" data-aos-delay="400">
+                <div class="quote-carousel">
+                    <div class="quote active">
+                        <p>"El prefabricado no es el futuro, es el presente. Y nosotros lo vivimos cada día."</p>
+                        <span>- Equipo BuildFuture</span>
+                    </div>
+                    <div class="quote">
+                        <p>"Construir rápido, construir bien, construir sostenible. Es posible."</p>
+                        <span>- Jóvenes del sector</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pasa un día con... -->
+    <section class="day-with section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Pasa un día con...</h2>
+                <p>Conoce cómo trabajan jóvenes como tú en diferentes roles del sector</p>
+            </div>
+
+            <div class="youtube-gallery" data-aos="fade-up" data-aos-delay="200">
+                <div class="video-card">
+                    <div class="video-thumbnail" data-video-id="OrVhC4TQg7o">
+                        <img src="https://img.youtube.com/vi/OrVhC4TQg7o/maxresdefault.jpg" alt="Pasa un día con el jefe de oficina técnica">
+                        <div class="play-overlay">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>...el Jefe de Oficina Técnica</h3>
+                    <p>Conoce el día a día de quien coordina los proyectos técnicos</p>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail" data-video-id="b4QlfAtneLw">
+                        <img src="https://img.youtube.com/vi/b4QlfAtneLw/maxresdefault.jpg" alt="Pasa un día con el jefe de fábrica">
+                        <div class="play-overlay">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>...el Jefe de Fábrica</h3>
+                    <p>Descubre cómo se gestiona la producción de elementos prefabricados</p>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail" data-video-id="CDBWPIeAIKE">
+                        <img src="https://img.youtube.com/vi/CDBWPIeAIKE/maxresdefault.jpg" alt="Pasa un día con oficiales de primera y capataces">
+                        <div class="play-overlay">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>...Oficiales de Primera y Capataces</h3>
+                    <p>La experiencia de quienes lideran el trabajo en campo</p>
+                </div>
+            </div>
+
+            <!-- Modal para reproducir videos -->
+            <div class="video-modal" id="videoModal">
+                <div class="modal-content">
+                    <button class="close-modal" id="closeModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="video-container">
+                        <iframe id="youtubePlayer" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carreras y Becas -->
+    <section class="carreras section" id="carreras">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Actúa - <span class="accent">Tu carrera te espera</span></h2>
+                <p>¿Quieres empezar? Da el primer paso</p>
+            </div>
+
+            <div class="careers-content">
+                <div class="careers-grid" data-aos="fade-up" data-aos-delay="200">
+                    <div class="career-card">
+                        <div class="career-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Prácticas Profesionales</h3>
+                        <p>Programa de prácticas en empresas líderes del sector</p>
+                        <ul>
+                            <li>6 meses de experiencia real</li>
+                            <li>Mentoría especializada</li>
+                            <li>Posibilidad de contratación</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Aplicar ahora</a>
+                    </div>
+
+                    <div class="career-card">
+                        <div class="career-icon">
+                            <i class="fas fa-euro-sign"></i>
+                        </div>
+                        <h3>Becas de Excelencia</h3>
+                        <p>Apoyo económico para estudiantes destacados</p>
+                        <ul>
+                            <li>Hasta 3.000€ por curso</li>
+                            <li>Formación especializada</li>
+                            <li>Red de contactos profesionales</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academia Online ANDECE -->
+    <section class="academia section" id="academia">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Academia <span class="accent">Online</span></h2>
+                <p>Aprende y crece con nuestra formación online</p>
+                <div class="academy-subtitle">
+                    <p>Todos los cursos son <strong>100% bonificables</strong></p>
+                    <p>Colaboran <strong>IETcc Torroja</strong> e <strong>INDESPRE</strong></p>
+                </div>
+            </div>
+
+            <div class="courses-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="courses-featured">
+                    <h3>Cursos Destacados</h3>
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <div class="course-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>H453 - Elementos Prefabricados en el Nuevo Código Estructural</h4>
+                            <p>Domina las últimas normativas y regulaciones del sector</p>
+                            <div class="course-info">
+                                <span><i class="fas fa-clock"></i> 40 horas</span>
+                                <span><i class="fas fa-certificate"></i> Certificado oficial</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Más información</a>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h4>H455 - Sostenibilidad en Construcción Prefabricada</h4>
+                            <p>Construcción eco-friendly y sostenible del futuro</p>
+                            <div class="course-info">
+                                <span><i class="fas fa-clock"></i> 35 horas</span>
+                                <span><i class="fas fa-globe"></i> Online</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Más información</a>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <h4>H456 - Hormigones Verdes para Descarbonización</h4>
+                            <p>Materiales del futuro para un planeta mejor</p>
+                            <div class="course-info">
+                                <span><i class="fas fa-clock"></i> 30 horas</span>
+                                <span><i class="fas fa-star"></i> Popular</span>
+                            </div>
+                            <a href="#" class="btn btn-primary">Más información</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="all-courses">
+                    <h3>Todos los Cursos Disponibles</h3>
+                    <div class="courses-list">
+                        <div class="course-item">
+                            <span class="course-code">H457</span>
+                            <span class="course-title">Estrategia de durabilidad de hormigones</span>
+                            <a href="#" class="course-link">Ver curso</a>
+                        </div>
+                        <div class="course-item">
+                            <span class="course-code">H459</span>
+                            <span class="course-title">Durabilidad y degradación del hormigón armado: cálculo de vida útil según el CEE</span>
+                            <a href="#" class="course-link">Ver curso</a>
+                        </div>
+                        <div class="course-item">
+                            <span class="course-code">H470</span>
+                            <span class="course-title">Curso básico de montaje de prefabricado de hormigón</span>
+                            <a href="#" class="course-link">Ver curso</a>
+                        </div>
+                        <div class="course-item">
+                            <span class="course-code">H600</span>
+                            <span class="course-title">Uniones de elementos lineales de hormigón prefabricado</span>
+                            <a href="#" class="course-link">Ver curso</a>
+                        </div>
+                        <div class="course-item">
+                            <span class="course-code">H610</span>
+                            <span class="course-title">Uniones de elementos de hormigón prefabricado. Elementos planos</span>
+                            <a href="#" class="course-link">Ver curso</a>
+                        </div>
+                    </div>
+
+                    <div class="additional-courses">
+                        <h4>Otros cursos de interés sobre hormigón y construcción:</h4>
+                        <ul>
+                            <li>Ensayos para el control del hormigón. Parte 1. Ensayos esenciales</li>
+                            <li>Ensayos para el control del hormigón. Parte 2. Ensayos avanzados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premios ANDECE -->
+    <section class="premios section" id="premios">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2><span class="accent">Premios ANDECE</span> & Concursos</h2>
+                <p>Reconocimiento a la excelencia en Arquitectura, Ingeniería y Formación Profesional</p>
+            </div>
+
+            <div class="competitions-grid" data-aos="fade-up" data-aos-delay="200" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+                <div class="competition-card" style="flex: 1; min-width: 300px; max-width: 500px;">
+                    <div class="competition-header">
+                        <div class="competition-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Premios ANDECE</h3>
+                    </div>
+                    <div class="competition-content">
+                        <p>Premios de 1.000€ a los mejores trabajos de estudiantes</p>
+                        <ul class="competition-categories">
+                            <li><i class="fas fa-check"></i> Trabajos Fin de Grado (TFG)</li>
+                            <li><i class="fas fa-check"></i> Trabajos Fin de Máster (TFM)</li>
+                            <li><i class="fas fa-check"></i> Proyectos libres</li>
+                            <li><i class="fas fa-check"></i> Proyectos de asignatura</li>
+                        </ul>
+                        <div class="competition-buttons">
+                            <a href="https://premioandece.com" class="btn btn-primary" target="_blank">
+                                Bases y más información
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competition-card" style="flex: 1; min-width: 300px; max-width: 500px;">
+                    <div class="competition-header">
+                        <div class="competition-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Concurso FP</h3>
+                    </div>
+                    <div class="competition-content">
+                        <p>Concurso especial para estudiantes de Formación Profesional</p>
+                        <div class="fp-highlights">
+                            <div class="highlight">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>Proyectos prácticos</span>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-industry"></i>
+                                <span>Conexión con empresas</span>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Reconocimiento oficial</span>
+                            </div>
+                        </div>
+                        <a href="https://premioandece.com/nuevo-concurso-fp/" class="btn btn-primary" target="_blank">
+                            Más información FP
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LinkedIn Posts -->
+    <section class="linkedin-posts section" id="linkedin">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Últimos posts de <span class="accent">LinkedIn</span></h2>
+                <p>Mantente al día con las novedades del sector</p>
+            </div>
+
+            <div class="posts-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>ANDECE</h4>
+                            <span>Hace 2 días</span>
+                        </div>
+                        <i class="fab fa-linkedin post-linkedin-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <p>🚀 El futuro de la construcción está aquí. Nuevos proyectos sostenibles que revolucionan el sector del prefabricado.</p>
+                        <img src="images/linkedin-post1.jpg" alt="Proyecto sostenible" class="post-image">
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-thumbs-up"></i> 124</span>
+                        <span><i class="fas fa-comment"></i> 15</span>
+                        <a href="https://www.linkedin.com/company/andece1964/posts/" target="_blank" class="btn btn-sm">Ver en LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>ANDECE</h4>
+                            <span>Hace 1 semana</span>
+                        </div>
+                        <i class="fab fa-linkedin post-linkedin-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <p>👨‍🎓 Becas disponibles para jóvenes estudiantes. ¡No pierdas la oportunidad de formar parte del cambio!</p>
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-thumbs-up"></i> 89</span>
+                        <span><i class="fas fa-comment"></i> 23</span>
+                        <a href="https://www.linkedin.com/company/andece1964/posts/" target="_blank" class="btn btn-sm">Ver en LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="post-card">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>ANDECE</h4>
+                            <span>Hace 2 semanas</span>
+                        </div>
+                        <i class="fab fa-linkedin post-linkedin-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <p>🏗️ Nuevas tecnologías BIM aplicadas al prefabricado. Descubre cómo la digitalización transforma nuestro sector.</p>
+                        <img src="images/linkedin-post2.jpg" alt="Tecnología BIM" class="post-image">
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-thumbs-up"></i> 156</span>
+                        <span><i class="fas fa-comment"></i> 31</span>
+                        <a href="https://www.linkedin.com/company/andece1964/posts/" target="_blank" class="btn btn-sm">Ver en LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="linkedin-cta" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://www.linkedin.com/company/andece1964/posts/?feedView=all" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-linkedin"></i>
+                    Seguir en LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Posts -->
+    <section class="instagram-posts section" id="instagram">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Síguenos en <span class="accent">Instagram</span></h2>
+                <p>Contenido visual y dinámico del día a día de ANDECE</p>
+            </div>
+
+            <div class="posts-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="post-card instagram-post">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>andece_oficial</h4>
+                            <span>Hace 3 días</span>
+                        </div>
+                        <i class="fab fa-instagram post-instagram-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <img src="images/instagram-post1.jpg" alt="Obra prefabricada" class="post-image">
+                        <p>
+                            🏗️ Increíble proyecto de vivienda sostenible! Construcción 100% prefabricada.
+                            #Sostenibilidad #Prefabricado #ANDECE
+                        </p>
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-heart"></i> 287</span>
+                        <span><i class="fas fa-comment"></i> 24</span>
+                        <a href="https://www.instagram.com/andece_oficial/" target="_blank" class="btn btn-sm">Ver en Instagram</a>
+                    </div>
+                </div>
+
+                <div class="post-card instagram-post">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>andece_oficial</h4>
+                            <span>Hace 1 semana</span>
+                        </div>
+                        <i class="fab fa-instagram post-instagram-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <img src="images/instagram-post2.jpg" alt="Equipo joven" class="post-image">
+                        <p>
+                            👨‍💼👩‍💼 Nuestro equipo de jóvenes profesionales. El futuro de la construcción está en buenas manos.
+                            #JovenesProfesionales #TeamANDECE
+                        </p>
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-heart"></i> 142</span>
+                        <span><i class="fas fa-comment"></i> 18</span>
+                        <a href="https://www.instagram.com/andece_oficial/" target="_blank" class="btn btn-sm">Ver en Instagram</a>
+                    </div>
+                </div>
+
+                <div class="post-card instagram-post">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>andece_oficial</h4>
+                            <span>Hace 2 semanas</span>
+                        </div>
+                        <i class="fab fa-instagram post-instagram-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <img src="images/instagram-post3.jpg" alt="Innovación tecnológica" class="post-image">
+                        <p>
+                            🚀 Tecnología punta en acción. Elementos prefabricados del futuro.
+                            #Innovación #Tecnología #Construcción4.0
+                        </p>
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-heart"></i> 203</span>
+                        <span><i class="fas fa-comment"></i> 35</span>
+                        <a href="https://www.instagram.com/andece_oficial/" target="_blank" class="btn btn-sm">Ver en Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instagram-cta" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://www.instagram.com/andece_oficial/" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-instagram"></i>
+                    Seguir en Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- X (Twitter) Posts -->
+    <section class="twitter-posts section" id="twitter">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Últimas noticias en <span class="accent">X</span></h2>
+                <p>Mantente al día con las novedades y actualizaciones del sector</p>
+            </div>
+
+            <div class="posts-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="post-card twitter-post">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>@ANDECE_oficial</h4>
+                            <span>Hace 2 horas</span>
+                        </div>
+                        <i class="fab fa-x-twitter post-twitter-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            🏗️ El sector del #prefabricado genera más de 15.000 empleos directos en España.
+                            ¡Una industria con futuro que necesita jóvenes talentosos!
+
+                            #Construcción #Empleo
+                        </p>
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-heart"></i> 89</span>
+                        <span><i class="fas fa-retweet"></i> 42</span>
+                        <a href="https://twitter.com/andece" target="_blank" class="btn btn-sm">Ver en X</a>
+                    </div>
+                </div>
+
+                <div class="post-card twitter-post">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>@ANDECE_oficial</h4>
+                            <span>Hace 1 día</span>
+                        </div>
+                        <i class="fab fa-x-twitter post-twitter-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            📢 ¡Abierto el plazo para los Premios ANDECE 2024!
+
+                            Estudiantes de #Arquitectura e #Ingeniería, esta es vuestra oportunidad de destacar.
+
+                            Premios de hasta 1.000€ 💰
+
+                            Más info: premioandece.com
+                        </p>
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-heart"></i> 156</span>
+                        <span><i class="fas fa-retweet"></i> 87</span>
+                        <a href="https://twitter.com/andece" target="_blank" class="btn btn-sm">Ver en X</a>
+                    </div>
+                </div>
+
+                <div class="post-card twitter-post">
+                    <div class="post-header">
+                        <img src="images/andece-logo.jpg" alt="ANDECE" class="post-avatar">
+                        <div class="post-info">
+                            <h4>@ANDECE_oficial</h4>
+                            <span>Hace 3 días</span>
+                        </div>
+                        <i class="fab fa-x-twitter post-twitter-icon"></i>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            🌱 La construcción industrializada reduce un 50% las emisiones de CO2 vs métodos tradicionales.
+
+                            El futuro es #sostenible, el futuro es #prefabricado 🌍
+                        </p>
+                    </div>
+                    <div class="post-actions">
+                        <span><i class="fas fa-heart"></i> 203</span>
+                        <span><i class="fas fa-retweet"></i> 128</span>
+                        <a href="https://twitter.com/andece" target="_blank" class="btn btn-sm">Ver en X</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="twitter-cta" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://twitter.com/andece" target="_blank" class="btn btn-accent">
+                    <i class="fab fa-x-twitter"></i>
+                    Seguir en X
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre ANDECE -->
+    <section class="sobre-andece section">
+        <div class="container">
+            <div class="about-content" data-aos="fade-up">
+                <div class="about-text">
+                    <h2>Sobre <span class="accent">ANDECE</span></h2>
+                    <p class="about-description">
+                        Unimos empresas para crear un sector más sostenible, digital e innovador.
+                        <strong>Queremos hacerlo contigo.</strong>
+                    </p>
+                    <p>
+                        Desde 1964, ANDECE lidera la innovación en el sector del prefabricado de hormigón en España.
+                        Hoy, más que nunca, apostamos por los jóvenes profesionales como motor del cambio hacia
+                        un futuro más sostenible y tecnológico.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="60">0</span>
+                            <span class="stat-label">Años de experiencia</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="150">0</span>
+                            <span class="stat-label">Empresas asociadas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-label">Jóvenes formados</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/andece-building.jpg" alt="Edificio ANDECE">
+                </div>
+            </div>
+
+            <div class="companies-logos" data-aos="fade-up" data-aos-delay="200">
+                <h3>Empresas colaboradoras</h3>
+                <div class="logos-grid">
+                    <img src="images/logo-empresa1.jpg" alt="Empresa colaboradora">
+                    <img src="images/logo-empresa2.jpg" alt="Empresa colaboradora">
+                    <img src="images/logo-empresa3.jpg" alt="Empresa colaboradora">
+                    <img src="images/logo-empresa4.jpg" alt="Empresa colaboradora">
+                    <img src="images/logo-empresa5.jpg" alt="Empresa colaboradora">
+                    <img src="images/logo-empresa6.jpg" alt="Empresa colaboradora">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contacto section" id="contacto">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>¿Listo para <span class="accent">empezar</span>?</h2>
+                <p>Ponte en contacto con nosotros y da el primer paso hacia tu futuro</p>
+            </div>
+
+            <div class="contact-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-form-card">
+                    <div class="form-header">
+                        <h3>Envíanos tu consulta</h3>
+                        <p>Completa el formulario y nos pondremos en contacto contigo</p>
+                    </div>
+
+                    <form class="modern-contact-form" id="contactForm">
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <input type="text" id="nombre" name="nombre" required>
+                                <label for="nombre">Nombre completo</label>
+                                <span class="input-highlight"></span>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">Correo electrónico</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <input type="tel" id="telefono" name="telefono">
+                                <label for="telefono">Teléfono (opcional)</label>
+                                <span class="input-highlight"></span>
+                            </div>
+
+                            <div class="input-group">
+                                <select id="asunto" name="asunto" required>
+                                    <option value="">Selecciona un tema</option>
+                                    <option value="informacion-general">Información general</option>
+                                    <option value="oportunidades-laborales">Oportunidades laborales</option>
+                                    <option value="formacion-cursos">Formación y cursos</option>
+                                    <option value="colaboracion">Colaboración empresarial</option>
+                                    <option value="prensa-medios">Prensa y medios</option>
+                                    <option value="otro">Otro tema</option>
+                                </select>
+                                <label for="asunto">Asunto</label>
+                                <span class="input-highlight"></span>
+                            </div>
+                        </div>
+
+                        <div class="input-group textarea-group">
+                            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                            <label for="mensaje">Tu mensaje</label>
+                            <span class="input-highlight"></span>
+                        </div>
+
+                        <div class="checkbox-container">
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="privacidad" name="privacidad" required>
+                                <label for="privacidad">
+                                    <span class="checkbox-mark"></span>
+                                    He leído y acepto la <a href="#" class="privacy-link">política de privacidad</a>
+                                </label>
+                            </div>
+
+                            <div class="custom-checkbox">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">
+                                    <span class="checkbox-mark"></span>
+                                    Deseo recibir información sobre oportunidades y novedades
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn">
+                                <span class="btn-text">Enviar mensaje</span>
+                                <span class="btn-icon">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Build<span class="accent">Future</span></h3>
+                    <p>El futuro del prefabricado de hormigón está en tus manos. Únete a la revolución.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/andece1964/" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCxxxxx" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/andece_oficial/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/andece" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Para Jóvenes</h4>
+                    <ul>
+                        <li><a href="#carreras">Carreras y Becas</a></li>
+                        <li><a href="#academia">Academia Online</a></li>
+                        <li><a href="#premios">Premios y Concursos</a></li>
+                        <li><a href="#inspirate">Historias Inspiradoras</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#explora">Proyectos</a></li>
+                        <li><a href="#linkedin">Blog</a></li>
+                        <li><a href="#">Documentos Técnicos</a></li>
+                        <li><a href="#">Normativas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>ANDECE</h4>
+                    <ul>
+                        <li><a href="#sobre-andece">Quiénes Somos</a></li>
+                        <li><a href="#">Empresas Asociadas</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 ANDECE - Asociación Nacional de la Industria del Prefabricado de Hormigón. Todos los derechos reservados.</p>
+                    <p class="footer-note">
+                        Esta web está diseñada para inspirar a jóvenes profesionales a unirse al futuro de la construcción sostenible.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón scroll to top -->
+    <button id="scroll-to-top" class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
