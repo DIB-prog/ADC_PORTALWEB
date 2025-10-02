@@ -95,6 +95,7 @@
     <Content Include="css\style.css" />
     <Content Include="index.html" />
     <Content Include="js\script.js" />
+    <Content Include="prueba.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

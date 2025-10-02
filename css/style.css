@@ -6,15 +6,18 @@
 /* Variables CSS */
 :root {
     /* Colores principales */
-    --primary-color: #00D4AA; /* Verde vibrante */
-    --secondary-color: #0099FF; /* Azul tecnológico */
-    --accent-color: #FF6B35; /* Naranja energético */
-    --dark-color: #1A1A1A; /* Negro moderno */
-    --light-color: #FFFFFF; /* Blanco puro */
-    --gray-light: #F8F9FA; /* Gris muy claro */
-    --gray-medium: #6C757D; /* Gris medio */
+    /*--primary-color: #00D4AA;*/
+    --primary-color: #63AF2D;
+    /*--secondary-color: #0099FF;*/
+    --secondary-color: #325B01;
+    /*--accent-color: #FF6B35;*/
+    --accent-color: #015293;
+    --dark-color: #1A1A1A;
+    --light-color: #FFFFFF;
+    --gray-light: #F8F9FA;
+    --gray-medium: #6C757D;
     --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    --gradient-accent: linear-gradient(135deg, var(--accent-color), #FF8A50);
+    --gradient-accent: linear-gradient(135deg, var(--accent-color), #5DADE2);
     /* Tipografías */
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Inter', sans-serif;
@@ -181,7 +184,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(0, 212, 170, 0.8), rgba(0, 153, 255, 0.6), rgba(255, 107, 53, 0.4) );
+    background: linear-gradient(45deg, rgba(99, 175, 45, 0.8), rgba(93, 173, 226, 0.6), rgba(117, 118, 117, 0.4) );
     z-index: -1;
 }
 
@@ -202,7 +205,7 @@ body {
 }
 
     .hero-title .accent {
-        background: linear-gradient(45deg, #4CAF50, #2196F3);
+        background: linear-gradient(45deg, #63af2d, #2A73B9);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -290,22 +293,22 @@ body {
     }
 
 .btn-primary {
-    background: linear-gradient(135deg, #FF6B35, #FF8A50);
+    background: linear-gradient(135deg, #848A83, #BDC3BB);
     color: white;
-    box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 20px rgba(117, 118, 117, 0.4);
+    /*border: 2px solid rgba(255, 255, 255, 0.2);*/
 }
 
     .btn-primary:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
-        background: linear-gradient(135deg, #FF8A50, #FF6B35);
+        box-shadow: 0 8px 30px rgba(117, 118, 117, 0.6);
+        background: linear-gradient(135deg, #848A83, #BDC3BB);
     }
 
 .btn-secondary {
     background: linear-gradient(135deg, #1A1A1A, #333333);
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    /*border: 2px solid rgba(255, 255, 255, 0.3);*/
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -316,16 +319,16 @@ body {
     }
 
 .btn-accent {
-    background: linear-gradient(135deg, #0099FF, #0077CC);
+    background: linear-gradient(135deg, #2A73B9, #5DADE2);
     color: white;
-    box-shadow: 0 5px 20px rgba(0, 153, 255, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 20px rgba(42, 115, 185, 0.4);
+    /*border: 2px solid rgba(255, 255, 255, 0.2);*/
 }
 
     .btn-accent:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 30px rgba(0, 153, 255, 0.6);
-        background: linear-gradient(135deg, #0077CC, #0099FF);
+        box-shadow: 0 8px 30px rgba(42, 115, 185, 0.6);
+        background: linear-gradient(135deg, #2A73B9, #5DADE2);
     }
 
 /* =============================================================================
@@ -473,7 +476,7 @@ body {
    ============================================================================= */
 .quick-cta {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--dark-color), #2A2A2A);
+    background: var(--gradient-primary);
     color: white;
     text-align: center;
 }
@@ -485,7 +488,8 @@ body {
 }
 
 .cta-content .accent {
-    background: var(--gradient-accent);
+    /*background: var(--gradient-accent);*/
+    background: var(--gradient-gris);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -871,12 +875,11 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    transform: scale(0.8);
     transition: transform 0.3s ease;
 }
 
 .video-card:hover .play-button {
-    transform: scale(1);
+    /*transform: scale(1);*/
 }
 
 /* Modal de video */
@@ -1034,7 +1037,7 @@ body {
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.05), transparent );
+        background: linear-gradient(90deg, transparent, rgba(99, 175, 45, 0.05), transparent );
         transition: var(--transition-medium);
     }
 
@@ -1150,7 +1153,7 @@ body {
     .career-form textarea:focus {
         outline: none;
         border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
+        box-shadow: 0 0 0 3px rgba(99, 175, 45, 0.1);
     }
 
 .career-form textarea {
@@ -1501,7 +1504,7 @@ body {
 }
 
     .course-item:hover {
-        background: rgba(0, 212, 170, 0.05);
+        background: rgba(99, 175, 45, 0.05);
         padding-left: 10px;
         margin: 0 -10px;
         border-radius: 10px;
@@ -1583,7 +1586,7 @@ body {
         left: 0;
         width: 100%;
         height: 4px;
-        background: var(--gradient-accent);
+        background: var(--gradient-primary);
     }
 
 .main-competition::before {
@@ -1604,7 +1607,7 @@ body {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: var(--gradient-accent);
+    background: var(--gradient-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2000,6 +2003,23 @@ body {
     text-align: center;
 }
 
+    .linkedin-cta .btn {
+        background: linear-gradient(45deg, #0077B5, #005983, #003F5E);
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 8px 20px rgba(0, 119, 181, 0.3);
+    }
+
+        .linkedin-cta .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 119, 181, 0.4);
+        }
+
 /* =============================================================================
    SOBRE ANDECE - INFORMACIÓN CORPORATIVA
    ============================================================================= */
@@ -2252,7 +2272,7 @@ body {
         font-weight: 700;
         color: var(--dark-color);
         margin-bottom: 12px;
-        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        background: var(--gradient-primary);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -2301,7 +2321,7 @@ body {
             border-color: var(--primary-color);
             background: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15), 0 4px 10px rgba(76, 175, 80, 0.1);
+            box-shadow: 0 8px 25px rgba(99, 175, 45, 0.15), 0 4px 10px rgba(99, 175, 45, 0.1);
         }
 
     .input-group label {
@@ -2422,7 +2442,8 @@ body {
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    background: var(--gradient-primary);
+    /*background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);*/
     border: none;
     border-radius: 16px;
     padding: 16px 40px;
@@ -2443,7 +2464,7 @@ body {
 
     .submit-btn:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 25px rgba(76, 175, 80, 0.25), 0 6px 15px rgba(76, 175, 80, 0.15);
+        box-shadow: 0 12px 25px rgba(99, 175, 45, 0.25), 0 6px 15px rgba(99, 175, 45, 0.15);
     }
 
     .submit-btn:active {
@@ -2742,10 +2763,44 @@ body {
 }
 
 /* =============================================================================
+   YOUTUBE POSTS - DISEÑO VISUAL Y DINÁMICO
+   ============================================================================= */
+.youtube-cta {
+    text-align: center;
+}
+
+    .youtube-cta .btn {
+        background: linear-gradient(45deg, #FF0000, #CC0000, #990000);
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .youtube-cta .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 0, 0, 0.4);
+        }
+
+
+/* =============================================================================
    INSTAGRAM POSTS - DISEÑO VISUAL Y DINÁMICO
    ============================================================================= */
 .instagram-posts {
     background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+}
+
+.iconosInsta {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .instagram-post {
@@ -2804,6 +2859,13 @@ body {
 /* =============================================================================
    X (TWITTER) POSTS - DISEÑO MINIMALISTA Y PROFESIONAL
    ============================================================================= */
+.gradientX {
+    background: linear-gradient(135deg, #5DADE2, #015293);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
 .twitter-posts {
     background: linear-gradient(135deg, #000000 0%, #14171A 100%);
     color: white;
@@ -2956,7 +3018,7 @@ body {
 }
 
 .hero {
-    background: linear-gradient(135deg, rgba(0, 212, 170, 0.9) 0%, rgba(0, 153, 255, 0.9) 100%);
+    background: var(--gradient-primary);
 }
 
 /* Mejorar la tipografía */
@@ -3005,7 +3067,7 @@ h1, h2, h3, h4, h5, h6 {
 .geometric-shape {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(45deg, rgba(76, 175, 80, 0.05), rgba(33, 150, 243, 0.05));
+    background: linear-gradient(45deg, rgba(99, 175, 45, 0.05), rgba(42, 115, 185, 0.05));
     animation: floatGentle 20s infinite ease-in-out;
 }
 
@@ -3023,7 +3085,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 60%;
     right: 15%;
     animation-delay: -5s;
-    background: linear-gradient(45deg, rgba(33, 150, 243, 0.03), rgba(76, 175, 80, 0.03));
+    background: linear-gradient(45deg, rgba(42, 115, 185, 0.03), rgba(99, 175, 45, 0.03));
 }
 
 .shape-3 {
@@ -3041,7 +3103,7 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 20%;
     left: 20%;
     animation-delay: -15s;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.02), rgba(76, 175, 80, 0.02));
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.02), rgba(99, 175, 45, 0.02));
 }
 
 @keyframes floatGentle {
@@ -3064,7 +3126,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(90deg, rgba(76, 175, 80, 0.02) 1px, transparent 1px), linear-gradient(0deg, rgba(33, 150, 243, 0.02) 1px, transparent 1px);
+    background-image: linear-gradient(90deg, rgba(99, 175, 45, 0.02) 1px, transparent 1px), linear-gradient(0deg, rgba(42, 115, 185, 0.02) 1px, transparent 1px);
     background-size: 100px 100px;
     animation: gridMove 30s linear infinite;
     pointer-events: none;
@@ -3089,7 +3151,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient( circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(76, 175, 80, 0.08) 0%, rgba(33, 150, 243, 0.05) 30%, transparent 60% );
+    background: radial-gradient( circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99, 175, 45, 0.08) 0%, rgba(42, 115, 185, 0.05) 30%, transparent 60% );
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;

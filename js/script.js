@@ -218,7 +218,7 @@ function initializeFormHandlers() {
 
             if (file) {
                 label.innerHTML = `<i class="fas fa-check"></i> ${file.name}`;
-                label.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                label.style.background = 'linear-gradient(135deg, #63AF2D, #5DADE2)';
             }
         });
     }
@@ -538,7 +538,7 @@ function getNotificationIcon(type) {
 
 function getNotificationColor(type) {
     const colors = {
-        success: 'linear-gradient(135deg, #28a745, #20c997)',
+        success: 'linear-gradient(135deg, #63af2d, #5DADE2)',
         error: 'linear-gradient(135deg, #dc3545, #c82333)',
         warning: 'linear-gradient(135deg, #ffc107, #e0a800)',
         info: 'linear-gradient(135deg, #17a2b8, #138496)'
@@ -1239,7 +1239,7 @@ function injectModalStyles() {
         .competition-modal .competition-form select:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
+            box-shadow: 0 0 0 3px rgba(99, 175, 45, 0.1);
         }
     `;
 
@@ -1379,9 +1379,9 @@ class ElegantParticles {
                 particle.x, particle.y, 0,
                 particle.x, particle.y, particle.size * 3
             );
-            gradient.addColorStop(0, `rgba(76, 175, 80, ${particle.opacity})`);
-            gradient.addColorStop(0.5, `rgba(33, 150, 243, ${particle.opacity * 0.6})`);
-            gradient.addColorStop(1, `rgba(76, 175, 80, 0)`);
+            gradient.addColorStop(0, `rgba(99, 175, 45, ${particle.opacity})`);
+            gradient.addColorStop(0.5, `rgba(42, 115, 185, ${particle.opacity * 0.6})`);
+            gradient.addColorStop(1, `rgba(99, 175, 45, 0)`);
 
             this.ctx.beginPath();
             this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
@@ -1408,7 +1408,7 @@ class ElegantParticles {
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
                     this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
-                    this.ctx.strokeStyle = `rgba(33, 150, 243, ${opacity})`;
+                    this.ctx.strokeStyle = `rgba(42, 115, 185, ${opacity})`;
                     this.ctx.lineWidth = 0.5;
                     this.ctx.stroke();
                 }
