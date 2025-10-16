@@ -630,8 +630,11 @@ function animateCounters() {
                     if (current >= target) {
                         current = target;
                         clearInterval(timer);
+                   
+                        counter.textContent = "+ " + target;
+                    } else {
+                        counter.textContent = Math.floor(current);
                     }
-                    counter.textContent = Math.floor(current);
                 }, 50);
 
                 counterObserver.unobserve(counter);
@@ -1447,3 +1450,113 @@ function initializeHeroMouseEffects() {
         });
     }
 }
+// mapa interactivo
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tooltip = document.createElement('div');
+  tooltip.id = 'tooltip';
+  document.body.appendChild(tooltip);
+
+  const areas = document.querySelectorAll('area');
+
+  areas.forEach(area => {
+    area.addEventListener('mousemove', (e) => {
+      const empresas = area.dataset.empresas || '0';
+    
+      const comunidad =  area.getAttribute("dgfh") || 'Comunidad';
+
+      tooltip.innerHTML = `
+        <div class="tooltip-content">
+          <div class="titulo">${comunidad}</div>
+          <div class="dato">${empresas} empresas</div>
+        </div>
+      `;
+
+      tooltip.style.left = (e.x + 15 ) + 'px';
+      tooltip.style.top = (e.y) + 'px';
+      tooltip.style.opacity = '1';
+    });
+
+    area.addEventListener('mouseout', () => {
+      tooltip.style.opacity = '0';
+    });
+  });
+});
+
+//  document.querySelectorAll('area').forEach(function(area) {
+//     area.addEventListener('mouseover', function () {
+//       this._title = this.title;
+//       this.removeAttribute('title');
+//     });
+//     area.addEventListener('mouseout', function () {
+//       this.setAttribute('title', this._title);
+//     });
+//   });
+
+// carusel
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  let slideIndex = 1;
+  const slides = document.getElementsByClassName("mySlides");
+
+  function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+      autoSlideTimeout = setTimeout(showSlides, 4000); 
+  }
+
+  function plusSlides(n) {
+    clearTimeout(autoSlideTimeout);
+
+    slideIndex += n;
+
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+    if (slideIndex < 1) {
+      slideIndex = slides.length;
+    }
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+
+    autoSlideTimeout = setTimeout(showSlides, 4000);
+  }
+
+  // Exponer para uso en HTML onclick
+  window.plusSlides = plusSlides;
+
+
+  // Iniciar slideshow automático
+  showSlides();
+});
+
+
+
+// let slideIndex = 0;
+// showSlides();
+
+// function showSlides() {
+//   let i;
+//   let slides = document.getElementsByClassName("mySlides");
+//   for (i = 0; i < slides.length; i++) {
+//     slides[i].style.display = "none";
+//   }
+//   slideIndex++;
+//   if (slideIndex > slides.length) {slideIndex = 1}
+//   slides[slideIndex-1].style.display = "block";
+//   setTimeout(showSlides, 2000); // Change image every 2 seconds
+// }
