@@ -340,27 +340,15 @@
     </section>
 
     <!-- Pasa un día con... -->
-    <section class="day-with section">
+    <section class="day-with section " id="daywith1">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>Pasa un día con...</h2>
                 <p>Conoce cómo trabajan jóvenes como tú en diferentes roles del sector</p>
             </div>
-
-            <div class="youtube-gallery g1" data-aos="fade-up" data-aos-delay="200">
-                <div class="video-card v1">
-                    <div class="video-thumbnail" data-video-id="OrVhC4TQg7o">
-                        <img src="https://img.youtube.com/vi/OrVhC4TQg7o/maxresdefault.jpg" alt="Pasa un día con el jefe de oficina técnica">
-                        <div class="play-overlay">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <h3>...el Jefe de Oficina Técnica</h3>
-                    <p>Conoce el día a día de quien coordina los proyectos técnicos</p>
-                </div>
-
+            <div>
+         
+            <div id="time1" class="youtube-gallery" data-aos="fade-up" data-aos-delay="200">
                 <div class="video-card v2">
                     <div class="video-thumbnail" data-video-id="b4QlfAtneLw">
                         <img src="https://img.youtube.com/vi/b4QlfAtneLw/maxresdefault.jpg" alt="Pasa un día con el jefe de fábrica">
@@ -374,6 +362,20 @@
                     <p>Descubre cómo se gestiona la producción de elementos prefabricados</p>
                 </div>
 
+                <div class="video-card v1">
+                    <div class="video-thumbnail" data-video-id="OrVhC4TQg7o">
+                        <img src="https://img.youtube.com/vi/OrVhC4TQg7o/maxresdefault.jpg" alt="Pasa un día con el jefe de oficina técnica">
+                        <div class="play-overlay">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>...el Jefe de Oficina Técnica</h3>
+                    <p>Conoce el día a día de quien coordina los proyectos técnicos</p>
+                </div>
+
+                
                 <div class="video-card v3">
                     <div class="video-thumbnail" data-video-id="CDBWPIeAIKE">
                         <img src="https://img.youtube.com/vi/CDBWPIeAIKE/maxresdefault.jpg" alt="Pasa un día con oficiales de primera y capataces">
@@ -389,6 +391,13 @@
                 
             </div>
 
+            
+
+            </div>
+            
+
+            
+
             <!-- Modal para reproducir videos -->
             <div class="video-modal" id="videoModal">
                 <div class="modal-content">
@@ -402,6 +411,7 @@
             </div>
         </div>
     </section>
+    
 
     <!-- Carreras y Becas -->
     <section class="carreras section" id="carreras">
@@ -952,20 +962,28 @@
                                 <label for="nombre">Nombre completo</label>
                                 <span class="input-highlight"></span>
                             </div>
-
-                            <div class="input-group">
-                                <input type="email" id="email" name="email" required>
+                            
+                             <div class="input-group">
+                                <input type="text" id="email" name="email" required>
                                 <label for="email">Correo electrónico</label>
                                 <span class="input-highlight"></span>
                             </div>
+
+                            <!-- <div class="input-group">
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">Correo electrónico</label>
+                                <span class="input-highlight"></span>
+                            </div> -->
                         </div>
 
                         <div class="input-grid">
                             <div class="input-group">
-                                <input type="tel" id="telefono" name="telefono" required>
-                                <label for="email">Teléfono (opcional)</label>
+                                <input type="tel" id="telefono" name="telefono">
+                                <label for="tel">Teléfono (opcional)</label>
                                 <span class="input-highlight"></span>
                             </div>
+
+                            
 
                             <div class="input-group">
                                 <select id="asunto" name="asunto" required>

@@ -1,0 +1,208 @@
+:root {
+    --primary-color: #63AF2D;
+    --secondary-color: #325B01;
+    --accent-color: #015293;
+    --dark-color: #1A1A1A;
+    --light-color: #FFFFFF;
+    --gray-light: #F8F9FA;
+    --gray-medium: #6C757D;
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --gradient-accent: linear-gradient(135deg, var(--accent-color), #5DADE2);
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 15px 50px rgba(0, 0, 0, 0.2);
+    --transition-fast: all 0.3s ease;
+    --transition-medium: all 0.5s ease;
+    --transition-slow: all 0.8s ease;
+}
+
+header{
+    height: auto;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--light-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+main {
+    width: 30%;
+    height: 50%;
+   
+ 
+
+}
+
+/* para texto log in ducplicado del style.css */
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+    .section-header h2 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .section-header .accent {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .section-header p {
+        font-size: 1.2rem;
+        color: var(--gray-medium);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    [data-aos="fade-up"] {
+    animation: fadeInUp 0.8s ease-out;
+}
+/* Estilos del formulario de inicio de sesión */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-medium);
+   padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 0px;
+}
+  
+.container {
+    box-sizing: border-box;
+    padding: 15px;
+    width: 100%;
+    height: 25%;
+   padding-bottom: 0px;
+}
+    
+
+label {
+    font-size: 1rem;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+   
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    font-size: 1rem;
+    outline: none;
+    height: 50%;
+    box-sizing: border-box;
+    padding: 25px;
+    
+   
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: var(--primary-color);
+}
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Forgot password link */
+.psw {
+    font-size: 0.9rem;
+    color: var(--gray-medium);
+}
+
+.psw a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.psw a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* boton igual que en pagina principl */
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    z-index: 1;
+}
+
+.btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,transparent,rgba(255, 255, 255, 0.3),transparent);
+        transition: var(--transition-medium);
+        z-index: -1;
+}
+
+    .btn:hover::before {
+        left: 100%;
+    }
+
+.btn-primary {
+        background: var(--primary-color);
+    color: white;
+    box-shadow: 0 5px 20px rgba(99, 118, 45, 0.4);
+
+}
+   
+
+.btn-primary-:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(99, 118, 45, 0.6);
+    background: linear-gradient(135deg, #74C033, #63AF2D); 
+}
+
+[data-aos="fade-up"] {
+    animation: fadeInUp 0.8s ease-out;
+}

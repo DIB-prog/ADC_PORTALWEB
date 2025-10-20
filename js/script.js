@@ -265,12 +265,13 @@ function validateField(field) {
         case 'email':
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(value)) {
+                console.log('Validating email:', value);
                 isValid = false;
                 errorMessage = 'Por favor, introduce un email válido';
             }
             break;
         case 'tel':
-            const phoneRegex = /^[0-9+\-\s()]{9,}$/;
+            const phoneRegex = /^[0-9+\-\s()]{9,9}$/;
             if (value && !phoneRegex.test(value)) {
                 isValid = false;
                 errorMessage = 'Por favor, introduce un teléfono válido';
@@ -292,6 +293,65 @@ function validateField(field) {
 
     return isValid;
 }
+
+
+// function validateContactField(field) {
+//     const value = field.value.trim();
+//     let isValid = true;
+//     let errorMessage = '';
+
+//     if (field.required && !value) {
+//         isValid = false;
+//         errorMessage = 'Este campo es obligatorio';
+//     } else if (field.type === 'email' && value) {
+//         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//         if (!emailRegex.test(value)) {
+//             isValid = false;
+//             errorMessage = 'Por favor, introduce un email válido';
+//         }
+//     } else if (field.type === 'tel' && value) {
+//         const phoneRegex = /^[0-9+\-\s()]{9,}$/;
+//         if (!phoneRegex.test(value)) {
+//             isValid = false;
+//             errorMessage = 'Por favor, introduce un teléfono válido';
+//         }
+//     }
+
+//     if (!isValid) {
+//         showContactFieldError(field, errorMessage);
+//     } else {
+//         clearContactFieldError(field);
+//     }
+
+//     return isValid;
+// }
+
+// function showContactFieldError(field, message) {
+//     clearContactFieldError(field);
+
+//     field.style.borderColor = '#dc3545';
+
+//     const errorDiv = document.createElement('div');
+//     errorDiv.className = 'contact-field-error';
+//     errorDiv.textContent = message;
+//     errorDiv.style.cssText = `
+//         color: #dc3545;
+//         font-size: 0.8rem;
+//         margin-top: 5px;
+//         display: block;
+//     `;
+
+//     field.parentNode.appendChild(errorDiv);
+// }
+
+// function clearContactFieldError(field) {
+//     field.style.borderColor = '';
+//     const existingError = field.parentNode.querySelector('.contact-field-error');
+//     if (existingError) {
+//         existingError.remove();
+//     }
+// }
+
 
 function showFieldError(field, message) {
     clearFieldError(field);
@@ -805,62 +865,7 @@ function validateContactForm(form) {
     return isValid;
 }
 
-function validateContactField(field) {
-    const value = field.value.trim();
-    let isValid = true;
-    let errorMessage = '';
 
-    if (field.required && !value) {
-        isValid = false;
-        errorMessage = 'Este campo es obligatorio';
-    } else if (field.type === 'email' && value) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-            isValid = false;
-            errorMessage = 'Por favor, introduce un email válido';
-        }
-    } else if (field.type === 'tel' && value) {
-        const phoneRegex = /^[0-9+\-\s()]{9,}$/;
-        if (!phoneRegex.test(value)) {
-            isValid = false;
-            errorMessage = 'Por favor, introduce un teléfono válido';
-        }
-    }
-
-    if (!isValid) {
-        showContactFieldError(field, errorMessage);
-    } else {
-        clearContactFieldError(field);
-    }
-
-    return isValid;
-}
-
-function showContactFieldError(field, message) {
-    clearContactFieldError(field);
-
-    field.style.borderColor = '#dc3545';
-
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'contact-field-error';
-    errorDiv.textContent = message;
-    errorDiv.style.cssText = `
-        color: #dc3545;
-        font-size: 0.8rem;
-        margin-top: 5px;
-        display: block;
-    `;
-
-    field.parentNode.appendChild(errorDiv);
-}
-
-function clearContactFieldError(field) {
-    field.style.borderColor = '';
-    const existingError = field.parentNode.querySelector('.contact-field-error');
-    if (existingError) {
-        existingError.remove();
-    }
-}
 
 /* =============================================================================
    SIMULATE LINKEDIN FEED (PLACEHOLDER)
@@ -1560,3 +1565,121 @@ document.addEventListener("DOMContentLoaded", function () {
 //   slides[slideIndex-1].style.display = "block";
 //   setTimeout(showSlides, 2000); // Change image every 2 seconds
 // }
+
+
+/* =============================================================================
+   PASA UN DÍA CON... - GALERÍA YOUTUBE
+   ============================================================================= */
+
+
+//    const dia1 = document.getElementById('time1');
+//    const dia2 = document.getElementById('time2');
+//    const dia3 = document.getElementById('time3');
+
+//    let dias = new Array(dia1, dia2, dia3);
+
+// async function showDia() {
+
+//   while (true) {
+
+//     for (let index = 0; index < dias.length; index++) {
+
+//      if (dias[index].style.display === "grid") {
+//         dias[index].style.display = "none";
+//         if (index === dias.length - 1) {
+//             dias[0].style.display = "grid";
+//         } else {
+//             dias[index + 1].style.display = "grid";
+//         }
+
+//     } else {
+//         dias[index].style.display = "none";
+//     }
+
+
+//   }
+//     // Esperar 5 segundos antes de cambiar
+//     await new Promise(resolve => setTimeout(resolve, 5000));
+
+// }
+// }
+// showDia();
+
+
+
+// const dia1 = document.getElementById('time1');
+// const dia2 = document.getElementById('time2');
+// const dia3 = document.getElementById('time3');
+
+// let dias = [dia1, dia2, dia3];
+
+// async function showDia() {
+//     let index = 0;
+
+//     // Inicializar todos ocultos
+//     dias.forEach(d => {
+//         d.style.display = "none";
+//         d.classList.add("opacity-0");
+//     });
+
+//     while (true) {
+//         const current = dias[index];
+
+//         // Mostrar el elemento y quitar opacity-0 para transición
+//         current.style.display = "grid";
+//         requestAnimationFrame(() => {  // asegura que se aplique el display antes de quitar la clase
+//             current.classList.remove("opacity-0");
+//         });
+
+//         // Esperar 5 segundos
+//         await new Promise(resolve => setTimeout(resolve, 9000));
+
+      
+//         current.classList.add("opacity-0");
+//         await new Promise(resolve => setTimeout(resolve, 4000)); // duración de la transición
+//         current.style.display = "none";
+
+//         index = (index + 1) % dias.length;
+//     }
+// }
+
+// showDia();
+
+// menu
+
+
+
+ 
+document.addEventListener('DOMContentLoaded', function() {
+  const boton = document.getElementById('nav-toggle');// clickar aqui 
+  const menu = document.getElementById('nav-menu');  // menu
+  const clickLinks = document.querySelectorAll('.nav-link');
+    
+
+
+    
+
+  boton.addEventListener('click', function() {
+    if (menu.style.left === '0px') {
+      menu.style.left = '-100%';    
+     } else {
+          console.log('Toggle menu called');
+          menu.style.left = 0;
+ 
+    }
+    
+    
+
+  });
+
+    clickLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.style.left = '-100%';
+            console.log('Menu closed on link click');
+        });
+
+
+});
+
+
+});

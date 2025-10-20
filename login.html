@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+     <!-- Fuentes modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+
+    
+</head>
+<body>
+    
+        <header>
+        <div class="section-header" data-aos="fade-up">
+                <h2>Iniciar <span class="accent">sesión</span></h2>
+               
+        </div>
+        </header>
+        <main>
+        <form action="log.php" method="post">
+            
+            <div class="container">
+                <label for="uname"><b>Usuario</b></label>
+                <input type="text" placeholder="Introduzca el Usuario" name="uname" required>
+            </div>
+
+            <div class="container">
+                <label for="psw"><b>Constraseña</b></label>
+                <input type="password" placeholder="Introduzca la Constraseña" name="psw" required>
+            </div>
+
+            <div class="container">
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+
+          
+        </form>
+    </main>
+</body>
+</html>
