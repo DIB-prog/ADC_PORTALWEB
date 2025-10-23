@@ -1458,7 +1458,8 @@ function initializeHeroMouseEffects() {
 // mapa interactivo
 
 document.addEventListener('DOMContentLoaded', () => {
-  const tooltip = document.createElement('div');
+if (document.querySelector('body').getAttribute('data-page') == 'index' ){
+     const tooltip = document.createElement('div');
   tooltip.id = 'tooltip';
   document.body.appendChild(tooltip);
 
@@ -1486,6 +1487,8 @@ document.addEventListener('DOMContentLoaded', () => {
       tooltip.style.opacity = '0';
     });
   });
+
+}
 });
 
 //  document.querySelectorAll('area').forEach(function(area) {
@@ -1683,3 +1686,69 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
+
+
+const formbtn = document.getElementById("formbtn"); 
+const checkbox = document.getElementById("privacidad"); 
+const checkMark = document.getElementById("checkRequired"); 
+const mnsj = document.getElementById("alertCheck"); 
+
+formbtn.addEventListener("click", function() {
+    if (!checkbox.checked) {
+      
+        checkMark.style.borderColor = "rgb(220, 53, 69)"; 
+        mnsj.style.display = "block"; 
+    } else {
+        checkMark.style.borderColor = "#e1e5e9"; 
+        mnsj.style.display = "none"; 
+    }
+});
+
+checkbox.addEventListener("change", function() {
+    if (checkbox.checked) {
+        checkMark.style.borderColor = "#e1e5e9"; 
+        mnsj.style.display = "none";
+    } else {
+        checkMark.style.borderColor = "red";
+        mnsj.style.display = "block";
+    }
+});
+
+
+const irDerecha = document.getElementById('videos-slide-right');
+const irIzquierda = document.getElementById('videos-slide-left');
+const slides = document.querySelector('.slides');
+const slidesArray = document.querySelectorAll('.slide');
+
+const flechaDerecha = document.getElementById('v-right');
+const flechaIzquierda = document.getElementById('v-left');
+
+let index = 0;
+
+function mostrarSlide(nuevoIndex) {
+    if (nuevoIndex < 0 || nuevoIndex >= slidesArray.length) return;
+
+    slides.style.transform = `translateX(${-nuevoIndex * 100}%)`;
+    index = nuevoIndex;
+
+    actualizarFlechas();
+}
+
+function actualizarFlechas() {
+    if (index === 0) {
+        flechaIzquierda.style.color = "rgba(0,0,0,0.3)";
+        flechaDerecha.style.color = "rgba(255,255,255,1)";
+    } else if (index === slidesArray.length - 1) {
+        flechaDerecha.style.color = "rgba(0,0,0,0.3)";
+        flechaIzquierda.style.color = "rgba(255,255,255,1)";
+    } else {
+        flechaIzquierda.style.color = "rgba(255,255,255,1)";
+        flechaDerecha.style.color = "rgba(255,255,255,1)";
+    }
+}
+
+irDerecha.addEventListener("click", () => mostrarSlide(index + 1));
+irIzquierda.addEventListener("click", () => mostrarSlide(index - 1));
+
+// inicializamos colores
+actualizarFlechas();

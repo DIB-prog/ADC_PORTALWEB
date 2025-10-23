@@ -73,6 +73,7 @@ body {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
     .navbar.scrolled {
@@ -212,7 +213,7 @@ body {
     }
 
 .hero-subtitle {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-size: clamp(1.2rem, 3vw, 1.3em);
     margin-bottom: 40px;
     font-weight: 400;
     opacity: 0.95;
@@ -553,10 +554,14 @@ body {
         background-clip: text;
     }
 
+    #daywith1 .section-header p {
+    font-size: 1.2rem;
+}
+
     .section-header p {
         font-size: 1.2rem;
         color: var(--gray-medium);
-        max-width: 600px;
+  
         margin: 0 auto;
     }
 
@@ -835,35 +840,44 @@ body {
 
 
 
-/* .youtube-gallery .v1 { grid-area: 1 / 1 / 2 / 2; }
+ /* .youtube-gallery .v1 { grid-area: 1 / 1 / 2 / 2; }
 .youtube-gallery .v2 { grid-area: 1 / 2 / 2 / 3; }
 .youtube-gallery .v3 { grid-area: 1 / 3 / 2 / 4; }
 .youtube-gallery .v4 { grid-area: 1 / 4 / 2 / 5; }
 .youtube-gallery .v5 { grid-area: 2 / 4 / 3 / 5; }
 .youtube-gallery .v6 { grid-area: 2 / 3 / 3 / 4; }
 .youtube-gallery .v7 { grid-area: 2 / 2 / 3 / 3; }
-.youtube-gallery .v8 { grid-area: 2 / 1 / 3 / 2; } */
+.youtube-gallery .v8 { grid-area: 2 / 1 / 3 / 2; }   */
 
 
 .youtube-gallery {
-    display: grid;
+     /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px; 
-    /* display: grid;
+    gap: 40px;   */
+  /* display: grid;
 grid-template-columns: repeat(4, 1fr);
 grid-template-rows: repeat(2, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
- gap: 40px;  */
-}
+ gap: 40px;    */
 
+ display: flex;
+ justify-content: center;
+ gap: 15px;
+
+}
+.video-card p {
+   flex-grow: 1;
+}
 .video-card {
+      flex: 1 1 22%; /* 4 tarjetas por fila, ajustable */
     background: white;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     transition: var(--transition-fast);
     cursor: pointer;
+    max-width: 250px ;
 }
 
     .video-card:hover {
@@ -1236,7 +1250,7 @@ grid-row-gap: 0px;
 /* =============================================================================
    RESPONSIVE DESIGN
    ============================================================================= */
-@media (max-width: 1100px) {
+@media (max-width: 1144px) {
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -1281,7 +1295,7 @@ grid-row-gap: 0px;
     .preview-content {
         grid-template-columns: 1fr;
         gap: 40px;
-        text-align: center;
+      
     }
 
     .form-row {
@@ -1327,7 +1341,7 @@ grid-row-gap: 0px;
 
     .projects-grid,
     .stories-grid,
-    .youtube-gallery,
+    /* .youtube-gallery, */
     .careers-grid {
         grid-template-columns: 1fr;
     }
@@ -3214,25 +3228,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Responsive para efectos elegantes */
-@media (max-width: 768px) {
-    .interactive-bg,
-    .geometric-bg {
-        opacity: 0.3; /* Reducir opacidad en móviles para mejor rendimiento */
-    }
-
-    .geometric-shape {
-        animation-duration: 30s; /* Animaciones más lentas en móvil */
-    }
-
-    .hero::before {
-        opacity: 0.5; /* Reducir efectos de rejilla en móvil */
-    }
-
-    .hero-title {
-        animation: none; /* Reducir animaciones en móvil */
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-}
 
 
 /* =============================================================================
@@ -3327,15 +3322,23 @@ grid-row-gap: 30px;
 
 }
 
-.nav-img > img {
+.nav-img  img {
     height: 40px;
     width: auto;
-    padding-top: 10px;
+  
     margin-left: auto;
-    padding-right: 40px;
-
+   
+}
+.nav-img{
+    display: flex;
+    gap: 30px;
+    align-items: center ;
 }
 
+.nav-img i {
+    color: var(--primary-color);
+  
+}
 
 .map {
     background: var(--gray-light);
@@ -3484,7 +3487,12 @@ grid-row-gap: 30px;
 }
 
 .displayflex-flexdirection-column > h3{
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+
+}
+
+.displayflex-flexdirection-column > p{
+    font-size: 1.3rem;
 
 }
 
@@ -3496,8 +3504,335 @@ grid-row-gap: 30px;
     margin-bottom: 15px;
 }
 
+.redNone{
+    color: rgb(220, 53, 69);
+    font-size: 0.8rem;
+    display: none;
+}
+
+/*PRACTICAS*/
+/* no hay tag main ni header en el index.html asiq slo s aplicaria aquí*/
+main {
+    min-height: 100vh;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 7%;
+}
+
+header {
+    height: auto;
+}
+
+.ul_practicas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style-type: none;
+}
+
+.li_ptacticas {
+    min-height: 30px;              
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;           /* estira las celdas para que todas tengan la misma altura */
+    border-radius: 30px;
+   
+
+    gap: 5px;
+}
 
 
 
+.ul_practicas > li:not(:first-child) > div:not(:last-child) {
+    border-right: 1px dotted black;
+}
 
+.li_ptacticas > div {
+                  /* se reparte el espacio equitativamente */
+    min-width: 50px;                 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+   
+    text-align: center;
+    word-wrap: break-word;        
+    overflow-wrap: break-word;
+    white-space: normal;           /* permite que el texto haga salto de línea */
+    gap: 9px;
+}
+
+.ul_practicas > li:first-child {
+        background-color: #ffffff;
+   
+    height: 50px;
+}
+
+
+.ul_practicas > li:not(:first-child) {
+
+     background-color: #f5f5f5;
+
+}
+.ul_practicas > li:first-child > div {
+
+    color: white;
+   
+
+    background: linear-gradient(135deg, #848A83, #BDC3BB);
+    border-radius: 30px;
+    font-weight: bold;
+    gap: 5px;
+}
+
+.ul_practicas > li:first-child > div > i  {
+   
+    color: white;
+   
+
+    
+}
+
+.ul_practicas > li:not(:first-child):hover{
+    
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
+}
+
+.ul_practicas > li:not(:first-child) > div:last-child {
+    border-radius: 0px 30px 30px 0px;
+}
+
+
+.description{
+    width: 700px;
+
+}
+
+.titulo{
+    width: 200px;
+
+}
+/* 
+<div class="ubication"><i class="fa-solid fa-location-dot"></i> Barcelona</div>
+                <div class="horas"><i class="fa-solid fa-clock"></i> 99</div>
+                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
+                <div class="info"><i class="fa-solid fa-envelope"></i></div>  */
+
+.ubication{
+    padding-right: 10px;
+    padding-left: 8px;
+    width: 150px;
+
+}
+.horas{
+    width: 70px;
+   
+
+}
+
+.info{
+
+}
+.li_ptacticas i {
+    color: var(--primary-color);
+}
+
+/*Cambios reunion 3 */
+
+.centrarbtn{
+    display: flex;
+    justify-content: center;
+}
+
+.nav-logo a {
+    text-decoration: none;
+}
+
+.nopad{
+    padding: 0px;
+    margin-right: 120px;
+    margin-left: 120px;
+}
+
+/*Mapa responsive*/
+
+
+@media (max-width: 1077px) {
+    img[usemap="#image-map"] {
+        width: 550px;
+        height: auto; 
+    }
+}
+
+
+@media (max-width: 613px) {
+    img[usemap="#image-map"] {
+        width: 400px;
+        height: auto; 
+    }
+}
+/*premios andece y concurso*/
+
+.competitions-grid{
+    display: flex; flex-wrap: nowrap; gap: 30px; justify-content: center; flex-direction: row; align-items: stretch;
+
+}
+
+@media (max-width: 680px) {
+ .competitions-grid{
+     display: flex; flex-wrap: nowrap; gap: 30px; justify-content: center; flex-direction: column; align-items: center
+
+
+
+  }
+}
+
+
+.mySlides.fade img {
+    width: 600px;
+    height: 400px;
+}
+
+
+@media (max-width: 690px) {
+    .mySlides.fade img {
+        width: 500px;
+        height: 300px;
+  
+}
+   
+}
+
+@media (max-width: 550px) {
+    .mySlides.fade img {
+        width: 380px;
+        height: 220px;
+  
+}
+   
+}
+
+@media (max-width: 500px) {
+    .navbar{
+        display: flex;
+        justify-content: center;
+    }
+    .nav-container{
+        margin-right: 12px;
+        margin-left: 12px;
+        padding: 0px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 444px) {
+    .navbar{
+        display: flex;
+        justify-content: start;
+    }
+   
+    
+}
+
+/* carrusel de videos para pc*/
+
+
+.slider {
+	position: relative;
+}
+
+
+.slide img {
+	width: 100%;
+	vertical-align: top;
+}
+
+.slide a {
+	width: 100%;
+	display: inline-block;
+	position: relative;
+}
+
+
+.slider-controler {
+	
+	bottom: -51px;
+	display: flex;
+    justify-content: space-between;
+	padding: 5px;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 100;
+    border-radius: 30px;
+}
+
+.slider-controler li {
+	margin: 0 0.5rem;
+	display: inline-block;
+    padding-top: 5px;
+	
+}
+
+.slider-controler a,button,i {
+	display: inline-block;
+
+	text-decoration: none;
+	color: white;
+	font-size: 1.5rem;
+}
+
+.slider-controler button {
+   
+    padding-top: 2px;
+}
+
+.slider-controler button {
+  
+    background-color: inherit;
+    text-decoration: none;
+    border: none;
+
+}
+
+
+.slider-controler button:hover {
+  
+ cursor: pointer;
+}
+
+
+@media only screen and (min-width: 1200px) {
+	.slide {
+		width: 1200px;
+	}
+
+	.caption {
+		font-size: 96px;
+		bottom: 96px;
+		right: 50px;
+	}
+}
+
+
+
+.wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex; /* los li en fila */
+    transition: transform 0.5s ease-in-out;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.slide {
+    flex: 0 0 100%; /* cada slide ocupa 100% del contenedor */
+    box-sizing: border-box;
+}
 

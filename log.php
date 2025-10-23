@@ -2,39 +2,36 @@
 <html>
 <body>
 <?php
-$servername = "hostingmysql321.nominalia.com";
-$username = "dibcli";
-$password = "DibParaClientes";
-$database = "clients";
+require_once "Conection.php";
+$db = new Conection();
+$conn = $db->conect();
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $name = $_POST['uname'];
+    $psw  = $_POST['psw'];
+
+    // Preparar la consulta
+    $stmt = $conn->prepare("SELECT id, usuari, contrasenya FROM adc_usuaris WHERE usuari = ? AND contrasenya = ?");
+    $stmt->bind_param("ss", $name, $psw);
+    $stmt->execute();
+
+    // Ligar variables a las columnas seleccionadas
+    $stmt->bind_result($id, $usuari, $contrasenya);
+
+    $hay = false; // Para saber si hubo resultados
+    while ($stmt->fetch()) {
+        $hay = true;
+        echo "id: " . $id . " - Name: " . $usuari . " " . $contrasenya . "<br>";
+    }
+
+    if (!$hay) {
+        echo "No existe ";
+    }
+
+    $stmt->close();
 }
 
-$sql = "SELECT id, usuari, contrasenya FROM adc_usuaris";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Name: " . $row["usuari"]. " " . $row["contrasenya"]. "<br>";
-  }
-} else {
-  echo "0 results";
-}
-
-$sql2 = "INSERT INTO adc_usuaris (usuari, contrasenya, activo) VALUES ('Daniel', 'dgdsg', 1)";
-
-if ($conn->query($sql2) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql2 . "<br>" . $conn->error;
-}
-
-$conn->close();
+$db->close();
 ?>
 </body>
 </html>
