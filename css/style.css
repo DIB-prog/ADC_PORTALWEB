@@ -3512,15 +3512,18 @@ grid-row-gap: 30px;
 
 /*PRACTICAS*/
 /* no hay tag main ni header en el index.html asiq slo s aplicaria aquí*/
+/*PRACTICAS*/
+/* no hay tag main ni header en el index.html asiq slo s aplicaria aquí*/
 main {
-    min-height: 100vh;
+    min-height: 75vh;
     padding-left: 20%;
     padding-right: 20%;
-    padding-top: 7%;
+    padding-top: 2%;
 }
 
 header {
-    height: auto;
+    height: 70px;
+    width: 100%;
 }
 
 .ul_practicas {
@@ -3537,25 +3540,43 @@ header {
     justify-content: center;
     align-items: stretch;           /* estira las celdas para que todas tengan la misma altura */
     border-radius: 30px;
-   
-
     gap: 5px;
 }
 
+/* Cabecera estática */
+.ul_practicas > li.cabecera {
+     background: linear-gradient(135deg, #848A83, #BDC3BB);
+    height: 50px;
+    
+}
 
+.ul_practicas > li.cabecera > div {
+    color: white;
+   
+    border-radius: 30px;
+    font-weight: bold;
+    gap: 5px;
+}
 
-.ul_practicas > li:not(:first-child) > div:not(:last-child) {
-    border-right: 1px dotted black;
+.ul_practicas > li.cabecera > div > i {
+    color: white;
+}
+
+/* Contenido dinámico */
+.ul_practicas > li.li_ptacticas:not(.cabecera) {
+    background-color: #f5f5f5;
+}
+
+.ul_practicas > li.li_ptacticas:not(.cabecera) > div:not(:last-child) {
+
 }
 
 .li_ptacticas > div {
-                  /* se reparte el espacio equitativamente */
+    /* se reparte el espacio equitativamente */
     min-width: 50px;                 
     display: flex;
     justify-content: center;
     align-items: center;
-   
-   
     text-align: center;
     word-wrap: break-word;        
     overflow-wrap: break-word;
@@ -3563,85 +3584,129 @@ header {
     gap: 9px;
 }
 
-.ul_practicas > li:first-child {
-        background-color: #ffffff;
-   
-    height: 50px;
+.ul_practicas > li.li_ptacticas:not(.cabecera):hover{
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-
-.ul_practicas > li:not(:first-child) {
-
-     background-color: #f5f5f5;
-
-}
-.ul_practicas > li:first-child > div {
-
-    color: white;
-   
-
-    background: linear-gradient(135deg, #848A83, #BDC3BB);
-    border-radius: 30px;
-    font-weight: bold;
-    gap: 5px;
-}
-
-.ul_practicas > li:first-child > div > i  {
-   
-    color: white;
-   
-
-    
-}
-
-.ul_practicas > li:not(:first-child):hover{
-    
-  transform: scale(1.02);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-
-}
-
-.ul_practicas > li:not(:first-child) > div:last-child {
+.ul_practicas > li.li_ptacticas:not(.cabecera) > div:last-child {
     border-radius: 0px 30px 30px 0px;
 }
 
-
 .description{
     width: 700px;
+}
 
+.linkInfo{
+    width: 700px;
 }
 
 .titulo{
     width: 200px;
-
 }
-/* 
-<div class="ubication"><i class="fa-solid fa-location-dot"></i> Barcelona</div>
-                <div class="horas"><i class="fa-solid fa-clock"></i> 99</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info"><i class="fa-solid fa-envelope"></i></div>  */
 
 .ubication{
     padding-right: 10px;
     padding-left: 8px;
     width: 150px;
-
 }
+
 .horas{
     width: 70px;
+}
+
+.li_ptacticas:not(.cabecera) .info{
+    padding-right: 10px;
+}
+.li_ptacticas.cabecera {
+   gap: 10px;
+   justify-content: center;
    
-
 }
 
-.info{
 
-}
 .li_ptacticas i {
     color: var(--primary-color);
 }
 
-/*Cambios reunion 3 */
+.li_ptacticas  button {
 
+  all: unset;
+ 
+
+
+}
+.li_ptacticas  button:hover{
+    cursor: pointer;
+}
+/*CSS para practicas editable */
+
+.petit{
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.li_ptacticas:not(.cabecera).editable .info{
+    padding-right: 10px;
+}
+.li_ptacticas.cabecera.editable {
+   gap: 10px;
+   justify-content: space-between;
+   
+}
+
+.li_ptacticas.editable {
+    min-height: 30px;              
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;           /* estira las celdas para que todas tengan la misma altura */
+    border-radius: 30px;
+    gap: 5px;
+    padding-right: 15px;
+  
+}
+
+
+
+.li_ptacticas.editable .titulo{
+    width: 15% ;
+}
+
+.li_ptacticas.editable .description{
+    word-break: break-word;
+    overflow-wrap: break-word;
+    width: 20% ;
+}
+.li_ptacticas.editable .linkInfo{
+    word-break: break-word;
+    overflow-wrap: break-word;
+    width: 20% ;
+}
+
+.li_ptacticas.editable .ubication{
+    width: 10% ;
+}
+
+.li_ptacticas.cabecera.about-content .titulo{
+    width: 15% ;
+}
+
+.li_ptacticas.cabecera.editable .description{
+   
+    width: 30% ;
+}
+
+
+.li_ptacticas.cabecera.editable .linkInfo{
+   
+    width: 30% ;
+}
+
+.li_ptacticas.cabecera.editable .ubication{
+    width: 10% ;
+}
+/*Cambios reunion 3 */
 .centrarbtn{
     display: flex;
     justify-content: center;
@@ -3656,6 +3721,9 @@ header {
     margin-right: 120px;
     margin-left: 120px;
 }
+
+
+/**/
 
 /*Mapa responsive*/
 
@@ -3835,4 +3903,515 @@ header {
     flex: 0 0 100%; /* cada slide ocupa 100% del contenedor */
     box-sizing: border-box;
 }
+.wrapper .tl {
+    display: none;
+}
 
+
+.wrapper.movil,
+.slider-controler.movil {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .wrapper.pc,
+  .slider-controler.pc {
+    display: none;
+  }
+
+  .wrapper.movil {
+    display: block;
+  }
+
+  .slider-controler.movil{
+    display: flex;
+    justify-content: space-between;
+  }
+  .video-card{
+    height: 392px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+
+.wrapper.movil .slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.wrapper.movil .slide {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+
+.movil{
+    
+
+}
+
+/*editar practicas*/
+/* 
+.editar{
+    position: absolute;
+  
+    top: 50%;
+    right: 11%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    display: none;
+        background: rgba(255, 255, 255, 0.52);
+border-radius: 16px;
+box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px);
+border: 1px solid rgba(255, 255, 255, 1);
+padding: 15px;
+padding-top: 50px;
+box-sizing: border-box;
+
+
+}
+.editar2{
+    position: absolute;
+  
+  
+    top: 50%;
+    right: 11%;
+   
+    flex-direction: column;
+    justify-content: space-evenly;
+    display: none;
+        background: rgba(255, 255, 255, 0.52);
+
+padding: 15px;
+padding-top: 50px;
+box-sizing: border-box;
+ width: 70%;
+    height: 70vh; 
+
+   
+
+} */
+
+
+#aviso {
+    display: none;
+    position: fixed;
+
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+    flex-direction: column;
+    height: 300px;
+    width: 430px;
+   
+    top: 50%;
+    right: 40%;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-evenly;
+    background: rgb(255, 255, 255);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+/* backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px); */
+border: 1px solid rgba(255, 255, 255, 1);
+z-index: 2000;
+
+}
+
+
+
+
+
+
+
+/* .areasInput{
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+ 
+    gap: 5%;
+      width: 100%;
+
+}
+
+.areasInput textarea{
+    width: 100%;
+} */
+
+
+.confirmEdit{
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    gap: 20px;
+}
+
+
+
+textarea{
+    min-height: 100px;
+    min-width: 150px;
+}
+
+.addLine{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 20;
+
+   
+}
+.butonLine{
+   border-radius: 30px;
+   background: var(--gradient-primary);
+   color: white;
+   border: none;
+   cursor: pointer;
+   height: 50px;
+   width: 120px;
+    font-size: small;
+  
+   font-weight: bold;
+   font-family:  var(--font-primary);
+}
+
+
+.butonLine:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+   
+
+#cancelAdd, #cancelarEliminar, #cancelarEdicio {
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #848A83, #BDC3BB);
+ 
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    width: 120px;
+    font-size: small;
+    z-index: 50px;
+   font-weight: bold;
+   font-family:  var(--font-primary);
+}
+
+#confirmaAdd,#confirmarEliminar,#confirmarEdicio{
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 50px;
+    width: 120px;
+    font-size: small;
+    z-index: 50px;
+   font-weight: bold;
+   font-family:  var(--font-primary);
+}
+
+
+
+#confirmaAdd:hover,
+#cancelAdd:hover,
+#confirmarEliminar:hover,
+#cancelarEliminar:hover,
+#confirmarEdicio:hover, #cancelarEdicio:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+   
+}
+
+
+
+
+#aviso >p {
+    text-align: center;
+}
+
+.botones{
+    display: flex;
+    gap: 20px;
+}
+
+.confirmDelete{
+    display: flex;
+    gap: 14px;
+}
+
+/*   <div class="titulo">Título</div>
+                <div class="description">Descripción</div>
+                <div class="ubication"><i class="fa-solid fa-location-dot"></i> Ubicación</div>
+                <div class="horas">Horas</div>
+                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
+                <div class="info"><i class="fa-solid fa-envelope"></i></div>
+                <div class="horas"><i class="fa-solid fa-pencil"></i></div>
+                <div class="horas"><i class="fa-regular fa-trash-can"></i></div>
+              */
+
+.cabecera.description{
+    
+
+}
+.ul_practicas .li_ptacticas.cabecera.editable > .description{ 
+  transform: translateX(-98px);
+}
+
+.ul_practicas .li_ptacticas.cabecera.editable > .ubication{ 
+  transform: translateX(-200px);
+}
+
+.ul_practicas .li_ptacticas.cabecera.editable > .horas.uno{ 
+  transform: translateX(-220px);
+}
+
+.ul_practicas .li_ptacticas.cabecera.editable > .info.uno{ 
+  transform: translateX(-105px);
+}
+.ul_practicas .li_ptacticas.cabecera.editable > .info.dos{ 
+  transform: translateX(63px);
+}
+
+.ul_practicas .li_ptacticas.cabecera.editable > .horas.dos{ 
+  transform: translateX(75px);
+}
+
+.ul_practicas .li_ptacticas.cabecera.editable > .horas.tres{ 
+  transform: translateX(15px);
+}
+/*--------------------------------------*/
+
+
+.informacion textarea{
+    z-index: 2000;
+}
+.informacion{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+
+}
+
+.editar,
+.editar2 {
+    display: none; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70vh; 
+   border-radius: 16px;
+box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+/* backdrop-filter: blur(15px);
+-webkit-backdrop-filter: blur(15px); */
+border: 1px solid rgba(255, 255, 255, 1);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 101; 
+    overflow-y: auto; 
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease; 
+    z-index: 2000;
+     background: rgb(255, 255, 255);
+}
+
+
+.areasInput {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    height: 100%; 
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; 
+}
+
+.areasInput textarea {
+    /* flex: 1 1 calc(33% - 20px); 3 por fila aprox. */
+   
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.8);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    resize: vertical; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 180px;
+    width: 100%;
+    max-height: 180px;
+    padding: 10px;
+}
+
+.areaTitle{
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+   
+     flex: 1 1 calc(33% - 20px); /* 3 por fila aprox. */
+     width: 40%;
+}
+
+/* efecto al enfocar */
+.areasInput textarea:focus {
+    outline: none;
+    border-color: #848A83;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 30; 
+}
+
+.nameText{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+/*PRACTICAS RESPONSIVE*/
+
+@media (max-width: 1510px) {
+  main{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+        
+}
+
+@media (max-width: 1110px) {
+  main{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+        
+}
+
+@media (max-width: 1110px) {
+  main{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+        
+}
+
+
+@media (max-width: 958px) {
+
+     .ul_practicas div {
+    font-size: 0.7rem;
+  }
+  .ul_practicas i.fa-solid {
+    font-size: 15px !important;
+  }
+}
+
+
+ 
+
+@media (max-width: 593px) {
+
+     .ul_practicas .fa-location-dot,
+  .ul_practicas .fa-clock {
+    opacity: 0;
+    z-index: -3000;
+  }
+   main{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+
+@media (max-width: 414px) {
+
+   .nav-logo h2  {
+    font-size: 1.4rem;
+
+
+   }
+
+   .nav-img img {
+    font-size: 1.4rem;
+    height: 32px;
+    width: 140px;
+   }
+
+   .navbar {
+    justify-content: center;
+
+   }
+
+   .nav-container{
+    gap:32px;
+    margin: 0px;
+  
+   }
+}
+
+/* ====== Estilos responsive solo para la página de prácticas ====== */
+
+
+
+
+@media (max-width: 889px) {
+   .nopad{
+   padding-left: 10px;
+   padding-right: 10px;
+   margin-right: 0px;
+   margin-left: 0px;
+   }
+   .nav-container{max-width: 100%;
+justify-content: space-evenly;}
+
+ 
+}
+
+@media (max-width: 722px) {
+    .nav-img {
+        gap:8px;
+
+    }
+
+    .nav-img .fa-solid{
+        font-size: 25px;
+    }
+
+
+
+ 
+}
+@media (max-width: 415px) {
+  body[data-page="index"] .navbar {
+    max-width: 412px;
+  }
+}

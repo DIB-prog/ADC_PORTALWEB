@@ -690,7 +690,7 @@ function animateCounters() {
                     if (current >= target) {
                         current = target;
                         clearInterval(timer);
-                   
+
                         counter.textContent = "+ " + target;
                     } else {
                         counter.textContent = Math.floor(current);
@@ -1170,7 +1170,7 @@ function injectModalStyles() {
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(5px);
         }
-        
+
         .competition-modal .modal-content {
             background: white;
             border-radius: 20px;
@@ -1181,21 +1181,21 @@ function injectModalStyles() {
             position: relative;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
-        
+
         .competition-modal .modal-header {
             padding: 30px 30px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .competition-modal .modal-header h3 {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--dark-color);
             margin: 0;
         }
-        
+
         .competition-modal .modal-close {
             background: none;
             border: none;
@@ -1211,28 +1211,28 @@ function injectModalStyles() {
             border-radius: 50%;
             transition: var(--transition-fast);
         }
-        
+
         .competition-modal .modal-close:hover {
             background: var(--gray-light);
             color: var(--dark-color);
         }
-        
+
         .competition-modal .modal-body {
             padding: 20px 30px 30px;
         }
-        
+
         .competition-modal .modal-body p {
             color: var(--gray-medium);
             line-height: 1.6;
             margin-bottom: 25px;
         }
-        
+
         .competition-modal .competition-form {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        
+
         .competition-modal .competition-form input,
         .competition-modal .competition-form select {
             padding: 12px 15px;
@@ -1242,7 +1242,7 @@ function injectModalStyles() {
             font-family: var(--font-primary);
             transition: var(--transition-fast);
         }
-        
+
         .competition-modal .competition-form input:focus,
         .competition-modal .competition-form select:focus {
             outline: none;
@@ -1468,7 +1468,7 @@ if (document.querySelector('body').getAttribute('data-page') == 'index' ){
   areas.forEach(area => {
     area.addEventListener('mousemove', (e) => {
       const empresas = area.dataset.empresas || '0';
-    
+
       const comunidad =  area.getAttribute("dgfh") || 'Comunidad';
 
       tooltip.innerHTML = `
@@ -1509,6 +1509,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let slideIndex = 1;
   const slides = document.getElementsByClassName("mySlides");
 
+
   function showSlides() {
     for (let i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
@@ -1520,7 +1521,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     slides[slideIndex - 1].style.display = "block";
-      autoSlideTimeout = setTimeout(showSlides, 4000); 
+      autoSlideTimeout = setTimeout(showSlides, 4000);
   }
 
   function plusSlides(n) {
@@ -1550,7 +1551,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Iniciar slideshow automático
   showSlides();
+
 });
+
 
 
 
@@ -1637,7 +1640,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //         // Esperar 5 segundos
 //         await new Promise(resolve => setTimeout(resolve, 9000));
 
-      
+
 //         current.classList.add("opacity-0");
 //         await new Promise(resolve => setTimeout(resolve, 4000)); // duración de la transición
 //         current.style.display = "none";
@@ -1652,26 +1655,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
- 
+
 document.addEventListener('DOMContentLoaded', function() {
-  const boton = document.getElementById('nav-toggle');// clickar aqui 
+  const boton = document.getElementById('nav-toggle');// clickar aqui
   const menu = document.getElementById('nav-menu');  // menu
   const clickLinks = document.querySelectorAll('.nav-link');
-    
 
 
-    
+
+
 
   boton.addEventListener('click', function() {
     if (menu.style.left === '0px') {
-      menu.style.left = '-100%';    
+      menu.style.left = '-100%';
      } else {
           console.log('Toggle menu called');
           menu.style.left = 0;
- 
+
     }
-    
-    
+
+
 
   });
 
@@ -1688,67 +1691,255 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-const formbtn = document.getElementById("formbtn"); 
-const checkbox = document.getElementById("privacidad"); 
-const checkMark = document.getElementById("checkRequired"); 
-const mnsj = document.getElementById("alertCheck"); 
+const formbtn = document.getElementById("formbtn");
+const checkbox = document.getElementById("privacidad");
+const checkMark = document.getElementById("checkRequired");
+const mnsj = document.getElementById("alertCheck");
+
+
+
+
+if (formbtn && checkbox && checkMark && mnsj) {
 
 formbtn.addEventListener("click", function() {
+
     if (!checkbox.checked) {
-      
-        checkMark.style.borderColor = "rgb(220, 53, 69)"; 
-        mnsj.style.display = "block"; 
+
+        checkMark.style.borderColor = "rgb(220, 53, 69)";
+        mnsj.style.display = "block";
     } else {
-        checkMark.style.borderColor = "#e1e5e9"; 
-        mnsj.style.display = "none"; 
+        checkMark.style.borderColor = "#e1e5e9";
+        mnsj.style.display = "none";
     }
 });
 
 checkbox.addEventListener("change", function() {
     if (checkbox.checked) {
-        checkMark.style.borderColor = "#e1e5e9"; 
+        checkMark.style.borderColor = "#e1e5e9";
         mnsj.style.display = "none";
     } else {
         checkMark.style.borderColor = "red";
         mnsj.style.display = "block";
     }
 });
-
-
-const irDerecha = document.getElementById('videos-slide-right');
-const irIzquierda = document.getElementById('videos-slide-left');
-const slides = document.querySelector('.slides');
-const slidesArray = document.querySelectorAll('.slide');
-
-const flechaDerecha = document.getElementById('v-right');
-const flechaIzquierda = document.getElementById('v-left');
-
-let index = 0;
-
-function mostrarSlide(nuevoIndex) {
-    if (nuevoIndex < 0 || nuevoIndex >= slidesArray.length) return;
-
-    slides.style.transform = `translateX(${-nuevoIndex * 100}%)`;
-    index = nuevoIndex;
-
-    actualizarFlechas();
 }
 
-function actualizarFlechas() {
-    if (index === 0) {
-        flechaIzquierda.style.color = "rgba(0,0,0,0.3)";
-        flechaDerecha.style.color = "rgba(255,255,255,1)";
-    } else if (index === slidesArray.length - 1) {
-        flechaDerecha.style.color = "rgba(0,0,0,0.3)";
-        flechaIzquierda.style.color = "rgba(255,255,255,1)";
+/* ======= PC ======= */
+const slidesPC = document.querySelector('#sliderPC .slides');
+const slidesArrayPC = document.querySelectorAll('#sliderPC .slide');
+let indexPC = 0;
+
+const flechaDerechaPC = document.getElementById('v-right-pc');
+const flechaIzquierdaPC = document.getElementById('v-left-pc');
+
+function mostrarSlidePC(nuevoIndex) {
+    if (nuevoIndex < 0 || nuevoIndex >= slidesArrayPC.length) return;
+    slidesPC.style.transform = `translateX(${-nuevoIndex * 100}%)`;
+    indexPC = nuevoIndex;
+    actualizarFlechasPC();
+}
+
+function actualizarFlechasPC() {
+    const iconIzq = flechaIzquierdaPC.querySelector('i');
+    const iconDer = flechaDerechaPC.querySelector('i');
+
+    if (indexPC == 0) {
+        iconIzq.style.color = "rgba(0, 0, 0, 0.5)";
+        iconDer.style.color = "rgba(255, 255, 255, 1)";
+    } else if (indexPC == slidesArrayPC.length - 1) {
+        iconIzq.style.color = "rgba(255, 255, 255, 1)";
+        iconDer.style.color = "rgba(0, 0, 0, 0.5)";
     } else {
-        flechaIzquierda.style.color = "rgba(255,255,255,1)";
-        flechaDerecha.style.color = "rgba(255,255,255,1)";
+        iconIzq.style.color = "rgba(255, 255, 255, 1)";
+        iconDer.style.color = "rgba(255, 255, 255, 1)";
     }
 }
 
-irDerecha.addEventListener("click", () => mostrarSlide(index + 1));
-irIzquierda.addEventListener("click", () => mostrarSlide(index - 1));
+if (flechaDerechaPC && flechaIzquierdaPC) {
+    flechaDerechaPC.addEventListener("click", () => mostrarSlidePC(indexPC + 1));
+    flechaIzquierdaPC.addEventListener("click", () => mostrarSlidePC(indexPC - 1));
+    actualizarFlechasPC();
 
-// inicializamos colores
-actualizarFlechas();
+}
+
+
+
+
+/* ======= Móvil ======= */
+const slidesMovil = document.querySelector('#sliderMovil .slides');
+const slidesArrayMovil = document.querySelectorAll('#sliderMovil .slide');
+let indexMovil = 0;
+
+const flechaDerechaM = document.getElementById('v-right-m');
+const flechaIzquierdaM = document.getElementById('v-left-m');
+
+function mostrarSlideMovil(nuevoIndex) {
+    if (nuevoIndex < 0 || nuevoIndex >= slidesArrayMovil.length) return;
+    slidesMovil.style.transform = `translateX(${-nuevoIndex * 100}%)`;
+    indexMovil = nuevoIndex;
+    actualizarFlechasM();
+}
+
+function actualizarFlechasM() {
+    if (indexMovil === 0) {
+        flechaIzquierdaM.style.color = "rgba(0,0,0,0.3)";
+        flechaDerechaM.style.color = "rgba(255,255,255,1)";
+    } else if (indexMovil === slidesArrayMovil.length - 1) {
+        flechaDerechaM.style.color = "rgba(0,0,0,0.3)";
+        flechaIzquierdaM.style.color = "rgba(255,255,255,1)";
+    } else {
+        flechaIzquierdaM.style.color = "rgba(255,255,255,1)";
+        flechaDerechaM.style.color = "rgba(255,255,255,1)";
+    }
+}
+
+if (flechaDerechaM && flechaIzquierdaM) {
+    flechaDerechaM.addEventListener("click", () => mostrarSlideMovil(indexMovil + 1));
+    flechaIzquierdaM.addEventListener("click", () => mostrarSlideMovil(indexMovil - 1));
+    actualizarFlechasM();
+}
+
+
+
+/*editar las practicas profesionales*/
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const editable = document.getElementById('editar');
+    const form = editable.querySelector('form.informacion');
+    const fondoNegro = document.getElementById('overlay');
+
+
+    // Botón editar
+    document.addEventListener('click', function(e) {
+        const boton = e.target.closest('.editarPrac');
+        if (!boton) return;
+
+        const id = boton.dataset.id; // id del elemento a editar
+        console.log('Editar práctica con ID:', id);
+
+
+
+        // Obtener los divs correspondientes
+        const titulo = document.querySelector('.titulo[data-id="'+id+'"]');
+        const descripcion = document.querySelector('.description[data-id="'+id+'"]');
+        const ubicacion = document.querySelector('.ubication[data-id="'+id+'"]');
+        const horas = document.querySelector('.horas[data-id="'+id+'"]');
+        const info = document.querySelector('.linkInfo[data-id="'+id+'"]:not(.titulo)');
+        const mail = document.querySelector('.info[data-id="'+id+'"]');
+
+        // Rellenar los textareas existentes
+        form.querySelector('textarea[name="titulo"]').value = titulo ? titulo.textContent.trim() : '';
+        form.querySelector('textarea[name="descripcion"]').value = descripcion ? descripcion.textContent.trim() : '';
+        form.querySelector('textarea[name="ubicacion"]').value = ubicacion ? ubicacion.textContent.trim() : '';
+        form.querySelector('textarea[name="horas"]').value = horas ? horas.textContent.trim() : '';
+        form.querySelector('textarea[name="informacion"]').value = info ? info.textContent.trim() : '';
+        form.querySelector('textarea[name="mail"]').value = mail ? mail.textContent.trim() : '';
+
+        form.querySelector('#idEditar').value = id;
+
+        editable.style.display = 'flex';
+        fondoNegro.style.display = 'block';
+
+    });
+
+
+    // cancelEdit.addEventListener('click', () => {
+    //     editable.style.display = 'none';
+    // });
+
+    // // Confirmar edición
+    // saveEdit.addEventListener('click', () => {
+    //     form.submit();
+    //     editable.style.display = 'none';
+    //     console.log('Edición confirmada');
+    // });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Elementos principales
+    const fondoNegro = document.getElementById('overlay');
+    const lineasContainer = document.getElementById('textEmpty');
+    const confirmEdit = document.getElementById('aviso');
+
+    const btnSumar = document.getElementById('sumLinea');
+    const cancelAdd = document.getElementById('cancelAdd');
+    const cancelarEliminar = document.getElementById('cancelarEliminar');
+    const cancelarEdicion = document.getElementById('cancelarEdicio');
+    const form = document.querySelector('.confirmDelete');
+    const form2 = lineasContainer.querySelector('form.informacion');
+    const textareas = form2.querySelectorAll('textarea');
+
+    /*form1 no border red*/ 
+
+    const e = document.getElementById('editar');
+    const textareas2 = e.querySelectorAll('textarea');
+    
+
+
+    // --- AÑADIR NUEVA PRÁCTICA ---
+    btnSumar.addEventListener('click', () => {
+
+
+        form2.querySelector('textarea[name="titulo2"]').value = '';
+        form2.querySelector('textarea[name="descripcion2"]').value = '';
+        form2.querySelector('textarea[name="ubicacion2"]').value =  '';
+        form2.querySelector('textarea[name="horas2"]').value = '';
+        form2.querySelector('textarea[name="informacion2"]').value = '';
+        form2.querySelector('textarea[name="mail2"]').value = '';
+
+        lineasContainer.style.display = 'flex';
+        fondoNegro.style.display = 'block';
+
+
+
+
+    });
+
+    // clearFieldError(field)
+
+    // --- CANCELAR AÑADIR ---
+    cancelAdd.addEventListener('click', () => {
+        lineasContainer.style.display = 'none';
+        fondoNegro.style.display = 'none';
+        
+        for (let i = 0; i < textareas.length; i++) {
+             clearFieldError(textareas[i]);
+
+        }
+    });
+
+    // --- CANCELAR ELIMINAR ---
+    cancelarEliminar.addEventListener('click', () => {
+        confirmEdit.style.display = 'none';
+        fondoNegro.style.display = 'none';
+    });
+
+    // --- CANCELAR EDICIÓN ---
+    cancelarEdicion.addEventListener('click', () => {
+        document.getElementById('editar').style.display = 'none';
+        fondoNegro.style.display = 'none';
+
+        for (let i = 0; i < textareas2.length; i++){
+            clearFieldError(textareas2[i]);
+        }
+        
+    });
+
+    // --- ELIMINAR PRÁCTICA  ---
+    document.addEventListener('click', (e) => {
+        const boton = e.target.closest('.deletePractica');
+        if (!boton) return;
+
+        const id2 = boton.dataset.id;
+        console.log('Eliminar práctica con ID:', id2);
+
+
+        if (form) {
+            form.querySelector('#idEliminar').value = id2;
+        }
+
+        confirmEdit.style.display = 'flex';
+        fondoNegro.style.display = 'block';
+    });
+});

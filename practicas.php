@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,11 +40,7 @@
             </div>
             
            
-            <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+           
             <div class="nav-logo">
                 <a href="index.html" target="_blank">
                 <h2>Crea<span class="accent">Futuro</span></h2>
@@ -56,90 +53,58 @@
         </div>
     </nav>
 
-
-
-
     </header>
     <main>
         <ul class="ul_practicas">
-          
+
+    <li class="li_ptacticas cabecera">
+        <div class="titulo">Título</div>
+        <div class="description">Descripción</div>
+        <div class="ubication"><i class="fa-solid fa-location-dot"></i> Ubicación</div>
+        <div class="horas">Horas</div>
+        <div class="info"><i class="fa-solid fa-circle-info"></i></div>
+        <div class="info"><i class="fa-solid fa-envelope"></i></div>
+    </li>
+
+    <?php
+    require_once "Conection.php";
+    $db = new Conection();
+    $conn =  $db->conect();
+
+    $sql = "SELECT * FROM adc_practicas";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            ?>
             <li class="li_ptacticas">
-              <div class="titulo">Título</div>
-              <div class="description">Descripción</div>
-                <div class="ubication"><i class="fa-solid fa-location-dot"></i> Ubicación</div>
-                <div class="horas">Horas</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info"><i class="fa-solid fa-envelope"></i></div> 
+                <div class="titulo"><?php echo htmlspecialchars($row['titulo']); ?></div>
+                <div class="description"><?php echo htmlspecialchars($row['descripcion']); ?></div>
+                <div class="ubication"><i class="fa-solid fa-location-dot"></i> <?php echo htmlspecialchars($row['ubicacion']); ?></div>
+                <div class="horas"><i class="fa-solid fa-clock"></i> <?php echo htmlspecialchars($row['horas']); ?></div>
+                <a href="<?php echo htmlspecialchars($row['informacion']); ?>" target="blank" ><div class="info"> <i class="fa-solid fa-circle-info"></i> </a></div>
+                <a href=""  target="blank"><div class="info"><i class="fa-solid fa-envelope"></i></a></div>
             </li>
+            <?php
+        }
+    } else {
+        echo "<li class='li_ptacticas'><div colspan='6'>No hay prácticas disponibles</div></li>";
+    }
 
+    $conn->close();
+    ?>
+</ul>
 
-             <li class="li_ptacticas">
-              <div class="titulo">Grado en arquitectura </div>
-                <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quisquam alias maxime modi accusantium. Perspiciatis nostrum dicta, debitis nesciunt at odio omnis et iure beatae libero neque asperiores voluptates adipisci.</div>
-                <div class="ubication"><i class="fa-solid fa-location-dot"></i> Barcelona</div>
-                <div class="horas"><i class="fa-solid fa-clock"></i> 99</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info"><i class="fa-solid fa-envelope"></i></div> 
-            </li>
-
-             <li class="li_ptacticas">
-              <div class="titulo">Grado en arquitectura </div>
-                <div class="description">Lorem ta, debitis nesciunt at odio omnis et iure beatae libero neque asperiores voluptates adipisci.</div>
-                <div class="ubication"><i class="fa-solid fa-location-dot"></i> Barcelona</div>
-                <div class="horas"><i class="fa-solid fa-clock"></i> 99</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info"><i class="fa-solid fa-envelope"></i></div> 
-            </li>
-
-
-             <li class="li_ptacticas">
-              <div class="titulo">Grado en arquitectura </div>
-                <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quisquam alias maxime modi accusantium. Perspiciatis nostrum dicta, debitis nesciunt at odio omnis et iure beatae libero neque asperiores voluptates adipisci.</div>
-                <div class="ubication"><i class="fa-solid fa-location-dot"></i> Barcelona</div>
-                <div class="horas"><i class="fa-solid fa-clock"></i> 99</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info"><i class="fa-solid fa-envelope"></i></div> 
-            </li>
-
-
-
-             <li class="li_ptacticas">
-              <div class="titulo">Grado en arquitectura </div>
-                <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quisquam alias maxime modi accusantium. Perspiciatis nostrum dicta, debitis nesciunt at odio omnis et iure beatae libero neque asperiores voluptates adipisci.</div>
-                <div class="ubication"><i class="fa-solid fa-location-dot"></i> Barcelona</div>
-                <div class="horas"><i class="fa-solid fa-clock"></i> 99</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info"><i class="fa-solid fa-envelope"></i></div> 
-            </li>
-
-
-             <li class="li_ptacticas">
-              <div class="titulo">Grado en arquitectura </div>
-                <div class="description">Lorem ipsum dota, debitis nesciunt at odio omnis et iure beatae libero neque asperiores voluptates adipisci.</div>
-                <div class="ubication"><i class="fa-solid fa-location-dot"></i> Barcelona</div>
-                <div class="horas"><i class="fa-solid fa-clock"></i> 99</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info"><i class="fa-solid fa-envelope"></i></div> 
-            </li>
-
-
-
-             <li class="li_ptacticas">
-              <div class="titulo">Grado en arquitectura </div>
-                <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem quisquam alias maxime modi accusantium. Perspiciatis nostrum dicta, debitis nesciunt at odio omnis et iure beatae libero neque asperiores voluptates adipisci.</div>
-                <div class="ubication"><i class="fa-solid fa-location-dot"></i> Barcelona</div>
-                <div class="horas"><i class="fa-solid fa-clock"></i> 99</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info"><i class="fa-solid fa-envelope"></i></div> 
-            </li>
-             
-              
-
-        </ul>
 
 
     </main>
-    <!-- <main>
+ 
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+         <script src="js/script.js"></script>
+</body>
+</html>
+ <!-- <main>
          <div class="courses-featured">
     <h3>Cursos Destacados</h3>
     
@@ -412,9 +377,3 @@
             </div>
         </div>
     </footer> -->
-
-
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-         <script src="js/script.js"></script>
-</body>
-</html>
