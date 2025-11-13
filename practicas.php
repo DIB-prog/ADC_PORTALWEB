@@ -62,8 +62,9 @@
         <div class="description">Descripción</div>
         <div class="ubication"><i class="fa-solid fa-location-dot"></i> Ubicación</div>
         <div class="horas">Horas</div>
+        <div class="ubication"> Modalidad</div>
         <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-        <div class="info"><i class="fa-solid fa-envelope"></i></div>
+        <div class="contactanos">Contactanos</div>
     </li>
 
     <?php
@@ -82,8 +83,9 @@
                 <div class="description"><?php echo htmlspecialchars($row['descripcion']); ?></div>
                 <div class="ubication"><i class="fa-solid fa-location-dot"></i> <?php echo htmlspecialchars($row['ubicacion']); ?></div>
                 <div class="horas"><i class="fa-solid fa-clock"></i> <?php echo htmlspecialchars($row['horas']); ?></div>
+                <div class="ubication"><?php echo htmlspecialchars($row['modalidad']); ?></div>
                 <a href="<?php echo htmlspecialchars($row['informacion']); ?>" target="blank" ><div class="info"> <i class="fa-solid fa-circle-info"></i> </a></div>
-                <a href=""  target="blank"><div class="info"><i class="fa-solid fa-envelope"></i></a></div>
+                <a href="<?php echo htmlspecialchars($row['mail']); ?>"  target="blank"><div class="contactanos"><i class="fa-solid fa-envelope"></i></a></div>
             </li>
             <?php
         }

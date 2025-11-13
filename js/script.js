@@ -4,20 +4,24 @@
    ============================================================================= */
 
 // Inicialización cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function () {
-    initializeNavigation();
-    initializeAnimations();
-    initializeVideoPlayers();
-    initializeFormHandlers();
-    initializeScrollEffects();
-    initializeCarousels();
-    initializeLazyLoading();
-    initializeParallax();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//     initializeNavigation();
+//     initializeAnimations();
+//     initializeVideoPlayers();
+//     initializeFormHandlers();
+//     initializeScrollEffects();
+//     initializeCarousels();
+//     initializeLazyLoading();
+//     initializeParallax();
+// });
 
 /* =============================================================================
    NAVEGACIÓN DINÁMICA
    ============================================================================= */
+window.addEventListener('load', function() {
+      imageMapResize();
+    });
+    
 function initializeNavigation() {
     const navbar = document.getElementById('navbar');
     const navToggle = document.getElementById('nav-toggle');
@@ -476,6 +480,55 @@ function initializeBeforeAfterSliders() {
 }
 
 /* =============================================================================
+   quote hero 
+   ============================================================================= */
+   function initializeCarouselsV() {
+    // Carrusel de quotes inspiradoras
+    const quotes = document.querySelectorAll('.visible');
+    let currentQuote = 0;
+
+    if (quotes.length > 1) {
+        setInterval(() => {
+            quotes[currentQuote].classList.remove('active');
+            currentQuote = (currentQuote + 1) % quotes.length;
+            quotes[currentQuote].classList.add('active');
+        }, 5000);
+    }
+
+    // Slider de comparación antes/después
+    initializeBeforeAfterSlidersV();
+}
+
+function initializeBeforeAfterSlidersV() {
+    const sliders = document.querySelectorAll('.before-after-slider');
+
+    sliders.forEach(slider => {
+        let isHovering = false;
+        let interval;
+
+        slider.addEventListener('mouseenter', () => {
+            isHovering = true;
+            const afterImage = slider.querySelector('img:last-child');
+
+            interval = setInterval(() => {
+                if (isHovering) {
+                    afterImage.style.opacity = afterImage.style.opacity === '1' ? '0' : '1';
+                }
+            }, 1000);
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isHovering = false;
+            clearInterval(interval);
+            const afterImage = slider.querySelector('img:last-child');
+            afterImage.style.opacity = '0';
+        });
+    });
+}
+
+   
+
+/* =============================================================================
    LAZY LOADING PARA OPTIMIZACIÓN
    ============================================================================= */
 function initializeLazyLoading() {
@@ -899,34 +952,34 @@ function simulateLinkedInFeed() {
 /* =============================================================================
    COURSES INTERACTION
    ============================================================================= */
-function initializeCoursesSection() {
-    const courseCards = document.querySelectorAll('.course-card');
+// function initializeCoursesSection() {
+//     const courseCards = document.querySelectorAll('.course-card');
 
-    courseCards.forEach(card => {
-        card.addEventListener('click', () => {
-            // Add visual feedback
-            card.style.transform = 'scale(0.98)';
-            setTimeout(() => {
-                card.style.transform = '';
-            }, 150);
+//     courseCards.forEach(card => {
+//         card.addEventListener('click', () => {
+//             // Add visual feedback
+//             card.style.transform = 'scale(0.98)';
+//             setTimeout(() => {
+//                 card.style.transform = '';
+//             }, 150);
 
-            // Simulate course enrollment
-            showNotification('¡Interés registrado! Te enviaremos más información sobre este curso.', 'info');
-        });
-    });
+//             // Simulate course enrollment
+//             showNotification('¡Interés registrado! Te enviaremos más información sobre este curso.', 'info');
+//         });
+//     });
 
-    // Course list items interaction
-    const courseItems = document.querySelectorAll('.course-item');
-    courseItems.forEach(item => {
-        const link = item.querySelector('.course-link');
-        if (link) {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                showNotification('Curso disponible próximamente. ¡Te notificaremos cuando esté listo!', 'info');
-            });
-        }
-    });
-}
+//     // Course list items interaction
+//     const courseItems = document.querySelectorAll('.course-item');
+//     courseItems.forEach(item => {
+//         const link = item.querySelector('.course-link');
+//         if (link) {
+//             link.addEventListener('click', (e) => {
+//                 e.preventDefault();
+//                 showNotification('Curso disponible próximamente. ¡Te notificaremos cuando esté listo!', 'info');
+//             });
+//         }
+//     });
+// }
 
 /* =============================================================================
    COMPETITION REGISTRATION
@@ -1263,6 +1316,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeFormHandlers();
     initializeScrollEffects();
     initializeCarousels();
+    initializeCarouselsV();
     initializeLazyLoading();
     initializeParallax();
 
@@ -1480,11 +1534,13 @@ if (document.querySelector('body').getAttribute('data-page') == 'index' ){
 
       tooltip.style.left = (e.x + 15 ) + 'px';
       tooltip.style.top = (e.y) + 'px';
-      tooltip.style.opacity = '1';
+
+      tooltip.style.zIndex = '9999'; 
     });
 
     area.addEventListener('mouseout', () => {
-      tooltip.style.opacity = '0';
+
+        tooltip.style.zIndex = '-5'; 
     });
   });
 
@@ -1825,14 +1881,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const descripcion = document.querySelector('.description[data-id="'+id+'"]');
         const ubicacion = document.querySelector('.ubication[data-id="'+id+'"]');
         const horas = document.querySelector('.horas[data-id="'+id+'"]');
+        const mod  = document.querySelector('.modalidad[data-id="'+id+'"]')
         const info = document.querySelector('.linkInfo[data-id="'+id+'"]:not(.titulo)');
         const mail = document.querySelector('.info[data-id="'+id+'"]');
+
 
         // Rellenar los textareas existentes
         form.querySelector('textarea[name="titulo"]').value = titulo ? titulo.textContent.trim() : '';
         form.querySelector('textarea[name="descripcion"]').value = descripcion ? descripcion.textContent.trim() : '';
         form.querySelector('textarea[name="ubicacion"]').value = ubicacion ? ubicacion.textContent.trim() : '';
         form.querySelector('textarea[name="horas"]').value = horas ? horas.textContent.trim() : '';
+        form.querySelector('textarea[name="modalidad"]').value = mod ? mod.textContent.trim() : '';
         form.querySelector('textarea[name="informacion"]').value = info ? info.textContent.trim() : '';
         form.querySelector('textarea[name="mail"]').value = mail ? mail.textContent.trim() : '';
 
@@ -1877,7 +1936,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
-    // --- AÑADIR NUEVA PRÁCTICA ---
+ 
     btnSumar.addEventListener('click', () => {
 
 
@@ -1885,6 +1944,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form2.querySelector('textarea[name="descripcion2"]').value = '';
         form2.querySelector('textarea[name="ubicacion2"]').value =  '';
         form2.querySelector('textarea[name="horas2"]').value = '';
+         form2.querySelector('textarea[name="modalidad2"]').value = '';
         form2.querySelector('textarea[name="informacion2"]').value = '';
         form2.querySelector('textarea[name="mail2"]').value = '';
 
@@ -1942,4 +2002,142 @@ document.addEventListener('DOMContentLoaded', () => {
         confirmEdit.style.display = 'flex';
         fondoNegro.style.display = 'block';
     });
+});
+
+
+/*                         BECAS                                     */ 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const editable = document.getElementById('editar');
+    const form = editable.querySelector('form.informacion');
+    const fondoNegro = document.getElementById('overlay');
+
+
+    // Botón editar
+    document.addEventListener('click', function(e) {
+        const boton = e.target.closest('.editarPracB');
+        if (!boton) return;
+
+        const id = boton.dataset.id; // id del elemento a editar
+        console.log('Editar práctica con ID:', id);
+
+
+
+        // Obtener los divs correspondientes
+        const titulo = document.querySelector('.titulo[data-id="'+id+'"]');
+        const descripcion = document.querySelector('.description[data-id="'+id+'"]');
+        const importe = document.querySelector('.importe[data-id="'+id+'"]');
+     
+        const info = document.querySelector('.linkInfo[data-id="'+id+'"]:not(.titulo)');
+     
+
+
+        // Rellenar los textareas existentes
+        form.querySelector('textarea[name="titulo"]').value = titulo ? titulo.textContent.trim() : '';
+        form.querySelector('textarea[name="descripcion"]').value = descripcion ? descripcion.textContent.trim() : '';
+
+        form.querySelector('textarea[name="importe"]').value = importe ? importe.textContent.trim() : '';
+        form.querySelector('textarea[name="informacion"]').value = info ? info.textContent.trim() : '';
+    
+
+        form.querySelector('#idEditar').value = id;
+
+        editable.style.display = 'flex';
+        fondoNegro.style.display = 'block';
+
+    });
+
+
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Elementos principales
+    const fondoNegro = document.getElementById('overlay');
+    const lineasContainer = document.getElementById('textEmpty');
+    const confirmEdit = document.getElementById('aviso');
+
+    const btnSumar = document.getElementById('sumLineaB');
+    const cancelAdd = document.getElementById('cancelAdd');
+    const cancelarEliminar = document.getElementById('cancelarEliminar');
+    const cancelarEdicion = document.getElementById('cancelarEdicio');
+    const form = document.querySelector('.confirmDelete');
+    const form2 = lineasContainer.querySelector('form.informacion');
+    const textareas = form2.querySelectorAll('textarea');
+
+    /*form1 no border red*/ 
+
+    const e = document.getElementById('editar');
+    const textareas2 = e.querySelectorAll('textarea');
+    
+
+
+ 
+    btnSumar.addEventListener('click', () => {
+
+
+        form2.querySelector('textarea[name="titulo2"]').value = '';
+        form2.querySelector('textarea[name="descripcion2"]').value = '';
+
+        form2.querySelector('textarea[name="importe2"]').value = '';
+        form2.querySelector('textarea[name="informacion2"]').value = '';
+ 
+
+        lineasContainer.style.display = 'flex';
+        fondoNegro.style.display = 'block';
+
+
+
+
+    });
+
+    // clearFieldError(field)
+
+    // --- CANCELAR AÑADIR ---
+    cancelAdd.addEventListener('click', () => {
+        lineasContainer.style.display = 'none';
+        fondoNegro.style.display = 'none';
+        
+        for (let i = 0; i < textareas.length; i++) {
+             clearFieldError(textareas[i]);
+
+        }
+    });
+
+    // --- CANCELAR ELIMINAR ---
+    cancelarEliminar.addEventListener('click', () => {
+        confirmEdit.style.display = 'none';
+        fondoNegro.style.display = 'none';
+    });
+
+    // --- CANCELAR EDICIÓN ---
+    cancelarEdicion.addEventListener('click', () => {
+        document.getElementById('editar').style.display = 'none';
+        fondoNegro.style.display = 'none';
+
+        for (let i = 0; i < textareas2.length; i++){
+            clearFieldError(textareas2[i]);
+        }
+        
+    });
+
+    // --- ELIMINAR PRÁCTICA  ---
+    document.addEventListener('click', (e) => {
+        const boton = e.target.closest('.deletePractica');
+        if (!boton) return;
+
+        const id2 = boton.dataset.id;
+        console.log('Eliminar práctica con ID:', id2);
+
+
+        if (form) {
+            form.querySelector('#idEliminar').value = id2;
+        }
+
+        confirmEdit.style.display = 'flex';
+        fondoNegro.style.display = 'block';
+    });
+
 });

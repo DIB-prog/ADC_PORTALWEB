@@ -22,9 +22,10 @@ $conn = $db->conect();
                         $horas = $_POST['horas2'];
                         $informacion = $_POST['informacion2'];
                         $mail = $_POST['mail2'];
+                        $modalidad = $_POST['modalidad2'];
 
-                        $stmt = $conn->prepare("INSERT INTO adc_practicas (titulo, descripcion, ubicacion, horas, mail, informacion) VALUES (?, ?, ?, ?, ?, ?)");
-                        $stmt->bind_param("sssiss", $titulo, $descripcion, $ubicacion, $horas, $mail, $informacion);
+                        $stmt = $conn->prepare("INSERT INTO adc_practicas (titulo, descripcion, ubicacion, horas, modalidad, mail, informacion) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                        $stmt->bind_param("sssisss", $titulo, $descripcion, $ubicacion, $horas, $modalidad, $mail, $informacion);
                           if ($stmt->execute()) {
                             if ($stmt->affected_rows > 0) {
                                 echo "<script>alert('Datos enviados correctamente!');
@@ -50,12 +51,13 @@ $conn = $db->conect();
                          $informacion = $_POST['informacion'];
 
                          $mail = $_POST['mail'];
+                         $modalidad = $_POST['modalidad'];
 
                         if (filter_var("$mail", FILTER_VALIDATE_EMAIL)) {
                             $validEmail = true;
                        
-                         $stmt = $conn->prepare("UPDATE adc_practicas SET titulo = ?, descripcion = ?, ubicacion = ?, horas = ?, mail = ?, informacion = ? WHERE id = $idq");
-                         $stmt->bind_param("sssiss", $titulo, $descripcion, $ubicacion, $horas, $mail, $informacion);
+                         $stmt = $conn->prepare("UPDATE adc_practicas SET titulo = ?, descripcion = ?, ubicacion = ?, horas = ?, modalidad = ?, mail = ?, informacion = ? WHERE id = $idq");
+                         $stmt->bind_param("sssisss", $titulo, $descripcion, $ubicacion, $horas, $modalidad, $mail, $informacion);
                          $stmt->execute();
               
                          if ($stmt->affected_rows > 0) {
@@ -168,11 +170,12 @@ $conn = $db->conect();
                 <div class="titulo">Título</div>
                 <div class="description">Descripción</div>
                 <div class="ubication"><i class="fa-solid fa-location-dot"></i> Ubicación</div>
-                <div class="horas uno ">Horas</div>
-                <div class="info uno "><i class="fa-solid fa-circle-info"></i></div>
-                <div class="info dos"><i class="fa-solid fa-envelope"></i></div>
-                <div class="horas dos"><i class="fa-solid fa-pencil"></i></div>
-                <div class="horas tres"><i class="fa-regular fa-trash-can"></i></div>
+                <div class="horas">Horas</div>
+                <div class="modalidad"> Modalidad</div>
+                <div class="linkInfo"><i class="fa-solid fa-circle-info"></i></div>
+                <div class="info"><i class="fa-solid fa-envelope"></i></div>
+                <div class="editarPrac"><i class="fa-solid fa-pencil"></i></div>
+                <div class="deletePractica"><i class="fa-regular fa-trash-can"></i></div>
               
             <?php
             
@@ -192,6 +195,10 @@ $conn = $db->conect();
                             <?php echo htmlspecialchars($row['ubicacion']); ?></div>
                         <div class="horas" data-id="<?php echo $row['id']; ?>"><i class="fa-solid fa-clock"></i>
                             <?php echo htmlspecialchars($row['horas']); ?></div>
+
+                            <div class="modalidad" data-id="<?php echo $row['id']; ?>">
+                            <?php echo htmlspecialchars($row['modalidad']); ?></div>
+
                         <div class="linkInfo" data-id="<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['informacion']); ?>
                         </div>
                         <div class="info" data-id="<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['mail']); ?> </div>
@@ -250,6 +257,11 @@ $conn = $db->conect();
                         <textarea name="horas" id="" required></textarea>
                     </div>
 
+                    <div class="areaTitle">
+                        <h5>Modalidad</h5>
+                        <textarea name="modalidad" id="" required></textarea>
+                    </div>
+
 
                     <div class="areaTitle">
                         <h5>Información</h5>
@@ -258,7 +270,7 @@ $conn = $db->conect();
 
                     <div class="areaTitle">
                         <h5>Email</h5>
-                        <textarea name="mail" id="" required></textarea>
+                        <textarea class="last" name="mail" id="" required></textarea>
                     </div>
 
                 </div>
@@ -295,6 +307,12 @@ $conn = $db->conect();
                         <textarea name="horas2" id="" required></textarea>
                     </div>
 
+                    <div class="areaTitle">
+                        <h5>Modalidad</h5>
+                        <textarea name="modalidad2" id="" required></textarea>
+                    </div>
+                    
+
 
                     <div class="areaTitle">
                         <h5>Información</h5>
@@ -303,7 +321,7 @@ $conn = $db->conect();
 
                     <div class="areaTitle">
                         <h5>Email</h5>
-                        <textarea name="mail2" id="" required></textarea>
+                        <textarea class="last" name="mail2" id="" required></textarea>
                     </div>
 
 

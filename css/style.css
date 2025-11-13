@@ -830,6 +830,28 @@ body {
     opacity: 0.9;
 }
 
+
+.visible-carousel .visible {
+    display: none;
+}
+
+    .visible-carousel .visible.active {
+        display: block;
+    }
+
+.visible p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.visible span {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
 /* =============================================================================
    PASA UN DÍA CON... - GALERÍA YOUTUBE
    ============================================================================= */
@@ -1533,7 +1555,7 @@ grid-row-gap: 0px;
     }
 
 .all-courses {
-    background: var(--gray-light);
+ 
     border-radius: 20px;
     padding: 40px;
 }
@@ -2924,17 +2946,19 @@ grid-row-gap: 0px;
 }
 
 .twitter-posts {
-    background: linear-gradient(135deg, #000000 0%, #14171A 100%);
-    color: white;
+    background-color: white;
+    color: black;
+    
 }
 
-    .twitter-posts .section-header h2,
+    /* .twitter-posts .section-header h2,
     .twitter-posts .section-header p {
         color: white;
-    }
-
+    } */
+.twitter-posts
 .twitter-post {
-    background: #192734;
+    /* background: #192734; */
+    background: white;
     border: 1px solid #38444d;
     transition: all 0.3s ease;
 }
@@ -2947,7 +2971,7 @@ grid-row-gap: 0px;
 
     .twitter-post .post-info h4,
     .twitter-post .post-content p {
-        color: white;
+        color: rgb(0, 0, 0);
     }
 
     .twitter-post .post-info span {
@@ -3516,8 +3540,8 @@ grid-row-gap: 30px;
 /* no hay tag main ni header en el index.html asiq slo s aplicaria aquí*/
 main {
     min-height: 75vh;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 13%;
+    padding-right: 13%;
     padding-top: 2%;
 }
 
@@ -3531,13 +3555,14 @@ header {
     flex-direction: column;
     gap: 15px;
     list-style-type: none;
+
 }
 
 .li_ptacticas {
     min-height: 30px;              
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: space-between; */
     align-items: stretch;           /* estira las celdas para que todas tengan la misma altura */
     border-radius: 30px;
     gap: 5px;
@@ -3582,6 +3607,7 @@ header {
     overflow-wrap: break-word;
     white-space: normal;           /* permite que el texto haga salto de línea */
     gap: 9px;
+    
 }
 
 .ul_practicas > li.li_ptacticas:not(.cabecera):hover{
@@ -3594,7 +3620,8 @@ header {
 }
 
 .description{
-    width: 700px;
+    width: 30%;
+
 }
 
 .linkInfo{
@@ -3602,25 +3629,28 @@ header {
 }
 
 .titulo{
-    width: 200px;
+    width: 15%;
 }
 
 .ubication{
-    padding-right: 10px;
-    padding-left: 8px;
-    width: 150px;
+    
+    gap: 15px;
+    width: 20%;
 }
 
 .horas{
-    width: 70px;
+    width: 15%;
 }
 
-.li_ptacticas:not(.cabecera) .info{
-    padding-right: 10px;
+ .contactanos{
+    width: 10%;
 }
+
+
+
 .li_ptacticas.cabecera {
    gap: 10px;
-   justify-content: center;
+  
    
 }
 
@@ -3722,26 +3752,60 @@ header {
     margin-left: 120px;
 }
 
+.beca .titulo{
+    width: 25%;
+}
+
+.beca .description{
+    width: 50%;
+}
+
+.beca .importe{
+    width: 15%;
+}
+
+.beca .info {
+    width: 10%;
+}
 
 /**/
 
 /*Mapa responsive*/
-
+@media (max-width: 1435px) {
+    img[usemap="#image-map"] {
+        width: 1077px;
+        height: auto; 
+    }
+    
+}
 
 @media (max-width: 1077px) {
     img[usemap="#image-map"] {
         width: 550px;
         height: auto; 
     }
+    .about-text h2{
+        text-align: center;
+    }
+    
 }
 
 
 @media (max-width: 613px) {
     img[usemap="#image-map"] {
-        width: 400px;
+        width: 350px;
         height: auto; 
     }
 }
+
+@media (max-width: 400px) {
+    img[usemap="#image-map"] {
+        width: 340px;
+        height: auto; 
+    }
+}
+
+ 
 /*premios andece y concurso*/
 
 .competitions-grid{
@@ -4160,7 +4224,7 @@ textarea{
                 <div class="horas"><i class="fa-regular fa-trash-can"></i></div>
               */
 
-.cabecera.description{
+/* .cabecera.description{
     
 
 }
@@ -4190,7 +4254,9 @@ textarea{
 .ul_practicas .li_ptacticas.cabecera.editable > .horas.tres{ 
   transform: translateX(15px);
 }
-/*--------------------------------------*/
+-------------------------------------- */
+
+
 
 
 .informacion textarea{
@@ -4202,7 +4268,7 @@ textarea{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    
+    width: 100%;
     
 
 }
@@ -4215,7 +4281,7 @@ textarea{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    height: 70vh; 
+    /* height: 70vh;  */
    border-radius: 16px;
 box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
 /* backdrop-filter: blur(15px);
@@ -4258,10 +4324,13 @@ border: 1px solid rgba(255, 255, 255, 1);
     resize: vertical; 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    height: 180px;
+    height: 90px;
     width: 100%;
-    max-height: 180px;
+    max-height: 100px;
     padding: 10px;
+}
+.last{
+     width: 32.25% !important;
 }
 
 .areaTitle{
@@ -4273,6 +4342,12 @@ border: 1px solid rgba(255, 255, 255, 1);
      width: 40%;
 }
 
+.areaTitle.bInf textarea > {
+    width: 33% ;
+}
+.beca .der{
+     transform: translateX(52px) !important; 
+}
 /* efecto al enfocar */
 .areasInput textarea:focus {
     outline: none;
@@ -4313,6 +4388,7 @@ border: 1px solid rgba(255, 255, 255, 1);
     padding-left: 5%;
     padding-right: 5%;
   }
+  
         
 }
 
@@ -4415,3 +4491,27 @@ justify-content: space-evenly;}
     max-width: 412px;
   }
 }
+
+
+
+@media (max-width: 1140px) {
+    .preview-text{
+        display: flex;
+        flex-direction: column;
+        
+        align-items: anchor-center;
+}
+
+.preview-text h2, p {
+    text-align: center;
+}
+
+
+.preview-text > a {
+    width: 233px;
+    
+}
+
+  
+}
+
