@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prácticas</title>
+    <title>Becas</title>
     <!-- Estilos principales -->
     <!-- <link rel="stylesheet" href="CSS/style2.css"> -->
     <!-- Fuentes modernas -->
@@ -19,14 +19,9 @@
 </head>
 <body data-page="practicas">
     <header>
-        
-    
-
-     
 
     <nav class="navbar" id="navbar">
         <div class="nav-container nopad">
-
             <div class="nav-img">
 
                 <a href="index.html" target="_blank">
@@ -36,20 +31,12 @@
                 <img src="img/Logo2019_500.png" alt="Logo">
                 </a>
 
-                
             </div>
-            
-           
-           
             <div class="nav-logo">
                 <a href="index.html" target="_blank">
-                <h2>Crea<span class="accent">Futuro</span></h2>
+                 <h2>Crea<span class="accent gris">Tu</span><span class="accent">Futuro</span></h2>
                 </a>
             </div>
-
-             
-
-            
         </div>
     </nav>
 
@@ -60,18 +47,15 @@
     <li class="li_ptacticas cabecera beca">
         <div class="titulo">Título</div>
         <div class="description">Descripción</div>
-
         <div class="importe">Importe</div>
-
-        <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-     
+        <div class="info"><i class="fa-solid fa-circle-info"></i></div> 
+        <div class="contactanos">Contactanos</div>  
     </li>
 
     <?php
     require_once "Conection.php";
     $db = new Conection();
     $conn =  $db->conect();
-
     $sql = "SELECT * FROM adc_becas";
     $result = $conn->query($sql);
 
@@ -83,7 +67,7 @@
                 <div class="description"><?php echo htmlspecialchars($row['Descripcion']); ?></div>
                 <div class="importe"> <?php echo htmlspecialchars($row['Importe']); ?></div>
                 <a href="<?php echo htmlspecialchars($row['informacion']); ?>" target="blank" ><div class="info"> <i class="fa-solid fa-circle-info"></i> </a></div>
-
+                <a href="<?php echo htmlspecialchars($row['mail']); ?>"  target="blank"><div class="contactanos"><i class="fa-solid fa-envelope"></i></a></div>
             </li>
             <?php
         }
@@ -94,13 +78,8 @@
     $conn->close();
     ?>
 </ul>
-
-
-
     </main>
- 
-
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
          <script src="js/script.js"></script>
 </body>
 </html>

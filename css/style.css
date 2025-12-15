@@ -103,6 +103,12 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+.nav-logo .gris {
+    background: var(--gray-medium);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
 .nav-menu {
     display: flex;
@@ -377,7 +383,12 @@ body {
     transition: var(--transition-fast);
     position: relative;
     overflow: hidden;
-}
+    display: flex;
+    flex-direction: column;
+justify-content: space-evenly;
+height: 500px;
+max-width: 400px;}
+
 
     .highlight-card::before {
         content: '';
@@ -1275,17 +1286,18 @@ grid-row-gap: 0px;
 @media (max-width: 1144px) {
     .nav-menu {
         position: fixed;
-        top: 70px;
+        top: 0px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(110vh);
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         padding-top: 50px;
         transition: var(--transition-fast);
+        
     }
 
         .nav-menu.active {
@@ -1301,12 +1313,12 @@ grid-row-gap: 0px;
             opacity: 0;
         }
 
-        .nav-toggle.active .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+           .nav-toggle.active .bar:nth-child(1) {
+            transform: translateY(10px) rotate(50deg);
         }
 
         .nav-toggle.active .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-8px) rotate(-50deg);
         }
 
     .hero-buttons {
@@ -1981,8 +1993,25 @@ grid-row-gap: 0px;
    LINKEDIN POSTS - FEED SOCIAL
    ============================================================================= */
 .linkedin-posts {
-    background: var(--gray-light);
+    background-color: white;
+    color: black;
+    
 }
+
+
+.linkedin-posts
+.linkedin-post {
+
+    background: white;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+    .linkedin-post:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(29, 161, 242, 0.2);
+        border-color: #1DA1F2;
+    }
 
 .posts-grid {
     display: grid;
@@ -1997,6 +2026,8 @@ grid-row-gap: 0px;
     padding: 20px;
     box-shadow: var(--shadow-soft);
     transition: var(--transition-fast);
+    width: 366px;
+
 }
 
     .post-card:hover {
@@ -2020,10 +2051,27 @@ grid-row-gap: 0px;
 }
 
 .post-info h4 {
-    font-size: 1rem;
+    /* font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 2px; */
+
+      font-size: 1rem;
     font-weight: 600;
     color: var(--dark-color);
     margin-bottom: 2px;
+     display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;  /* número de líneas antes de cortar */
+    overflow: hidden;
+}
+
+.post-content p {
+ 
+     display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;  /* número de líneas antes de cortar */
+    overflow: hidden;
 }
 
 .post-info span {
@@ -2902,6 +2950,8 @@ grid-row-gap: 0px;
     background-clip: text;
 }
 
+
+
 .instagram-post .post-image {
     height: 200px;
     border-radius: 15px;
@@ -2951,16 +3001,17 @@ grid-row-gap: 0px;
     
 }
 
-    /* .twitter-posts .section-header h2,
-    .twitter-posts .section-header p {
-        color: white;
-    } */
 .twitter-posts
 .twitter-post {
     /* background: #192734; */
     background: white;
-    border: 1px solid #38444d;
+    border: 1px solid transparent;
     transition: all 0.3s ease;
+}
+.twitter-post{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
     .twitter-post:hover {
@@ -2983,9 +3034,7 @@ grid-row-gap: 0px;
     font-size: 1.3rem;
 }
 
-.twitter-post .post-actions {
-    border-top-color: #38444d;
-}
+
 
     .twitter-post .post-actions span {
         color: #8899A6;
@@ -3782,6 +3831,21 @@ header {
 @media (max-width: 1077px) {
     img[usemap="#image-map"] {
         width: 550px;
+        position: relative;
+        left: 200px;
+        height: auto; 
+    }
+    .about-text h2{
+        text-align: center;
+    }
+    
+}
+
+@media (max-width: 800px) {
+    img[usemap="#image-map"] {
+        width: 550px;
+        position: relative;
+        left: 50px;
         height: auto; 
     }
     .about-text h2{
@@ -3795,6 +3859,8 @@ header {
     img[usemap="#image-map"] {
         width: 350px;
         height: auto; 
+          left: 20px;
+
     }
 }
 
@@ -4330,7 +4396,7 @@ border: 1px solid rgba(255, 255, 255, 1);
     padding: 10px;
 }
 .last{
-     width: 32.25% !important;
+     width: 100% !important;
 }
 
 .areaTitle{
@@ -4346,7 +4412,10 @@ border: 1px solid rgba(255, 255, 255, 1);
     width: 33% ;
 }
 .beca .der{
-     transform: translateX(52px) !important; 
+     transform: translateX(12px) !important;  
+}
+.trans{
+    transform: translateX(-45px) !important;
 }
 /* efecto al enfocar */
 .areasInput textarea:focus {
@@ -4515,3 +4584,93 @@ justify-content: space-evenly;}
   
 }
 
+.cardImg{
+    width: 100%;
+    height:50%;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.s2{
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.galeria-img{
+    display: flex;
+
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.galeria-img2 img{
+    width: 250px;
+    height: 175px;
+    border-radius: 22px;
+    -webkit-box-shadow: -3px 7px 19px -4px #000000; 
+box-shadow: -3px 7px 19px -4px #000000;
+}
+
+.galeria-img2 img:hover{
+    transform: scale(1.02);
+    -webkit-box-shadow: -3px 11px 26px -4px #000000; 
+box-shadow: -3px 11px 26px -4px #000000;
+  
+}
+.galeria-img2{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 15px;
+
+}
+.gale{
+    font-size: 2rem;
+}
+
+.nav-logo h1 {
+    font-size: 2.7rem;
+    font-weight: 800;
+    color: var(--dark-color);
+    letter-spacing: -0.02em;
+}
+.center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.mp4Video{
+width: 60%;
+height: 400px;
+}
+.post-card{
+    margin-bottom: 20px;
+}
+#linkedin-feed,#instagram-feed,#X-feed{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  
+    flex-wrap: wrap;
+   
+}
+
+
+@media (max-width: 768px) {
+      
+
+    #linkedin-feed,#instagram-feed,#X-feed{
+
+    justify-content: center;
+
+ 
+}
+}
+.butonsFlex{
+    display: flex;    
+    justify-content: space-between;
+  
+}

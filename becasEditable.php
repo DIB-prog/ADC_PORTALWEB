@@ -3,7 +3,7 @@ require_once "Conection.php";
       
 $db = new Conection();
 $conn = $db->conect();
-
+ $validEmail = true;
  $validDelete = true;
 
 
@@ -21,11 +21,12 @@ $conn = $db->conect();
                     
                
                         $informacion = $_POST['informacion2'];
+                        $mail = $_POST['mail2'];
                      
                         $importe = $_POST['importe2'];
 
-                        $stmt = $conn->prepare("INSERT INTO adc_becas (titulo, Descripcion, Importe, Informacion) VALUES (?, ?, ?, ?)");
-                        $stmt->bind_param("ssis", $titulo, $descripcion, $importe, $informacion);
+                        $stmt = $conn->prepare("INSERT INTO adc_becas (titulo, Descripcion, Importe, Informacion, mail) VALUES (?, ?, ?, ?, ?)");
+                        $stmt->bind_param("ssiss", $titulo, $descripcion, $importe, $informacion, $mail);
                           if ($stmt->execute()) {
                             if ($stmt->affected_rows > 0) {
                                 echo "<script>alert('Datos enviados correctamente!');
@@ -38,34 +39,39 @@ $conn = $db->conect();
 
 
 
-                        $confirmar = isset($_POST['confirmar']) ? true : false;
-                     if ($confirmar) {
-                         $idq = $_POST['id'];
-                         $titulo = $_POST['titulo'];
-                         $descripcion = $_POST['descripcion'];
+                     $confirmar = isset($_POST['confirmar']) ? true : false;
 
+if ($confirmar) {
 
+    $idq = $_POST['id'];
+    $titulo = $_POST['titulo'];
+    $descripcion = $_POST['descripcion'];
+    $mail = $_POST['mail'];
+    $importe = $_POST['importe'] ?? '';
+    $informacion = $_POST['informacion'];
 
-                         $importe = $_POST['importe'] ?? '';
-                   
-                         $informacion = $_POST['informacion'];
+ 
+    if (filter_var("$mail", FILTER_VALIDATE_EMAIL)) {
+        $validEmail = true;
 
-                   
+        $stmt = $conn->prepare("UPDATE adc_becas 
+                                SET titulo=?, Descripcion=?, Importe=?, Informacion=?, mail=? 
+                                WHERE ID=?");
+        $stmt->bind_param("ssissi", $titulo, $descripcion, $importe, $informacion, $mail, $idq);
+        $stmt->execute();
 
-            
-                         $stmt = $conn->prepare("UPDATE adc_becas SET titulo = ?, Descripcion = ? , Importe = ? , Informacion = ? WHERE ID = $idq");
-                         $stmt->bind_param("ssis", $titulo, $descripcion, $importe, $informacion);
-                         $stmt->execute();
-              
-                         if ($stmt->affected_rows > 0) {
-                             echo "<script>alert('Datos enviados correctamente!');
-                                    window.location.href = '" . $_SERVER['PHP_SELF'] . "';
-                              </script>";
-                        } 
-                    
+        if ($stmt->affected_rows > 0) {
+            echo "<script>alert('Datos enviados correctamente!');
+                  window.location.href = '" . $_SERVER['PHP_SELF'] . "';
+                  </script>";
+        }
 
-        
-                     }
+    } else {
+        $validEmail = false;
+        echo "<script>alert('El email no es válido');</script>";
+    }
+}
+
 
                     } elseif (isset($_POST['confirmarEliminar'])) {
                        
@@ -101,7 +107,7 @@ $conn = $db->conect();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prácticas</title>
+    <title>Becas</title>
     <!-- Estilos principales -->
     <!-- <link rel="stylesheet" href="CSS/style2.css"> -->
     <!-- Fuentes modernas -->
@@ -143,7 +149,7 @@ $conn = $db->conect();
                 </div>
                 <div class="nav-logo">
                     <a href="index.html" target="_blank">
-                        <h2>Crea<span class="accent">Futuro</span></h2>
+                        <h2>Crea<span class="accent gris">Tu</span><span class="accent">Futuro</span></h2>
                     </a>
                 </div>
 
@@ -158,17 +164,14 @@ $conn = $db->conect();
                 <li class="li_ptacticas cabecera editable beca">
                     <div class="titulo">Título</div>
                     <div class="description">Descripción</div>
-
                     <div class="importe">Importe</div>
-
                     <div class="linkInfo"><i class="fa-solid fa-circle-info"></i></div>
+                    <div class="info trans"><i class="fa-solid fa-envelope"></i></div>
                     <div class="editarPracB"><i class="fa-solid fa-pencil"></i></div>
                     <div class="deletePractica"><i class="fa-regular fa-trash-can"></i></div>
      
- 
-              
+                </li>
             <?php
-            
             $sql = "SELECT * FROM adc_becas ORDER BY id ASC";
             $result = $conn->query($sql);
        
@@ -182,14 +185,15 @@ $conn = $db->conect();
                         <div class="description" data-id="<?php echo $row['ID']; ?>"><?php echo htmlspecialchars($row['Descripcion']); ?></div>
                         <div class="importe" data-id="<?php echo $row['ID']; ?>"> <?php echo htmlspecialchars($row['Importe']); ?></div>
                         <div class="linkInfo" data-id="<?php echo $row['ID']; ?>"><?php echo htmlspecialchars($row['Informacion']); ?></div>
-
+                         <div class="info" data-id="<?php echo $row['ID']; ?>"><?php echo htmlspecialchars($row['mail']); ?> </div>
                         <button class="editarPracB der" data-id="<?php echo $row['ID']; ?>">
-
                             <div class="info"><i class="fa-solid fa-pencil"></i></div>
                         </button>
                         <button class="deletePractica" data-id="<?php echo $row['ID']; ?>">
                             <div class="info"><i class="fa-regular fa-trash-can"></i></div>
                         </button>
+           
+                  
                     </li>
                     <?php
                 }
@@ -237,10 +241,15 @@ $conn = $db->conect();
                     </div>
 
 
-                    <div class="areaTitle bInf">
+                    <div class="areaTitle ">
                         <h5>Información</h5>
                         <textarea name="informacion" class="last" id="" required></textarea>
                     </div>  
+
+                    <div class="areaTitle">
+                        <h5>Email</h5>
+                        <textarea name="mail" class="last" id="" required></textarea>
+                    </div>
 <!-- 
                     <div class="areaTitle">
                         <h5>Email</h5>
@@ -287,17 +296,19 @@ $conn = $db->conect();
                         <textarea name="importe2" id="" required></textarea>
                     </div>
                     
-
                     <div class="areaTitle">
                         <h5>Información</h5>
                         <textarea name="informacion2" class="last" id="" required></textarea>
                     </div>  
+                     <div class="areaTitle">
+                        <h5>Email</h5>
+                        <textarea name="mail2" class="last" id="" required></textarea>
+                    </div>
 
                     <!-- <div class="areaTitle">
                         <h5>Email</h5>
                         <textarea class="last" name="mail2" id="" required></textarea>
                     </div> -->
-
 
                 </div>
 
@@ -305,11 +316,7 @@ $conn = $db->conect();
                     <button id="confirmaAdd" type="submit" name="confirmAdd">Confirmar</button>
                     <button id="cancelAdd" type="button" name="cancelAdd">Cancelar</button>
                 </div>
-
-                
-
-            </form>
-            
+            </form>  
     </div>
 
     <div class="addLine">   

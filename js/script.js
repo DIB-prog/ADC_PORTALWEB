@@ -1523,12 +1523,12 @@ if (document.querySelector('body').getAttribute('data-page') == 'index' ){
     area.addEventListener('mousemove', (e) => {
       const empresas = area.dataset.empresas || '0';
 
-      const comunidad =  area.getAttribute("dgfh") || 'Comunidad';
+      const comunidad =  area.getAttribute("comunidad") || 'Comunidad';
 
       tooltip.innerHTML = `
         <div class="tooltip-content">
-          <div class="titulo">${comunidad}</div>
-          <div class="dato">${empresas} empresas</div>
+          <div class="">${comunidad}</div>
+          <div class="">${empresas} empresas</div>
         </div>
       `;
 
@@ -1884,6 +1884,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const mod  = document.querySelector('.modalidad[data-id="'+id+'"]')
         const info = document.querySelector('.linkInfo[data-id="'+id+'"]:not(.titulo)');
         const mail = document.querySelector('.info[data-id="'+id+'"]');
+ 
 
 
         // Rellenar los textareas existentes
@@ -2029,19 +2030,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const titulo = document.querySelector('.titulo[data-id="'+id+'"]');
         const descripcion = document.querySelector('.description[data-id="'+id+'"]');
         const importe = document.querySelector('.importe[data-id="'+id+'"]');
-     
+
         const info = document.querySelector('.linkInfo[data-id="'+id+'"]:not(.titulo)');
-     
+        const mail = document.querySelector('.info[data-id="'+id+'"]');
+    
 
 
         // Rellenar los textareas existentes
         form.querySelector('textarea[name="titulo"]').value = titulo ? titulo.textContent.trim() : '';
         form.querySelector('textarea[name="descripcion"]').value = descripcion ? descripcion.textContent.trim() : '';
-
         form.querySelector('textarea[name="importe"]').value = importe ? importe.textContent.trim() : '';
         form.querySelector('textarea[name="informacion"]').value = info ? info.textContent.trim() : '';
+        form.querySelector('textarea[name="mail"]').value = mail ? mail.textContent.trim() : '';
     
-
         form.querySelector('#idEditar').value = id;
 
         editable.style.display = 'flex';
@@ -2058,7 +2059,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const fondoNegro = document.getElementById('overlay');
     const lineasContainer = document.getElementById('textEmpty');
     const confirmEdit = document.getElementById('aviso');
-
     const btnSumar = document.getElementById('sumLineaB');
     const cancelAdd = document.getElementById('cancelAdd');
     const cancelarEliminar = document.getElementById('cancelarEliminar');
@@ -2080,16 +2080,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form2.querySelector('textarea[name="titulo2"]').value = '';
         form2.querySelector('textarea[name="descripcion2"]').value = '';
-
         form2.querySelector('textarea[name="importe2"]').value = '';
         form2.querySelector('textarea[name="informacion2"]').value = '';
+        form2.querySelector('textarea[name="mail2"]').value = '';
  
 
         lineasContainer.style.display = 'flex';
         fondoNegro.style.display = 'block';
-
-
-
 
     });
 
@@ -2141,3 +2138,147 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+function tiempoTranscurrido(fecha) {
+  const ahora = new Date();
+  const entonces = new Date(fecha);
+  const segundos = Math.floor((ahora - entonces) / 1000);
+
+  const intervalos = {
+    año: 31536000,
+    mes: 2592000,
+    día: 86400,
+    hora: 3600,
+    minuto: 60
+  };
+
+  if (segundos < 60) return "justo ahora";
+
+  for (const [unidad, valor] of Object.entries(intervalos)) {
+    const cantidad = Math.floor(segundos / valor);
+    if (cantidad >= 1) {
+      return `hace ${cantidad} ${unidad}${cantidad > 1 ? "s" : ""}`;
+    }
+  }
+}
+
+          
+
+fetch("https://script.google.com/macros/s/AKfycbzJHaKBzeSXo4-vtCkoWpn36L-bPTtUbtjcBDKVY0MC8mQ8Bj2zmufGRV0w3vVkpZhQGQ/exec")
+    .then(r => r.json())
+    .then(posts => {
+        let html = "";
+       posts.slice(0, 3).forEach(p => {
+
+            const fechaBonita = tiempoTranscurrido(p.pubdate);
+
+            html += `
+                <div class="post-card linkedin-post">
+                    <div class="post-header">
+                        <img src="img/unnamed.jpg" class="post-avatar">
+                        <div class="post-info">
+                            <h4>ANDECE Prefabricados de Hormigón</h4>
+                           
+                            <span>${fechaBonita}</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                     
+                        <p>
+                            ${p.title}
+                        </p>
+                    </div>
+
+                    <div class="post-actions">
+                        <a href="${p.link}" target="_blank" class="btn btn-sm gradientX">Ver en LinkedIn</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        document.getElementById("linkedin-feed").innerHTML = html;
+    })
+    .catch(e => console.error("Error cargando posts:", e));
+
+
+
+fetch("https://script.google.com/macros/s/AKfycbxnUz54aGn2HyXYM7y2yN23Xk4Bqc4sZM0s_cHfTWJBs6n8gi2XiF9piPwqja5Cuiv8/exec")
+    .then(r => r.json())
+    .then(posts => {
+        let html = "";
+       posts.slice(0, 3).forEach(p => {
+
+            const fechaBonita = tiempoTranscurrido(p.pubdate);
+
+            html += `
+                <div class="post-card twitter-post">
+                <div>
+                    <div class="post-header">
+                       <img src="img/unnamed.jpg" class="post-avatar">
+                        <div class="post-info">
+                            <h4>@andece_general</h4>
+                           
+                            <span>${fechaBonita}</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                     
+                        <p>
+                            ${p.title}
+                        </p>
+                    </div>
+                    </div>
+
+                    <div class="post-actions">
+                      
+                        <a href="${p.link}" target="_blank" class="btn btn-sm gradientX" >Ver en X</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        document.getElementById("X-feed").innerHTML = html;
+    })
+    .catch(e => console.error("Error cargando posts:", e));
+
+    fetch("https://script.google.com/macros/s/AKfycbzPGlWXMpqaT7Rb30nK1fP2gPVi1vpfXbszVuYmFfIUfKbXBi0k6DKOrnfl6JYst_K92A/exec")
+    .then(r => r.json())
+    .then(posts => {
+        let html = "";
+       posts.slice(0, 3).forEach(p => {
+
+            const fechaBonita = tiempoTranscurrido(p.pubdate);
+
+            html += `
+                <div class="post-card instagram-post">
+                <div>
+                    <div class="post-header">
+                        <img src="img/unnamed.jpg" class="post-avatar">
+                        <div class="post-info">
+                            <h4>@andece_ph</h4>
+                           
+                            <span>${fechaBonita}</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                     
+                        <p>
+                            ${p.title}
+                        </p>
+                    </div>
+                    </div>
+
+                    <div class="post-actions">
+                      
+                        <a href="${p.link}" target="_blank" class="btn btn-sm iconosInsta" >Ver en Instagram</a>
+                    </div>
+                </div>
+            `;
+        });
+
+        document.getElementById("instagram-feed").innerHTML = html;
+    })
+    .catch(e => console.error("Error cargando posts:", e));
+
+
+// https://rss.app/feed/mCMSVAuMJEkB8Sqs
