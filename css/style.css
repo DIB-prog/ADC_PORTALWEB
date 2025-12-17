@@ -201,6 +201,11 @@ body {
     z-index: 10;
     max-width: 800px;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 72%;
+    gap: 20px;
 }
 
 .hero-title {
@@ -235,12 +240,13 @@ body {
 
 .hero-scroll {
     position: absolute;
-    bottom: 30px;
+    bottom: -94px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     color: white;
     animation: bounce 2s infinite;
+    cursor: pointer;
 }
 
     .hero-scroll span {
@@ -3424,7 +3430,7 @@ grid-row-gap: 30px;
 
 #tooltip {
   position: fixed;
-  background: linear-gradient(135deg, #848A83, #BDC3BB);
+  background: var(--gradient-primary);
   color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
@@ -4673,4 +4679,30 @@ height: 400px;
     display: flex;    
     justify-content: space-between;
   
+}
+
+.subtittle2{
+    position: absolute;
+    bottom: -13px;
+    left: 37%;
+
+    text-align: center;
+    color: white;
+    
+   
+}
+
+@media (max-width: 600px) {
+    .hero-content {
+        height: 65%;
+        justify-content: right;
+
+    }
+    .subtittle2{
+        left: 26%;
+        bottom: 18px;
+    }
+    .hero-scroll{
+        bottom: -68px;
+    }
 }
