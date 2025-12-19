@@ -155,14 +155,7 @@ function initializeYouTubeModal() {
     const modal = document.getElementById('videoModal');
     const closeBtn = document.getElementById('closeModal');
     const iframe = document.getElementById('youtubePlayer');
-
-    // Abrir modal al hacer click en thumbnail
-    videoThumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', () => {
-            const videoId = thumbnail.getAttribute('data-video-id');
-            openVideoModal(videoId);
-        });
-    });
+    const body = document.body;
 
     // Cerrar modal
     function closeVideoModal() {
@@ -171,34 +164,106 @@ function initializeYouTubeModal() {
         document.body.style.overflow = 'auto';
     }
 
-    // Abrir modal
-    function openVideoModal(videoId) {
-        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-        iframe.src = embedUrl;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
     // Event listeners para cerrar
     if (closeBtn) {
         closeBtn.addEventListener('click', closeVideoModal);
     }
 
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeVideoModal();
-            }
-        });
-    }
-
-    // Cerrar con ESC
+        // Cerrar con ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeVideoModal();
         }
     });
+
+        // Abrir modal al hacer click en thumbnail
+    videoThumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', (e) => {
+            const videoId = thumbnail.getAttribute('data-video-id');
+            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+            iframe.src = embedUrl;
+            modal.classList.add('active');
+
+            e.stopPropagation();
+        });
+    });
+
+    if (body) {
+        body.addEventListener('click', (e) => {
+            if ( modal.className == 'video-modal active' ) {
+                closeVideoModal();
+            }
+        });
+    }
 }
+
+// function initializeYouTubeModal() {
+//     const videoThumbnails = document.querySelectorAll('.video-thumbnail[data-video-id]');
+//     const modal = document.getElementById('videoModal');
+//     const closeBtn = document.getElementById('closeModal');
+//     const iframe = document.getElementById('youtubePlayer');
+//     const body = document.body;
+
+//     var elementoActual = modal.classList
+//     var b = false
+
+//     // Abrir modal al hacer click en thumbnail
+//     videoThumbnails.forEach(thumbnail => {
+//         thumbnail.addEventListener('click', () => {
+//             const videoId = thumbnail.getAttribute('data-video-id');
+//             openVideoModal(videoId);
+//         });
+//     });
+
+//     // Cerrar modal
+//     function closeVideoModal() {
+//         modal.classList.remove('active');
+//         iframe.src = '';
+//         document.body.style.overflow = 'auto';
+//     }
+
+//     // Abrir modal
+//     function openVideoModal(videoId) {
+//         console.log("entra a open");
+//         if (b){
+//                console.log("entra a open2");
+//                body.addEventListener('click', (e) => {
+//                 if ( modal.className == 'video-modal active' ) {
+//                     console.log('entra', elementoActual);
+//                     closeVideoModal();
+//                 }
+//             });
+
+//         } else {
+//             console.log("entra a open3");
+//              const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+//         iframe.src = embedUrl;
+//         modal.classList.add('active');
+
+//             document.addEventListener("click", function (e) {
+//                  console.log("entra a open4");
+//             console.log(e.target);
+//             b = true
+// });
+//             elementoActual = modal.className;
+   
+//         }
+//     }
+
+//     // if (closeBtn) {
+//     //     closeBtn.addEventListener('click', closeVideoModal);
+//     // }
+
+   
+    
+    
+//     // Cerrar con ESC
+//     document.addEventListener('keydown', (e) => {
+//         if (e.key === 'Escape' && modal.classList.contains('active')) {
+//             closeVideoModal();
+//         }
+//     });
+// }
 
 /* =============================================================================
    MANEJO DE FORMULARIOS
@@ -1855,6 +1920,14 @@ if (flechaDerechaM && flechaIzquierdaM) {
     actualizarFlechasM();
 }
 
+document.querySelectorAll('.vidMovil').forEach(card => {
+    card.style.cursor = 'pointer'; 
+    card.addEventListener('click', () => {
+        const url = card.dataset.url;
+        console.log('Abriendo URL:', url);
+        window.open(url, '_blank'); 
+    });
+})
 
 
 /*editar las practicas profesionales*/

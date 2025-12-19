@@ -40,7 +40,7 @@ $files = scandir($dir);
 
                 <div class="nav-logo">
                     <a href="index.html" target="_blank">
-                             <h2>Crea<span class="accent gris">Tu</span><span class="accent">Futuro</span></h2>
+                             <h2>Creo<span class="accent gris">Mi</span><span class="accent">Futuro</span></h2>
                     </a>
                 </div>
 
