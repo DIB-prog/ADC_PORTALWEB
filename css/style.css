@@ -759,7 +759,7 @@ body {
 
 .story-video {
     position: relative;
-    height: 200px;
+    height: 316px;
     overflow: hidden;
     cursor: pointer;
 }
@@ -4625,6 +4625,8 @@ justify-content: space-evenly;}
     height:50%;
     border-radius: 30px;
     margin-top: 10px;
+    -webkit-box-shadow: -3px 7px 19px -4px #000000;
+    box-shadow: -3px 7px 19px -4px #000000;
 }
 
 .s2{
@@ -4714,7 +4716,7 @@ height: 400px;
 .subtittle2{
     position: absolute;
     bottom: -13px;
-    left: 37.1%;
+    left: 31.5%;
 
     text-align: center;
     color: white;
@@ -4772,6 +4774,33 @@ height: 400px;
 }
 
 
+@media(max-width: 586px) {
+  
+    .subtittle2{
+        left: 26%;
+    }
+} 
+
+@media(max-width: 680px) {
+  
+    .subtittle2{
+        left: 28%;
+    }
+} 
+
+@media(max-width: 710px) {
+  
+    .subtittle2{
+        left: 28.5%;
+    }
+} 
+
+@media (max-width: 420px) {
+    .subtittle2 {
+        left: 16.5%;
+    }
+}
+
 @media(max-width: 400px) {
     .hero-buttons {
         flex-wrap: wrap;
@@ -4781,7 +4810,7 @@ height: 400px;
     }
 
     .subtittle2{
-        left: 23.5%;
+        left: 11.5%;
     }
     .nav-container{
         gap: 18px;
@@ -4826,3 +4855,72 @@ height: 400px;
 .pMovil{
     padding-bottom: 10px !important;
 }
+
+/*MENU BECAS/PRACTICAS*/
+
+/* 
+ * botones.css
+ * Estilos específicos para los botones de redirección
+ * No incluye estilos generales de body, h1, etc.
+ */
+
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+   
+    width: 100%;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-custom {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+.becas-practicas-link{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.btn-menu{
+  
+    background: linear-gradient(135deg, #848A83, #BDC3BB);
+    color: white;
+    box-shadow: 0 5px 20px rgba(117, 118, 117, 0.4);
+}
+

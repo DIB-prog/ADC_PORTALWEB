@@ -1,18 +1,6 @@
 <?php
 require_once "Conection.php";
 
-// $servername = "hostingmysql321.nominalia.com";
-// $username = "dibcli";
-// $password = "DibParaClientes";
-// $database = "clients";
-
-// // Crear conexión
-// $conn = new mysqli($servername, $username, $password, $database);
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
-
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);

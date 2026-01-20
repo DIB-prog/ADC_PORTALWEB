@@ -1,4 +1,18 @@
 <?php 
+session_start();
+if ( $_SESSION['login_time'] + 3600 < time() ) {
+
+    session_unset();
+    session_destroy();
+    header("Location: login.html");
+    exit();
+}
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.html");
+    exit();
+}
+
 require_once "Conection.php";
       
 $db = new Conection();
@@ -6,8 +20,6 @@ $conn = $db->conect();
  $validEmail = true;
  $validDelete = true;
 
-
-           
 
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
              
@@ -139,10 +151,10 @@ $conn = $db->conect();
 
                 <div class="nav-img">
 
-                    <a href="index.html" target="_blank">
+                    <a href="menu.php" target="_blank">
                         <i class="fa-solid fa-arrow-left fa-2x"></i>
                     </a>
-                    <a href="https://www.andece.org/" target="_blank">
+                    <a href="menu.php" target="_blank">
                         <img src="img/Logo2019_500.png" alt="Logo">
                     </a>
 

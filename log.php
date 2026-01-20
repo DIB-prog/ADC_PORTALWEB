@@ -2,30 +2,47 @@
 <html>
 <body>
 <?php
+// Iniciar sesión al principio para poder usar $_SESSION
+session_start();
+
 require_once "Conection.php";
 $db = new Conection();
 $conn = $db->conect();
+
+$error = ""; // Variable para mensajes de error
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['uname'];
     $psw  = $_POST['psw'];
 
-    // Preparar la consulta
-    $stmt = $conn->prepare("SELECT id, usuari, contrasenya FROM adc_usuaris WHERE usuari = ? AND contrasenya = ?");
-    $stmt->bind_param("ss", $name, $psw);
+    $stmt = $conn->prepare("SELECT id, usuari, contrasenya FROM adc_usuaris WHERE usuari = ?");
+    $stmt->bind_param("s", $name);  
     $stmt->execute();
 
     // Ligar variables a las columnas seleccionadas
-    $stmt->bind_result($id, $usuari, $contrasenya);
+    $stmt->bind_result($id, $usuari, $contrasenya_hash); 
 
-    $hay = false; // Para saber si hubo resultados
-    while ($stmt->fetch()) {
-        $hay = true;
-        echo "id: " . $id . " - Name: " . $usuari . " " . $contrasenya . "<br>";
+    $hay = false;
+    
+   
+    if ($stmt->fetch()) {
+     
+        if (password_verify($psw, $contrasenya_hash)) {
+            $hay = true;
+    
+            $_SESSION['user_id'] = $id;
+            $_SESSION['username'] = $usuari;
+            $_SESSION['logged_in'] = true;
+            $_SESSION['login_time'] = time(); 
+            
+            header("Location: menu.php");
+            exit();
+        }
     }
-
+    
+    // Si llegamos aquí, el login falló
     if (!$hay) {
-        echo "No existe ";
+        $error = "Usuario o contraseña incorrectos";
     }
 
     $stmt->close();
