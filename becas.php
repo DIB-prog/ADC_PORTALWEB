@@ -23,14 +23,12 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container nopad">
             <div class="nav-img">
-
                 <a href="index.html" target="_blank">
                     <i class="fa-solid fa-arrow-left fa-2x"></i>
                 </a>
                 <a href="https://www.andece.org/" target="_blank" >
                 <img src="img/Logo2019_500.png" alt="Logo">
                 </a>
-
             </div>
             <div class="nav-logo">
                 <a href="index.html" target="_blank">
