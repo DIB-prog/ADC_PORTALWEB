@@ -26,7 +26,7 @@
             <div class="nav-container nopad">
 
                 <div class="nav-img">
-                    <a href="index.html" target="_blank">
+                    <a href="/" target="_blank">
                         <i class="fa-solid fa-arrow-left fa-2x"></i>
                     </a>
                     <a href="https://www.andece.org/" target="_blank">
@@ -34,7 +34,7 @@
                     </a>
                 </div>
                 <div class="nav-logo">
-                    <a href="index.html" target="_blank">
+                    <a href="/" target="_blank">
                         <h2>Creo<span class="accent gris">Mi</span><span class="accent">Futuro</span></h2>
                     </a>
                 </div>

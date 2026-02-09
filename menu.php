@@ -2,18 +2,19 @@
 
 session_start();
 if ( $_SESSION['login_time'] + 3600 < time() ) {
-
     session_unset();
     session_destroy();
-    header("Location: login.html");
+    header("Location: ./login.html");
     exit();
 }
 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
-    header("Location: login.html");
+       echo '<script>
+            alert("Hola2");
+        </script>';
+    header("Location: ./login.html");
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +54,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                     <span class="bar"></span>
                 </div>
                 <div class="nav-logo">
-                    <a href="index.html" target="_blank">
+                    <a href="/" target="_blank">
                          <h2>Creo<span class="accent gris">Mi</span><span class="accent">Futuro</span></h2>
                     </a>
                 </div>
@@ -63,7 +64,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         <div class="header">
              <div class="section-header">
                 <h2>Portal<span class="accent"> empleados</span></h2>
-                <p>Seleciona editar becas, practicas o ir a las diferentes secciones de la web publicada</p>
+                <p>Seleciona editar becas, prácticas o ir a las diferentes secciones de la web publicada</p>
             </div>
         </div>
         
@@ -73,7 +74,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
             
                 <span>Editar Becas</span>
             </a>
-            <a href="index.html" target="_blank" class="btn btn-menu" id="">
+            <a href="/" target="_blank" class="btn btn-menu" id="">
 
                 <span>Web</span>
             </a>
@@ -82,17 +83,11 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
           
                 <span>Editar Prácticas</span>
             </a>
-            
-             
         </div>
+
         <div class="becas-practicas-link">
             <a href="becas.php"  target="_blank" class="btn btn-menu">Becas web</a>
             <a href="practicas.php" target="_blank" class="btn btn-menu">Prácticas web</a>
-
-            
-            
         </div>
-    
-
 </body>
 </html>

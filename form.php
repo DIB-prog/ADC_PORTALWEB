@@ -56,6 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $db->close();
 
-    header("Location: index.html")
+    header("Location: /")
 
 ?>

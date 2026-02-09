@@ -21,18 +21,8 @@ $conn = $db->conect();
  $validEmail = true;
  $validDelete = true;
 
-
-
-
-           
-
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-             
-
                     if (isset($_POST['confirmAdd'])) {
-
-                        
-      
                         $titulo = $_POST['titulo2'];
                         $descripcion = $_POST['descripcion2'];
                     
@@ -165,7 +155,7 @@ if ($confirmar) {
                     <span class="bar"></span>
                 </div>
                 <div class="nav-logo">
-                    <a href="index.html" target="_blank">
+                    <a href="/" target="_blank">
                         <h2>Creo<span class="accent gris">Mi</span><span class="accent">Futuro</span></h2>
                     </a>
                 </div>

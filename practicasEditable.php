@@ -166,7 +166,7 @@ $conn = $db->conect();
                     <span class="bar"></span>
                 </div>
                 <div class="nav-logo">
-                    <a href="index.html" target="_blank">
+                    <a href="/" target="_blank">
                          <h2>Creo<span class="accent gris">Mi</span><span class="accent">Futuro</span></h2>
                     </a>
                 </div>
