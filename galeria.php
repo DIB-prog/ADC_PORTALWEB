@@ -22,6 +22,7 @@ $files = scandir($dir);
 
     <!-- Estilos principales -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/img/favicon.jpg" type="image/jpg">
 </head>
 <body data-page="galeria">
          <nav class="navbar" id="navbar">

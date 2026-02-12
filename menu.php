@@ -34,6 +34,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
     <!-- Estilos principales -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="/img/favicon.jpg" type="image/jpg">
 </head>
 <body>
     <div class="main-container">

@@ -32,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 ?>
 
 <!DOCTYPE html>
+<head>
+    <link rel="icon" href="/img/favicon.jpg" type="image/jpg">
+</head>
 <html>
 <body>
 
