@@ -1,5 +1,5 @@
 <?php
-$dir = "\ADC\ADC_PORTALWEB\galeria";
+$dir = ".\galeria";
 $files = scandir($dir);
 ?>
 

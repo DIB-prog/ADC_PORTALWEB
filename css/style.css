@@ -3636,7 +3636,7 @@ header {
 
 /* Cabecera estática */
 .ul_practicas > li.cabecera {
-     background: linear-gradient(135deg, #848A83, #BDC3BB);
+     background: #00000080;
     height: 50px;
     
 }
@@ -4068,7 +4068,6 @@ header {
   .wrapper.pc,
   .slider-controler.pc {
     display: none;
-    
   }
 
   
