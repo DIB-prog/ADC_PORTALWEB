@@ -48,7 +48,7 @@
         <div class="description">Descripción</div>
         <div class="importe">Importe</div>
         <div class="info"><i class="fa-solid fa-circle-info"></i></div> 
-        <div class="contactanos">Contactanos</div>  
+        <div class="contactanos">Contáctanos</div>  
     </li>
 
     <?php

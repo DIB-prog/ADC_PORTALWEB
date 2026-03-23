@@ -53,7 +53,7 @@
                 <div class="horas">Horas</div>
                 <div class="ubication"> Modalidad</div>
                 <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="contactanos">Contactanos</div>
+                <div class="contactanos">Contáctanos</div>
             </li>
 
             <?php
