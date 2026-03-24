@@ -59,7 +59,8 @@ $files = scandir($dir);
             foreach ($files as $file) {
 
                 // evitar . y ..
-                if ($file === "." || $file === "..") continue;
+                if ($file === "." || $file === "..")
+                    continue;
 
                 // extensión en minúsculas
                 $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
@@ -73,4 +74,5 @@ $files = scandir($dir);
         </section>
     </section>
 </body>
+
 </html>

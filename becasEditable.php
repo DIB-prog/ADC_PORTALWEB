@@ -1,8 +1,8 @@
-<?php 
+<?php
 require_once "Conection.php";
 
 session_start();
-if ( $_SESSION['login_time'] + 3600 < time() ) {
+if ($_SESSION['login_time'] + 3600 < time()) {
 
     session_unset();
     session_destroy();
@@ -15,99 +15,99 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit();
 }
 
-      
+
 $db = new Conection();
 $conn = $db->conect();
- $validEmail = true;
- $validDelete = true;
+$validEmail = true;
+$validDelete = true;
 
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    if (isset($_POST['confirmAdd'])) {
-                        $titulo = $_POST['titulo2'];
-                        $descripcion = $_POST['descripcion2'];
-                    
-               
-                        $informacion = $_POST['informacion2'];
-                        $mail = $_POST['mail2'];
-                     
-                        $importe = $_POST['importe2'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['confirmAdd'])) {
+        $titulo = $_POST['titulo2'];
+        $descripcion = $_POST['descripcion2'];
 
-                        $stmt = $conn->prepare("INSERT INTO adc_becas (titulo, Descripcion, Importe, Informacion, mail) VALUES (?, ?, ?, ?, ?)");
-                        $stmt->bind_param("ssiss", $titulo, $descripcion, $importe, $informacion, $mail);
-                          if ($stmt->execute()) {
-                            if ($stmt->affected_rows > 0) {
-                                echo "<script>alert('Datos enviados correctamente!');
+
+        $informacion = $_POST['informacion2'];
+        $mail = $_POST['mail2'];
+
+        $importe = $_POST['importe2'];
+
+        $stmt = $conn->prepare("INSERT INTO adc_becas (titulo, Descripcion, Importe, Informacion, mail) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssiss", $titulo, $descripcion, $importe, $informacion, $mail);
+        if ($stmt->execute()) {
+            if ($stmt->affected_rows > 0) {
+                echo "<script>alert('Datos enviados correctamente!');
                                  window.location.href = '" . $_SERVER['PHP_SELF'] . "';
                            
                                 </script>";
-                            }
-                        }   
-                    } elseif (isset($_POST['confirmar'])) {
+            }
+        }
+    } elseif (isset($_POST['confirmar'])) {
 
 
 
-                     $confirmar = isset($_POST['confirmar']) ? true : false;
+        $confirmar = isset($_POST['confirmar']) ? true : false;
 
-if ($confirmar) {
+        if ($confirmar) {
 
-    $idq = $_POST['id'];
-    $titulo = $_POST['titulo'];
-    $descripcion = $_POST['descripcion'];
-    $mail = $_POST['mail'];
-    $importe = $_POST['importe'] ?? '';
-    $informacion = $_POST['informacion'];
+            $idq = $_POST['id'];
+            $titulo = $_POST['titulo'];
+            $descripcion = $_POST['descripcion'];
+            $mail = $_POST['mail'];
+            $importe = $_POST['importe'] ?? '';
+            $informacion = $_POST['informacion'];
 
- 
-    if (filter_var("$mail", FILTER_VALIDATE_EMAIL)) {
-        $validEmail = true;
 
-        $stmt = $conn->prepare("UPDATE adc_becas 
+            if (filter_var("$mail", FILTER_VALIDATE_EMAIL)) {
+                $validEmail = true;
+
+                $stmt = $conn->prepare("UPDATE adc_becas 
                                 SET titulo=?, Descripcion=?, Importe=?, Informacion=?, mail=? 
                                 WHERE ID=?");
-        $stmt->bind_param("ssissi", $titulo, $descripcion, $importe, $informacion, $mail, $idq);
+                $stmt->bind_param("ssissi", $titulo, $descripcion, $importe, $informacion, $mail, $idq);
+                $stmt->execute();
+
+                if ($stmt->affected_rows > 0) {
+                    echo "<script>alert('Datos enviados correctamente!');
+                  window.location.href = '" . $_SERVER['PHP_SELF'] . "';
+                  </script>";
+                }
+
+            } else {
+                $validEmail = false;
+                echo "<script>alert('El email no es válido');</script>";
+            }
+        }
+
+
+    } elseif (isset($_POST['confirmarEliminar'])) {
+
+        $idToDelete = $_POST['idEliminar'];
+        echo $idToDelete;
+        $stmt = $conn->prepare("DELETE FROM adc_becas WHERE id = ?");
+        $stmt->bind_param("i", $idToDelete);
         $stmt->execute();
 
         if ($stmt->affected_rows > 0) {
-            echo "<script>alert('Datos enviados correctamente!');
-                  window.location.href = '" . $_SERVER['PHP_SELF'] . "';
-                  </script>";
-        }
+            $validDelete = true;
 
-    } else {
-        $validEmail = false;
-        echo "<script>alert('El email no es válido');</script>";
+            echo "<script>alert('Beca eliminada correctamente!');
+                                  window.location.href = '" . $_SERVER['PHP_SELF'] . "';
+                                  </script>";
+        } else {
+            $validDelete = false;
+
+        }
     }
+    if (!$validDelete): ?>
+        <script>
+            alert("Error al eliminar la beca.");
+        </script>
+        <?php $validDelete = true; endif;
 }
 
 
-                    } elseif (isset($_POST['confirmarEliminar'])) {
-                       
-                        $idToDelete = $_POST['idEliminar'];
-                        echo $idToDelete;
-                        $stmt = $conn->prepare("DELETE FROM adc_becas WHERE id = ?");
-                        $stmt->bind_param("i", $idToDelete);
-                        $stmt->execute();
-
-                        if ($stmt->affected_rows > 0 ){
-                            $validDelete = true;
-                          
-                            echo "<script>alert('Práctica eliminada correctamente!');
-                                  window.location.href = '" . $_SERVER['PHP_SELF'] . "';
-                                  </script>";
-                        } else {
-                            $validDelete = false;
-                           
-                        }
-                    }
-                    if (!$validDelete): ?>
-                        <script>
-                            alert("Error al eliminar la práctica.");
-                        </script>       
-                    <?php $validDelete = true; endif;
-                }
-            
-
-               ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -164,43 +164,53 @@ if ($confirmar) {
         </nav>
 
     </header>
-    <main class="petit">
+    <main>
         <ul class="ul_practicas">
 
-      
-                <li class="li_ptacticas cabecera editable beca">
-                    <div class="titulo">Título</div>
-                    <div class="description">Descripción</div>
-                    <div class="importe">Importe</div>
-                    <div class="linkInfo"><i class="fa-solid fa-circle-info"></i></div>
-                    <div class="info trans"><i class="fa-solid fa-envelope"></i></div>
-                    <div class="editarPracB"><i class="fa-solid fa-pencil"></i></div>
-                    <div class="deletePractica"><i class="fa-regular fa-trash-can"></i></div>
-     
-                </li>
+
+            <li class="li_ptacticas cabecera editable beca">
+                <div class="tituloBeca">Título</div>
+                <div class="descriptionBeca">Descripción</div>
+                <div class="importeBeca">Importe</div>
+                <div class="linkInfoBeca"><i class="fa-solid fa-circle-info"></i></div>
+                <div class="infoTransBeca"><i class="fa-solid fa-envelope"></i></div>
+                <div class="editarPracB"><i class="fa-solid fa-pencil"></i></div>
+                <div class="deletePractica"><i class="fa-regular fa-trash-can"></i></div>
+
+            </li>
             <?php
             $sql = "SELECT * FROM adc_becas ORDER BY id ASC";
             $result = $conn->query($sql);
-       
+
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-          
+
                     ?>
-                    <li class="li_ptacticas editable beca" data-id="<?php echo $row['id']; ?>">
-                        
-                        <div class="titulo" data-id="<?php echo $row['ID']; ?>"> <?php echo htmlspecialchars($row['titulo']); ?></div>
-                        <div class="description" data-id="<?php echo $row['ID']; ?>"><?php echo htmlspecialchars($row['Descripcion']); ?></div>
-                        <div class="importe" data-id="<?php echo $row['ID']; ?>"> <?php echo htmlspecialchars($row['Importe']); ?></div>
-                        <div class="linkInfo" data-id="<?php echo $row['ID']; ?>"><?php echo htmlspecialchars($row['Informacion']); ?></div>
-                         <div class="info" data-id="<?php echo $row['ID']; ?>"><?php echo htmlspecialchars($row['mail']); ?> </div>
-                        <button class="editarPracB der" data-id="<?php echo $row['ID']; ?>">
-                            <div class="info"><i class="fa-solid fa-pencil"></i></div>
+                    <li class="li_ptacticas editable beca" data-id="<?php echo $row['ID']; ?>">
+
+                        <div class="tituloBeca" data-id="<?php echo $row['ID']; ?>">
+                            <?php echo htmlspecialchars($row['titulo']); ?>
+                        </div>
+                        <div class="descriptionBeca" data-id="<?php echo $row['ID']; ?>">
+                            <?php echo htmlspecialchars($row['Descripcion']); ?>
+                        </div>
+                        <div class="importeBeca" data-id="<?php echo $row['ID']; ?>">
+                            <?php echo htmlspecialchars($row['Importe']); ?>
+                        </div>
+                        <div class="linkInfoBeca" data-id="<?php echo $row['ID']; ?>">
+                            <?php echo htmlspecialchars($row['Informacion']); ?>
+                        </div>
+                        <div class="infoTransBeca" data-id="<?php echo $row['ID']; ?>">
+                            <?php echo htmlspecialchars($row['mail']); ?>
+                        </div>
+                        <button class="editarPracB" data-id="<?php echo $row['ID']; ?>">
+                            <div><i class="fa-solid fa-pencil"></i></div>
                         </button>
                         <button class="deletePractica" data-id="<?php echo $row['ID']; ?>">
-                            <div class="info"><i class="fa-regular fa-trash-can"></i></div>
+                            <div><i class="fa-regular fa-trash-can"></i></div>
                         </button>
-           
-                  
+
+
                     </li>
                     <?php
                 }
@@ -208,7 +218,7 @@ if ($confirmar) {
             } else {
                 echo "<li class='li_ptacticas'><div colspan='6'>No hay becas disponibles</div></li>";
             }
-                $conn->close();
+            $conn->close();
             ?>
         </ul>
 
@@ -218,8 +228,8 @@ if ($confirmar) {
 
                 <form class="confirmDelete" action="" method="post">
                     <input type="hidden" name="idEliminar" id="idEliminar">
-                <button id="confirmarEliminar" class="confirmarDelete" name = "confirmarEliminar">Confirmar</button>
-                <button id="cancelarEliminar" type="button" class="cancelar">Cancelar</button>
+                    <button id="confirmarEliminar" class="confirmarDelete" name="confirmarEliminar">Confirmar</button>
+                    <button id="cancelarEliminar" type="button" class="cancelar">Cancelar</button>
                 </form>
             </div>
         </div>
@@ -235,13 +245,13 @@ if ($confirmar) {
                         <textarea name="titulo" id="" required></textarea>
                     </div>
 
-                    <div class="areaTitle" > 
+                    <div class="areaTitle">
                         <h5>Descripción</h5>
                         <textarea name="descripcion" id="" required></textarea>
                     </div>
-                    
 
-                
+
+
                     <div class="areaTitle">
                         <h5>Importe</h5>
                         <textarea name="importe" id="" required></textarea>
@@ -251,18 +261,12 @@ if ($confirmar) {
                     <div class="areaTitle ">
                         <h5>Información</h5>
                         <textarea name="informacion" class="last" id="" required></textarea>
-                    </div>  
+                    </div>
 
                     <div class="areaTitle">
                         <h5>Email</h5>
                         <textarea name="mail" class="last" id="" required></textarea>
                     </div>
-<!-- 
-                    <div class="areaTitle">
-                        <h5>Email</h5>
-                        <textarea class="last" name="mail" id="" required></textarea>
-                    </div> -->
-
                 </div>
 
                 <div class="confirmEdit">
@@ -271,64 +275,47 @@ if ($confirmar) {
                 </div>
 
             </form>
-        
+
         </div>
-   
-  <div id="textEmpty" class="editar2">
-    <form class="informacion" method="post">
+
+        <div id="textEmpty" class="editar2">
+            <form class="informacion" method="post">
                 <div class="areasInput">
-                   <div class="areaTitle">
+                    <div class="areaTitle">
                         <h5>Título</h5>
                         <textarea name="titulo2" id="" required></textarea>
                     </div>
 
-                    <div class="areaTitle" > 
+                    <div class="areaTitle">
                         <h5>Descripción</h5>
                         <textarea name="descripcion2" id="" required></textarea>
                     </div>
-
-                   <!-- <div class="areaTitle">
-
-                     <h5>Ubicación</h5>
-                    <textarea name="ubicacion2" id="" required></textarea>
-                    </div>     
-
-                    <div class="areaTitle">
-                        <h5>Horas</h5>
-                        <textarea name="horas2" id="" required></textarea>
-                    </div>  -->
 
                     <div class="areaTitle">
                         <h5>Importe</h5>
                         <textarea name="importe2" id="" required></textarea>
                     </div>
-                    
+
                     <div class="areaTitle">
                         <h5>Información</h5>
                         <textarea name="informacion2" class="last" id="" required></textarea>
-                    </div>  
-                     <div class="areaTitle">
+                    </div>
+                    <div class="areaTitle">
                         <h5>Email</h5>
                         <textarea name="mail2" class="last" id="" required></textarea>
                     </div>
-
-                    <!-- <div class="areaTitle">
-                        <h5>Email</h5>
-                        <textarea class="last" name="mail2" id="" required></textarea>
-                    </div> -->
-
                 </div>
 
                 <div class="confirmEdit">
                     <button id="confirmaAdd" type="submit" name="confirmAdd">Confirmar</button>
                     <button id="cancelAdd" type="button" name="cancelAdd">Cancelar</button>
                 </div>
-            </form>  
-    </div>
+            </form>
+        </div>
 
-    <div class="addLine">   
-        <button class="butonLine" id="sumLineaB" >Añadir Línea</button>
-    </div>
+        <div class="addLine">
+            <button class="butonLine" id="sumLineaB">Añadir Línea</button>
+        </div>
 
     </main>
 

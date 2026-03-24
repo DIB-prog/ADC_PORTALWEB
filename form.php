@@ -21,41 +21,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (filter_var("$email", FILTER_VALIDATE_EMAIL)) {
 
-        
-    date_default_timezone_set("Europe/Madrid"); 
-    $date = date("Y-m-d H:i:s"); // Formato compatible con DATETIME en MySQL
+
+        date_default_timezone_set("Europe/Madrid");
+        $date = date("Y-m-d H:i:s"); // Formato compatible con DATETIME en MySQL
 
 
 
-    $stmt = $conn->prepare("INSERT INTO adc_peticions_formulari 
+        $stmt = $conn->prepare("INSERT INTO adc_peticions_formulari 
             (nombre, correo_electronico, telefono, asunto, mensaje, recibir_informacion, fecha)
             VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $nombre, $email, $tel ,$asunto, $mensaje, $newsletter, $date);
-   $stmt->execute();
+        $stmt->bind_param("sssssss", $nombre, $email, $tel, $asunto, $mensaje, $newsletter, $date);
+        $stmt->execute();
         if ($stmt->execute()) {
             echo "Datos registrados correctamente.";
         } else {
             echo "Error al registrar datos: " . $stmt->error;
         }
 
-            $stmt->close();
+        $stmt->close();
 
-    
+
 
     } else {
-     echo "<h1>No se han enviado datos</h1>";
-     echo 'Invalid email';
-    
+        echo "<h1>No se han enviado datos</h1>";
+        echo 'Invalid email';
+
     }
 
- 
-    } else{
-     echo "<h1>No se han enviado datos, formulario incorrecto. </h1>";
- 
-    }
 
-    $db->close();
+} else {
+    echo "<h1>No se han enviado datos, formulario incorrecto. </h1>";
 
-    header("Location: /")
+}
 
-?>
+$db->close();
+
+header("Location: /")
+
+    ?>

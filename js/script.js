@@ -1,27 +1,11 @@
-﻿/* =============================================================================
-   BUILDFUTURE - JAVASCRIPT INTERACTIVO Y MODERNO
-   Funcionalidades dinámicas para una experiencia juvenil
-   ============================================================================= */
-
-// Inicialización cuando el DOM esté listo
-// document.addEventListener('DOMContentLoaded', function () {
-//     initializeNavigation();
-//     initializeAnimations();
-//     initializeVideoPlayers();
-//     initializeFormHandlers();
-//     initializeScrollEffects();
-//     initializeCarousels();
-//     initializeLazyLoading();
-//     initializeParallax();
-// });
-
+﻿
 /* =============================================================================
    NAVEGACIÓN DINÁMICA
    ============================================================================= */
-window.addEventListener('load', function() {
-      imageMapResize();
-    });
-    
+window.addEventListener('load', function () {
+    imageMapResize();
+});
+
 function initializeNavigation() {
     const navbar = document.getElementById('navbar');
     const navToggle = document.getElementById('nav-toggle');
@@ -169,14 +153,14 @@ function initializeYouTubeModal() {
         closeBtn.addEventListener('click', closeVideoModal);
     }
 
-        // Cerrar con ESC
+    // Cerrar con ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeVideoModal();
         }
     });
 
-        // Abrir modal al hacer click en thumbnail
+    // Abrir modal al hacer click en thumbnail
     videoThumbnails.forEach(thumbnail => {
         thumbnail.addEventListener('click', (e) => {
             const videoId = thumbnail.getAttribute('data-video-id');
@@ -190,80 +174,12 @@ function initializeYouTubeModal() {
 
     if (body) {
         body.addEventListener('click', (e) => {
-            if ( modal.className == 'video-modal active' ) {
+            if (modal.className == 'video-modal active') {
                 closeVideoModal();
             }
         });
     }
 }
-
-// function initializeYouTubeModal() {
-//     const videoThumbnails = document.querySelectorAll('.video-thumbnail[data-video-id]');
-//     const modal = document.getElementById('videoModal');
-//     const closeBtn = document.getElementById('closeModal');
-//     const iframe = document.getElementById('youtubePlayer');
-//     const body = document.body;
-
-//     var elementoActual = modal.classList
-//     var b = false
-
-//     // Abrir modal al hacer click en thumbnail
-//     videoThumbnails.forEach(thumbnail => {
-//         thumbnail.addEventListener('click', () => {
-//             const videoId = thumbnail.getAttribute('data-video-id');
-//             openVideoModal(videoId);
-//         });
-//     });
-
-//     // Cerrar modal
-//     function closeVideoModal() {
-//         modal.classList.remove('active');
-//         iframe.src = '';
-//         document.body.style.overflow = 'auto';
-//     }
-
-//     // Abrir modal
-//     function openVideoModal(videoId) {
-//         console.log("entra a open");
-//         if (b){
-//                console.log("entra a open2");
-//                body.addEventListener('click', (e) => {
-//                 if ( modal.className == 'video-modal active' ) {
-//                     console.log('entra', elementoActual);
-//                     closeVideoModal();
-//                 }
-//             });
-
-//         } else {
-//             console.log("entra a open3");
-//              const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-//         iframe.src = embedUrl;
-//         modal.classList.add('active');
-
-//             document.addEventListener("click", function (e) {
-//                  console.log("entra a open4");
-//             console.log(e.target);
-//             b = true
-// });
-//             elementoActual = modal.className;
-   
-//         }
-//     }
-
-//     // if (closeBtn) {
-//     //     closeBtn.addEventListener('click', closeVideoModal);
-//     // }
-
-   
-    
-    
-//     // Cerrar con ESC
-//     document.addEventListener('keydown', (e) => {
-//         if (e.key === 'Escape' && modal.classList.contains('active')) {
-//             closeVideoModal();
-//         }
-//     });
-// }
 
 /* =============================================================================
    MANEJO DE FORMULARIOS
@@ -362,65 +278,6 @@ function validateField(field) {
 
     return isValid;
 }
-
-
-// function validateContactField(field) {
-//     const value = field.value.trim();
-//     let isValid = true;
-//     let errorMessage = '';
-
-//     if (field.required && !value) {
-//         isValid = false;
-//         errorMessage = 'Este campo es obligatorio';
-//     } else if (field.type === 'email' && value) {
-//         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//         if (!emailRegex.test(value)) {
-//             isValid = false;
-//             errorMessage = 'Por favor, introduce un email válido';
-//         }
-//     } else if (field.type === 'tel' && value) {
-//         const phoneRegex = /^[0-9+\-\s()]{9,}$/;
-//         if (!phoneRegex.test(value)) {
-//             isValid = false;
-//             errorMessage = 'Por favor, introduce un teléfono válido';
-//         }
-//     }
-
-//     if (!isValid) {
-//         showContactFieldError(field, errorMessage);
-//     } else {
-//         clearContactFieldError(field);
-//     }
-
-//     return isValid;
-// }
-
-// function showContactFieldError(field, message) {
-//     clearContactFieldError(field);
-
-//     field.style.borderColor = '#dc3545';
-
-//     const errorDiv = document.createElement('div');
-//     errorDiv.className = 'contact-field-error';
-//     errorDiv.textContent = message;
-//     errorDiv.style.cssText = `
-//         color: #dc3545;
-//         font-size: 0.8rem;
-//         margin-top: 5px;
-//         display: block;
-//     `;
-
-//     field.parentNode.appendChild(errorDiv);
-// }
-
-// function clearContactFieldError(field) {
-//     field.style.borderColor = '';
-//     const existingError = field.parentNode.querySelector('.contact-field-error');
-//     if (existingError) {
-//         existingError.remove();
-//     }
-// }
-
 
 function showFieldError(field, message) {
     clearFieldError(field);
@@ -547,7 +404,7 @@ function initializeBeforeAfterSliders() {
 /* =============================================================================
    quote hero 
    ============================================================================= */
-   function initializeCarouselsV() {
+function initializeCarouselsV() {
     // Carrusel de quotes inspiradoras
     const quotes = document.querySelectorAll('.visible');
     let currentQuote = 0;
@@ -590,8 +447,6 @@ function initializeBeforeAfterSlidersV() {
         });
     });
 }
-
-   
 
 /* =============================================================================
    LAZY LOADING PARA OPTIMIZACIÓN
@@ -1015,38 +870,6 @@ function simulateLinkedInFeed() {
 }
 
 /* =============================================================================
-   COURSES INTERACTION
-   ============================================================================= */
-// function initializeCoursesSection() {
-//     const courseCards = document.querySelectorAll('.course-card');
-
-//     courseCards.forEach(card => {
-//         card.addEventListener('click', () => {
-//             // Add visual feedback
-//             card.style.transform = 'scale(0.98)';
-//             setTimeout(() => {
-//                 card.style.transform = '';
-//             }, 150);
-
-//             // Simulate course enrollment
-//             showNotification('¡Interés registrado! Te enviaremos más información sobre este curso.', 'info');
-//         });
-//     });
-
-//     // Course list items interaction
-//     const courseItems = document.querySelectorAll('.course-item');
-//     courseItems.forEach(item => {
-//         const link = item.querySelector('.course-link');
-//         if (link) {
-//             link.addEventListener('click', (e) => {
-//                 e.preventDefault();
-//                 showNotification('Curso disponible próximamente. ¡Te notificaremos cuando esté listo!', 'info');
-//             });
-//         }
-//     });
-// }
-
-/* =============================================================================
    COMPETITION REGISTRATION
    ============================================================================= */
 function initializeCompetitions() {
@@ -1263,9 +1086,6 @@ function initializeSocialFeatures() {
             }
 
             showNotification(message, 'info');
-
-            // Simulate opening social media (in real implementation, use actual URLs)
-            // window.open(link.href, '_blank');
         });
     });
 }
@@ -1372,9 +1192,7 @@ function injectModalStyles() {
     document.head.appendChild(style);
 }
 
-// Initialize all features when DOM is loaded
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize all main features
     initializeNavigation();
     initializeAnimations();
     initializeVideoPlayers();
@@ -1385,7 +1203,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeLazyLoading();
     initializeParallax();
 
-    // Initialize new features
     initializeCoursesSection();
     initializeCompetitions();
     initializeCommunityFeatures();
@@ -1577,227 +1394,104 @@ function initializeHeroMouseEffects() {
 // mapa interactivo
 
 document.addEventListener('DOMContentLoaded', () => {
-if (document.querySelector('body').getAttribute('data-page') == 'index' ){
-     const tooltip = document.createElement('div');
-  tooltip.id = 'tooltip';
-  document.body.appendChild(tooltip);
+    if (document.querySelector('body').getAttribute('data-page') == 'index') {
+        const tooltip = document.createElement('div');
+        tooltip.id = 'tooltip';
+        document.body.appendChild(tooltip);
 
-  const areas = document.querySelectorAll('area');
+        const areas = document.querySelectorAll('area');
 
-  areas.forEach(area => {
-    area.addEventListener('mousemove', (e) => {
-      const empresas = area.dataset.empresas || '0';
+        areas.forEach(area => {
+            area.addEventListener('mousemove', (e) => {
+                const empresas = area.dataset.empresas || '0';
 
-      const comunidad =  area.getAttribute("comunidad") || 'Comunidad';
+                const comunidad = area.getAttribute("comunidad") || 'Comunidad';
 
-      tooltip.innerHTML = `
+                tooltip.innerHTML = `
         <div class="tooltip-content">
           <div class="">${comunidad}</div>
           <div class="">${empresas} empresas</div>
         </div>
       `;
 
-      tooltip.style.left = (e.x + 15 ) + 'px';
-      tooltip.style.top = (e.y) + 'px';
+                tooltip.style.left = (e.x + 15) + 'px';
+                tooltip.style.top = (e.y) + 'px';
 
-      tooltip.style.zIndex = '9999'; 
-    });
+                tooltip.style.zIndex = '9999';
+            });
 
-    area.addEventListener('mouseout', () => {
+            area.addEventListener('mouseout', () => {
 
-        tooltip.style.zIndex = '-5'; 
-    });
-  });
+                tooltip.style.zIndex = '-5';
+            });
+        });
 
-}
+    }
 });
-
-//  document.querySelectorAll('area').forEach(function(area) {
-//     area.addEventListener('mouseover', function () {
-//       this._title = this.title;
-//       this.removeAttribute('title');
-//     });
-//     area.addEventListener('mouseout', function () {
-//       this.setAttribute('title', this._title);
-//     });
-//   });
-
-// carusel
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
-  let slideIndex = 1;
-  const slides = document.getElementsByClassName("mySlides");
+    let slideIndex = 1;
+    const slides = document.getElementsByClassName("mySlides");
 
 
-  function showSlides() {
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    function showSlides() {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        autoSlideTimeout = setTimeout(showSlides, 4000);
     }
 
-    slideIndex++;
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
+    function plusSlides(n) {
+        clearTimeout(autoSlideTimeout);
+
+        slideIndex += n;
+
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        if (slideIndex < 1) {
+            slideIndex = slides.length;
+        }
+
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+
+        autoSlideTimeout = setTimeout(showSlides, 4000);
     }
 
-    slides[slideIndex - 1].style.display = "block";
-      autoSlideTimeout = setTimeout(showSlides, 4000);
-  }
-
-  function plusSlides(n) {
-    clearTimeout(autoSlideTimeout);
-
-    slideIndex += n;
-
-    if (slideIndex > slides.length) {
-      slideIndex = 1;
-    }
-    if (slideIndex < 1) {
-      slideIndex = slides.length;
-    }
-
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-
-    slides[slideIndex - 1].style.display = "block";
-
-    autoSlideTimeout = setTimeout(showSlides, 4000);
-  }
-
-  // Exponer para uso en HTML onclick
-  window.plusSlides = plusSlides;
+    // Exponer para uso en HTML onclick
+    window.plusSlides = plusSlides;
 
 
-  // Iniciar slideshow automático
-  showSlides();
+    // Iniciar slideshow automático
+    showSlides();
 
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const boton = document.getElementById('nav-toggle');// clickar aqui
+    const menu = document.getElementById('nav-menu');  // menu
+    const clickLinks = document.querySelectorAll('.nav-link');
 
+    boton.addEventListener('click', function () {
+        if (menu.style.left === '0px') {
+            menu.style.left = '-100%';
+        } else {
+            console.log('Toggle menu called');
+            menu.style.left = 0;
 
-
-// let slideIndex = 0;
-// showSlides();
-
-// function showSlides() {
-//   let i;
-//   let slides = document.getElementsByClassName("mySlides");
-//   for (i = 0; i < slides.length; i++) {
-//     slides[i].style.display = "none";
-//   }
-//   slideIndex++;
-//   if (slideIndex > slides.length) {slideIndex = 1}
-//   slides[slideIndex-1].style.display = "block";
-//   setTimeout(showSlides, 2000); // Change image every 2 seconds
-// }
-
-
-/* =============================================================================
-   PASA UN DÍA CON... - GALERÍA YOUTUBE
-   ============================================================================= */
-
-
-//    const dia1 = document.getElementById('time1');
-//    const dia2 = document.getElementById('time2');
-//    const dia3 = document.getElementById('time3');
-
-//    let dias = new Array(dia1, dia2, dia3);
-
-// async function showDia() {
-
-//   while (true) {
-
-//     for (let index = 0; index < dias.length; index++) {
-
-//      if (dias[index].style.display === "grid") {
-//         dias[index].style.display = "none";
-//         if (index === dias.length - 1) {
-//             dias[0].style.display = "grid";
-//         } else {
-//             dias[index + 1].style.display = "grid";
-//         }
-
-//     } else {
-//         dias[index].style.display = "none";
-//     }
-
-
-//   }
-//     // Esperar 5 segundos antes de cambiar
-//     await new Promise(resolve => setTimeout(resolve, 5000));
-
-// }
-// }
-// showDia();
-
-
-
-// const dia1 = document.getElementById('time1');
-// const dia2 = document.getElementById('time2');
-// const dia3 = document.getElementById('time3');
-
-// let dias = [dia1, dia2, dia3];
-
-// async function showDia() {
-//     let index = 0;
-
-//     // Inicializar todos ocultos
-//     dias.forEach(d => {
-//         d.style.display = "none";
-//         d.classList.add("opacity-0");
-//     });
-
-//     while (true) {
-//         const current = dias[index];
-
-//         // Mostrar el elemento y quitar opacity-0 para transición
-//         current.style.display = "grid";
-//         requestAnimationFrame(() => {  // asegura que se aplique el display antes de quitar la clase
-//             current.classList.remove("opacity-0");
-//         });
-
-//         // Esperar 5 segundos
-//         await new Promise(resolve => setTimeout(resolve, 9000));
-
-
-//         current.classList.add("opacity-0");
-//         await new Promise(resolve => setTimeout(resolve, 4000)); // duración de la transición
-//         current.style.display = "none";
-
-//         index = (index + 1) % dias.length;
-//     }
-// }
-
-// showDia();
-
-// menu
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  const boton = document.getElementById('nav-toggle');// clickar aqui
-  const menu = document.getElementById('nav-menu');  // menu
-  const clickLinks = document.querySelectorAll('.nav-link');
-
-
-
-
-
-  boton.addEventListener('click', function() {
-    if (menu.style.left === '0px') {
-      menu.style.left = '-100%';
-     } else {
-          console.log('Toggle menu called');
-          menu.style.left = 0;
-
-    }
-
-
-
-  });
+        }
+    });
 
     clickLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -1805,10 +1499,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Menu closed on link click');
         });
 
-
-});
-
-
+    });
 });
 
 
@@ -1817,32 +1508,29 @@ const checkbox = document.getElementById("privacidad");
 const checkMark = document.getElementById("checkRequired");
 const mnsj = document.getElementById("alertCheck");
 
-
-
-
 if (formbtn && checkbox && checkMark && mnsj) {
 
-formbtn.addEventListener("click", function() {
+    formbtn.addEventListener("click", function () {
 
-    if (!checkbox.checked) {
+        if (!checkbox.checked) {
 
-        checkMark.style.borderColor = "rgb(220, 53, 69)";
-        mnsj.style.display = "block";
-    } else {
-        checkMark.style.borderColor = "#e1e5e9";
-        mnsj.style.display = "none";
-    }
-});
+            checkMark.style.borderColor = "rgb(220, 53, 69)";
+            mnsj.style.display = "block";
+        } else {
+            checkMark.style.borderColor = "#e1e5e9";
+            mnsj.style.display = "none";
+        }
+    });
 
-checkbox.addEventListener("change", function() {
-    if (checkbox.checked) {
-        checkMark.style.borderColor = "#e1e5e9";
-        mnsj.style.display = "none";
-    } else {
-        checkMark.style.borderColor = "red";
-        mnsj.style.display = "block";
-    }
-});
+    checkbox.addEventListener("change", function () {
+        if (checkbox.checked) {
+            checkMark.style.borderColor = "#e1e5e9";
+            mnsj.style.display = "none";
+        } else {
+            checkMark.style.borderColor = "red";
+            mnsj.style.display = "block";
+        }
+    });
 }
 
 /* ======= PC ======= */
@@ -1880,11 +1568,7 @@ if (flechaDerechaPC && flechaIzquierdaPC) {
     flechaDerechaPC.addEventListener("click", () => mostrarSlidePC(indexPC + 1));
     flechaIzquierdaPC.addEventListener("click", () => mostrarSlidePC(indexPC - 1));
     actualizarFlechasPC();
-
 }
-
-
-
 
 /* ======= Móvil ======= */
 const slidesMovil = document.querySelector('#sliderMovil .slides');
@@ -1921,18 +1605,16 @@ if (flechaDerechaM && flechaIzquierdaM) {
 }
 
 document.querySelectorAll('.vidMovil').forEach(card => {
-    card.style.cursor = 'pointer'; 
+    card.style.cursor = 'pointer';
     card.addEventListener('click', () => {
         const url = card.dataset.url;
         console.log('Abriendo URL:', url);
-        window.open(url, '_blank'); 
+        window.open(url, '_blank');
     });
 })
 
 
 /*editar las practicas profesionales*/
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const editable = document.getElementById('editar');
     const form = editable.querySelector('form.informacion');
@@ -1940,25 +1622,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Botón editar
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         const boton = e.target.closest('.editarPrac');
         if (!boton) return;
 
         const id = boton.dataset.id; // id del elemento a editar
         console.log('Editar práctica con ID:', id);
 
-
-
         // Obtener los divs correspondientes
-        const titulo = document.querySelector('.titulo[data-id="'+id+'"]');
-        const descripcion = document.querySelector('.description[data-id="'+id+'"]');
-        const ubicacion = document.querySelector('.ubication[data-id="'+id+'"]');
-        const horas = document.querySelector('.horas[data-id="'+id+'"]');
-        const mod  = document.querySelector('.modalidad[data-id="'+id+'"]')
-        const info = document.querySelector('.linkInfo[data-id="'+id+'"]:not(.titulo)');
-        const mail = document.querySelector('.info[data-id="'+id+'"]');
- 
-
+        const titulo = document.querySelector('.titulo[data-id="' + id + '"]');
+        const descripcion = document.querySelector('.description[data-id="' + id + '"]');
+        const ubicacion = document.querySelector('.ubication[data-id="' + id + '"]');
+        const horas = document.querySelector('.horas[data-id="' + id + '"]');
+        const mod = document.querySelector('.modalidad[data-id="' + id + '"]')
+        const info = document.querySelector('.linkInfo[data-id="' + id + '"]:not(.titulo)');
+        const mail = document.querySelector('.info[data-id="' + id + '"]');
 
         // Rellenar los textareas existentes
         form.querySelector('textarea[name="titulo"]').value = titulo ? titulo.textContent.trim() : '';
@@ -1973,20 +1651,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         editable.style.display = 'flex';
         fondoNegro.style.display = 'block';
-
     });
-
-
-    // cancelEdit.addEventListener('click', () => {
-    //     editable.style.display = 'none';
-    // });
-
-    // // Confirmar edición
-    // saveEdit.addEventListener('click', () => {
-    //     form.submit();
-    //     editable.style.display = 'none';
-    //     console.log('Edición confirmada');
-    // });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -2003,31 +1668,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const form2 = lineasContainer.querySelector('form.informacion');
     const textareas = form2.querySelectorAll('textarea');
 
-    /*form1 no border red*/ 
-
+    /*form1 no border red*/
     const e = document.getElementById('editar');
     const textareas2 = e.querySelectorAll('textarea');
-    
 
-
- 
     btnSumar.addEventListener('click', () => {
 
 
         form2.querySelector('textarea[name="titulo2"]').value = '';
         form2.querySelector('textarea[name="descripcion2"]').value = '';
-        form2.querySelector('textarea[name="ubicacion2"]').value =  '';
+        form2.querySelector('textarea[name="ubicacion2"]').value = '';
         form2.querySelector('textarea[name="horas2"]').value = '';
-         form2.querySelector('textarea[name="modalidad2"]').value = '';
+        form2.querySelector('textarea[name="modalidad2"]').value = '';
         form2.querySelector('textarea[name="informacion2"]').value = '';
         form2.querySelector('textarea[name="mail2"]').value = '';
 
         lineasContainer.style.display = 'flex';
         fondoNegro.style.display = 'block';
-
-
-
-
     });
 
     // clearFieldError(field)
@@ -2036,9 +1693,9 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelAdd.addEventListener('click', () => {
         lineasContainer.style.display = 'none';
         fondoNegro.style.display = 'none';
-        
+
         for (let i = 0; i < textareas.length; i++) {
-             clearFieldError(textareas[i]);
+            clearFieldError(textareas[i]);
 
         }
     });
@@ -2054,10 +1711,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('editar').style.display = 'none';
         fondoNegro.style.display = 'none';
 
-        for (let i = 0; i < textareas2.length; i++){
+        for (let i = 0; i < textareas2.length; i++) {
             clearFieldError(textareas2[i]);
         }
-        
     });
 
     // --- ELIMINAR PRÁCTICA  ---
@@ -2079,34 +1735,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/*                         BECAS                                     */ 
-
-
-
+/*                         BECAS                                     */
 document.addEventListener('DOMContentLoaded', () => {
     const editable = document.getElementById('editar');
     const form = editable.querySelector('form.informacion');
     const fondoNegro = document.getElementById('overlay');
 
-
     // Botón editar
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         const boton = e.target.closest('.editarPracB');
         if (!boton) return;
 
         const id = boton.dataset.id; // id del elemento a editar
         console.log('Editar práctica con ID:', id);
 
-
-
         // Obtener los divs correspondientes
-        const titulo = document.querySelector('.titulo[data-id="'+id+'"]');
-        const descripcion = document.querySelector('.description[data-id="'+id+'"]');
-        const importe = document.querySelector('.importe[data-id="'+id+'"]');
+        const titulo = document.querySelector('.tituloBeca[data-id="' + id + '"]');
+        const descripcion = document.querySelector('.descriptionBeca[data-id="' + id + '"]');
+        const importe = document.querySelector('.importeBeca[data-id="' + id + '"]');
 
-        const info = document.querySelector('.linkInfo[data-id="'+id+'"]:not(.titulo)');
-        const mail = document.querySelector('.info[data-id="'+id+'"]');
-    
+        const info = document.querySelector('.linkInfoBeca[data-id="' + id + '"]:not(.tituloBeca)');
+        const mail = document.querySelector('.infoTransBeca[data-id="' + id + '"]');
 
 
         // Rellenar los textareas existentes
@@ -2115,16 +1764,13 @@ document.addEventListener('DOMContentLoaded', () => {
         form.querySelector('textarea[name="importe"]').value = importe ? importe.textContent.trim() : '';
         form.querySelector('textarea[name="informacion"]').value = info ? info.textContent.trim() : '';
         form.querySelector('textarea[name="mail"]').value = mail ? mail.textContent.trim() : '';
-    
+
         form.querySelector('#idEditar').value = id;
 
         editable.style.display = 'flex';
         fondoNegro.style.display = 'block';
 
     });
-
-
-
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -2140,27 +1786,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const form2 = lineasContainer.querySelector('form.informacion');
     const textareas = form2.querySelectorAll('textarea');
 
-    /*form1 no border red*/ 
+    /*form1 no border red*/
 
     const e = document.getElementById('editar');
     const textareas2 = e.querySelectorAll('textarea');
-    
 
-
- 
     btnSumar.addEventListener('click', () => {
-
-
         form2.querySelector('textarea[name="titulo2"]').value = '';
         form2.querySelector('textarea[name="descripcion2"]').value = '';
         form2.querySelector('textarea[name="importe2"]').value = '';
         form2.querySelector('textarea[name="informacion2"]').value = '';
         form2.querySelector('textarea[name="mail2"]').value = '';
- 
 
         lineasContainer.style.display = 'flex';
         fondoNegro.style.display = 'block';
-
     });
 
     // clearFieldError(field)
@@ -2169,9 +1808,9 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelAdd.addEventListener('click', () => {
         lineasContainer.style.display = 'none';
         fondoNegro.style.display = 'none';
-        
+
         for (let i = 0; i < textareas.length; i++) {
-             clearFieldError(textareas[i]);
+            clearFieldError(textareas[i]);
 
         }
     });
@@ -2187,10 +1826,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('editar').style.display = 'none';
         fondoNegro.style.display = 'none';
 
-        for (let i = 0; i < textareas2.length; i++){
+        for (let i = 0; i < textareas2.length; i++) {
             clearFieldError(textareas2[i]);
         }
-        
+
     });
 
     // --- ELIMINAR PRÁCTICA  ---
@@ -2200,7 +1839,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const id2 = boton.dataset.id;
         console.log('Eliminar práctica con ID:', id2);
-
 
         if (form) {
             form.querySelector('#idEliminar').value = id2;
@@ -2213,35 +1851,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function tiempoTranscurrido(fecha) {
-  const ahora = new Date();
-  const entonces = new Date(fecha);
-  const segundos = Math.floor((ahora - entonces) / 1000);
+    const ahora = new Date();
+    const entonces = new Date(fecha);
+    const segundos = Math.floor((ahora - entonces) / 1000);
 
-  const intervalos = {
-    año: 31536000,
-    mes: 2592000,
-    día: 86400,
-    hora: 3600,
-    minuto: 60
-  };
+    const intervalos = {
+        año: 31536000,
+        mes: 2592000,
+        día: 86400,
+        hora: 3600,
+        minuto: 60
+    };
 
-  if (segundos < 60) return "justo ahora";
+    if (segundos < 60) return "justo ahora";
 
-  for (const [unidad, valor] of Object.entries(intervalos)) {
-    const cantidad = Math.floor(segundos / valor);
-    if (cantidad >= 1) {
-      return `hace ${cantidad} ${unidad}${cantidad > 1 ? "s" : ""}`;
+    for (const [unidad, valor] of Object.entries(intervalos)) {
+        const cantidad = Math.floor(segundos / valor);
+        if (cantidad >= 1) {
+            return `hace ${cantidad} ${unidad}${cantidad > 1 ? "s" : ""}`;
+        }
     }
-  }
 }
 
-          
+
 
 fetch("https://script.google.com/macros/s/AKfycbzJHaKBzeSXo4-vtCkoWpn36L-bPTtUbtjcBDKVY0MC8mQ8Bj2zmufGRV0w3vVkpZhQGQ/exec")
     .then(r => r.json())
     .then(posts => {
         let html = "";
-       posts.slice(0, 3).forEach(p => {
+        posts.slice(0, 3).forEach(p => {
 
             const fechaBonita = tiempoTranscurrido(p.pubdate);
 
@@ -2274,12 +1912,11 @@ fetch("https://script.google.com/macros/s/AKfycbzJHaKBzeSXo4-vtCkoWpn36L-bPTtUbt
     .catch(e => console.error("Error cargando posts:", e));
 
 
-
 fetch("https://script.google.com/macros/s/AKfycbxnUz54aGn2HyXYM7y2yN23Xk4Bqc4sZM0s_cHfTWJBs6n8gi2XiF9piPwqja5Cuiv8/exec")
     .then(r => r.json())
     .then(posts => {
         let html = "";
-       posts.slice(0, 3).forEach(p => {
+        posts.slice(0, 3).forEach(p => {
 
             const fechaBonita = tiempoTranscurrido(p.pubdate);
 
@@ -2314,12 +1951,11 @@ fetch("https://script.google.com/macros/s/AKfycbxnUz54aGn2HyXYM7y2yN23Xk4Bqc4sZM
     })
     .catch(e => console.error("Error cargando posts:", e));
 
-    fetch("https://script.google.com/macros/s/AKfycbzPGlWXMpqaT7Rb30nK1fP2gPVi1vpfXbszVuYmFfIUfKbXBi0k6DKOrnfl6JYst_K92A/exec")
+fetch("https://script.google.com/macros/s/AKfycbzPGlWXMpqaT7Rb30nK1fP2gPVi1vpfXbszVuYmFfIUfKbXBi0k6DKOrnfl6JYst_K92A/exec")
     .then(r => r.json())
     .then(posts => {
         let html = "";
-       posts.slice(0, 3).forEach(p => {
-
+        posts.slice(0, 3).forEach(p => {
             const fechaBonita = tiempoTranscurrido(p.pubdate);
 
             html += `
@@ -2352,7 +1988,3 @@ fetch("https://script.google.com/macros/s/AKfycbxnUz54aGn2HyXYM7y2yN23Xk4Bqc4sZM
         document.getElementById("instagram-feed").innerHTML = html;
     })
     .catch(e => console.error("Error cargando posts:", e));
-
-
-// https://rss.app/feed/mCMSVAuMJEkB8Sqs
-
