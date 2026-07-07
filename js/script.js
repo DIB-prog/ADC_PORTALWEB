@@ -1401,10 +1401,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const areas = document.querySelectorAll('area');
 
+        const diccionarioComunidades = {
+            "Catalunya": "Cataluña",
+            "Madrid": "Comunidad de Madrid",
+            "Andalucía": "Andalucía",
+            "Aragón": "Aragón",
+            "Canarias": "Canarias",
+            "Asturias": "Principado de Asturias",
+            "Cantabria": "Cantabria",
+            "Castilla y León": "Castilla y León",
+            "Castilla La Mancha": "Castilla-La Mancha",
+            "Comunidad Valenciana": "Comunidad Valenciana",
+            "Extremadura": "Extremadura",
+            "Galicia": "Galicia",
+            "Islas Baleares": "Illes Balears",
+            "La Rioja": "La Rioja",
+            "Murcia": "Región de Murcia",
+            "Navarra": "Comunidad Foral de Navarra",
+            "País Vasco": "País Vasco"
+        }
+
+     
         areas.forEach(area => {
             area.addEventListener('mousemove', (e) => {
+        
                 const empresas = area.dataset.empresas || '0';
-
                 const comunidad = area.getAttribute("comunidad") || 'Comunidad';
 
                 tooltip.innerHTML = `
@@ -1420,13 +1441,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 tooltip.style.zIndex = '9999';
             });
 
-            area.addEventListener('mouseout', () => {
+            area.addEventListener('click', (e) => {
+                e.preventDefault();
+             
+                const comunidadHtlm = area.getAttribute("comunidad");
 
+                const comunidad = diccionarioComunidades[comunidadHtlm] || comunidadHtlm;
+                const url = encodeURIComponent(comunidad);
+
+                 window.open(`becas.php?comunidad=${url}`, '_blank');
+
+            });
+
+
+            area.addEventListener('mouseout', () => {
                 tooltip.style.zIndex = '-5';
             });
         });
 
+
     }
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1873,118 +1908,11 @@ function tiempoTranscurrido(fecha) {
     }
 }
 
+    
+document.querySelectorAll(".li_ptacticas").forEach(item => {
+    item.addEventListener("click", function () {
+        const id = this.dataset.id;
+        window.location.href = `asociados.php?id=${id}`;
+    });
 
-
-fetch("https://script.google.com/macros/s/AKfycbzJHaKBzeSXo4-vtCkoWpn36L-bPTtUbtjcBDKVY0MC8mQ8Bj2zmufGRV0w3vVkpZhQGQ/exec")
-    .then(r => r.json())
-    .then(posts => {
-        let html = "";
-        posts.slice(0, 3).forEach(p => {
-
-            const fechaBonita = tiempoTranscurrido(p.pubdate);
-
-            html += `
-                <div class="post-card linkedin-post">
-                    <div class="post-header">
-                        <img src="img/unnamed.jpg" class="post-avatar">
-                        <div class="post-info">
-                            <h4>ANDECE Prefabricados de Hormigón</h4>
-                           
-                            <span>${fechaBonita}</span>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                     
-                        <p>
-                            ${p.title}
-                        </p>
-                    </div>
-
-                    <div class="post-actions">
-                        <a href="${p.link}" target="_blank" class="btn btn-sm gradientX">Ver en LinkedIn</a>
-                    </div>
-                </div>
-            `;
-        });
-
-        document.getElementById("linkedin-feed").innerHTML = html;
-    })
-    .catch(e => console.error("Error cargando posts:", e));
-
-
-fetch("https://script.google.com/macros/s/AKfycbxnUz54aGn2HyXYM7y2yN23Xk4Bqc4sZM0s_cHfTWJBs6n8gi2XiF9piPwqja5Cuiv8/exec")
-    .then(r => r.json())
-    .then(posts => {
-        let html = "";
-        posts.slice(0, 3).forEach(p => {
-
-            const fechaBonita = tiempoTranscurrido(p.pubdate);
-
-            html += `
-                <div class="post-card twitter-post">
-                <div>
-                    <div class="post-header">
-                       <img src="img/unnamed.jpg" class="post-avatar">
-                        <div class="post-info">
-                            <h4>@andece_general</h4>
-                           
-                            <span>${fechaBonita}</span>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                     
-                        <p>
-                            ${p.title}
-                        </p>
-                    </div>
-                    </div>
-
-                    <div class="post-actions">
-                      
-                        <a href="${p.link}" target="_blank" class="btn btn-sm gradientX" >Ver en X</a>
-                    </div>
-                </div>
-            `;
-        });
-
-        document.getElementById("X-feed").innerHTML = html;
-    })
-    .catch(e => console.error("Error cargando posts:", e));
-
-fetch("https://script.google.com/macros/s/AKfycbzPGlWXMpqaT7Rb30nK1fP2gPVi1vpfXbszVuYmFfIUfKbXBi0k6DKOrnfl6JYst_K92A/exec")
-    .then(r => r.json())
-    .then(posts => {
-        let html = "";
-        posts.slice(0, 3).forEach(p => {
-            const fechaBonita = tiempoTranscurrido(p.pubdate);
-
-            html += `
-                <div class="post-card instagram-post">
-                <div>
-                    <div class="post-header">
-                        <img src="img/unnamed.jpg" class="post-avatar">
-                        <div class="post-info">
-                            <h4>@andece_ph</h4>
-                           
-                            <span>${fechaBonita}</span>
-                        </div>
-                    </div>
-                    <div class="post-content">
-                     
-                        <p>
-                            ${p.title}
-                        </p>
-                    </div>
-                    </div>
-
-                    <div class="post-actions">
-                      
-                        <a href="${p.link}" target="_blank" class="btn btn-sm iconosInsta" >Ver en Instagram</a>
-                    </div>
-                </div>
-            `;
-        });
-
-        document.getElementById("instagram-feed").innerHTML = html;
-    })
-    .catch(e => console.error("Error cargando posts:", e));
+});

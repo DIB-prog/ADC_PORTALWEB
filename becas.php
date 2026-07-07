@@ -1,10 +1,55 @@
+<?php 
+session_start();
+$comunidad = isset($_GET['comunidad']) ? $_GET['comunidad'] : '';   
+
+$asociados = [];
+$total = 0;
+$errorMsg = '';
+$config = parse_ini_file('.env');
+        if ($config === false) {
+            die("Error: No se pudo cargar el archivo .env");
+        }
+
+if(!empty($comunidad)) {
+    $_SESSION['comunidad'] = $comunidad;
+    $url = "https://andece.org/wp-json/andece/v1/comunidad?comunidad=" . urlencode($comunidad);
+
+    $options = [
+        "http" => [
+            "method" => "GET",
+            "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)\r\n" ."X-API-KEY: ". $config['API_KEY']."\r\n"
+
+        ]
+    ];
+ 
+    $context = stream_context_create($options);
+    $response = file_get_contents($url, false, $context);
+   
+    if($response !== false) {
+        $data = json_decode($response, true);
+        if (isset($data['asociados'])) {
+            $asociados = $data['asociados'];
+            $total = isset($data['total']) ? $data['total'] : count($asociados);
+          
+        }else if (isset($data['error'])) {
+            $errorMsg = $data['error'];
+
+        } else {
+            $errorMsg = 'No se encontraron asociados para la comunidad especificada.';
+        }
+    } else {
+        $errorMsg = 'Error al obtener los datos de la API.';
+}
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Becas</title>
+    <title>Asiociados</title>
     <!-- Estilos principales -->
     <!-- <link rel="stylesheet" href="CSS/style2.css"> -->
     <!-- Fuentes modernas -->
@@ -20,12 +65,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="/img/favicon.jpg" type="image/jpg">
 </head>
-
 <body data-page="practicas">
     <header>
-
         <nav class="navbar" id="navbar">
             <div class="nav-container nopad">
+
                 <div class="nav-img">
                     <a href="/" target="_blank">
                         <i class="fa-solid fa-arrow-left fa-2x"></i>
@@ -39,54 +83,52 @@
                         <h2>Creo<span class="accent gris">Mi</span><span class="accent">Futuro</span></h2>
                     </a>
                 </div>
+
             </div>
         </nav>
-
     </header>
     <main>
-        <ul class="ul_practicas">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center;">
 
-            <li class="li_ptacticas cabecera beca">
-                <div class="titulo">Título</div>
-                <div class="description">Descripción</div>
-                <div class="importe">Importe</div>
-                <div class="info"><i class="fa-solid fa-circle-info"></i></div>
-                <div class="contactanos">Contáctanos</div>
+            <h3  class="associados-titulo" style="justify-self: start; margin-top: 20px; font-family: 'Poppins', sans-serif;">
+            <?= !empty($comunidad) ? "Total: " . count($asociados) : "" ?>
+            </h3>
+
+            <h3 class="associados-titulo" style="justify-self: center; margin-top: 20px; font-family: 'Poppins', sans-serif;">
+            <?= !empty($comunidad) ? $comunidad : "Seleccione una comunidad" ?>
+            </h3>
+
+        </div>
+        
+          <ul class="ul_practicas">
+
+            <li class="li_ptacticas cabecera">
+          
+                <div class="">Asociado</div>
+                <div class="">Provincia</div>
+                <div class="">Población</div>
             </li>
-
-            <?php
-            require_once "Conection.php";
-            $db = new Conection();
-            $conn = $db->conect();
-            $sql = "SELECT * FROM adc_becas";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    ?>
-                    <li class="li_ptacticas beca">
-                        <div class="titulo"><?php echo htmlspecialchars($row['titulo']); ?></div>
-                        <div class="description"><?php echo htmlspecialchars($row['Descripcion']); ?></div>
-                        <div class="importe"> <?php echo htmlspecialchars($row['Importe']); ?></div>
-                        <a href="<?php echo htmlspecialchars($row['Informacion']); ?>" target="blank">
-                            <div class="info"> <i class="fa-solid fa-circle-info"></i>
-                        </a></div>
-                        <a href="<?php echo htmlspecialchars($row['mail']); ?>" target="blank">
-                            <div class="contactanos"><i class="fa-solid fa-envelope"></i>
-                        </a></div>
-                    </li>
-                    <?php
+            <?php 
+            if (empty($errorMsg)) {
+                 foreach ($asociados as $asociado) {
+                    echo "<li class='li_ptacticas asociado' data-id='" . htmlspecialchars($asociado['id']) . "'>";
+                    //echo "<div class='titulo'>" . htmlspecialchars($asociado['id']) . "</div>";
+                    echo "<div class=''>" . htmlspecialchars($asociado['nombre']) . "</div>";
+                    echo "<div class=''>" . htmlspecialchars($asociado['provincia']) . "</div>";
+                    echo "<div class=''>" . htmlspecialchars($asociado['poblacion']) . "</div>";
+                    echo "</li>";
                 }
             } else {
-                echo "<li class='li_ptacticas'><div colspan='6'>No hay prácticas disponibles</div></li>";
+                $errorMsg =!empty($errorMsg) ? $errorMsg : 'No se encontraron asociados para la comunidad especificada.';
+                echo "<li class='li_ptacticas'><div class='error'>$errorMsg</div></li>";
             }
+            
+            ?> 
+            </ul>
 
-            $conn->close();
-            ?>
-        </ul>
     </main>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+     <script src="js/script.js"></script>
+    
 </body>
-
 </html>

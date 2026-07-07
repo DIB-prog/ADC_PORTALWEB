@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prácticas</title>
+    <title>Asiociados</title>
     <!-- Estilos principales -->
     <!-- <link rel="stylesheet" href="CSS/style2.css"> -->
     <!-- Fuentes modernas -->
@@ -163,4 +163,4 @@
             </div>
         </div>
     </div>
-</footer> -->
+</footer> 
