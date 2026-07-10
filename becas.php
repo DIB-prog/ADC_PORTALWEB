@@ -108,14 +108,15 @@ if(!empty($comunidad)) {
                 <div class="">Provincia</div>
                 <div class="">Población</div>
             </li>
-            <?php 
+            <?php
+            
             if (empty($errorMsg)) {
                  foreach ($asociados as $asociado) {
                     echo "<li class='li_ptacticas asociado' data-id='" . htmlspecialchars($asociado['id']) . "'>";
                     //echo "<div class='titulo'>" . htmlspecialchars($asociado['id']) . "</div>";
-                    echo "<div class=''>" . htmlspecialchars($asociado['nombre']) . "</div>";
-                    echo "<div class=''>" . htmlspecialchars($asociado['provincia']) . "</div>";
-                    echo "<div class=''>" . htmlspecialchars($asociado['poblacion']) . "</div>";
+                    echo "<div class=''>" . html_entity_decode($asociado['nombre'], ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</div>";
+                    echo "<div class=''>" . html_entity_decode($asociado['provincia'], ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</div>";
+                    echo "<div class=''>" . html_entity_decode($asociado['poblacion'], ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</div>";
                     echo "</li>";
                 }
             } else {

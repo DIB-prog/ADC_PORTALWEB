@@ -2129,7 +2129,7 @@ body {
 .about-text p {
     color: var(--gray-medium);
     line-height: 1.6;
-    margin-bottom: 30px;
+
 }
 
 .about-stats {
@@ -3483,6 +3483,7 @@ h6 {
 
 .h3 {
     font-size: 1.6rem;
+    text-align: center;
 }
 
 .h-text {

@@ -97,18 +97,18 @@ if(!empty($id)) {
         style="display: flex; flex: 1; min-width: 300px; max-width: 600px; flex-direction: column; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
 
         <div class="competition-header">
-            <h3><?= htmlspecialchars($asociado['nombre']) ?></h3>
+            <h3><?= html_entity_decode($asociado['nombre'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></h3>
         </div>
 
         <div class="competition-content asociado-details">
            
             <ul class="competition-categories">
-                <li><i class="fas fa-map"></i> <strong>Provincia:</strong> <?= htmlspecialchars($asociado['provincia']) ?></li>
-                <li><i class="fas fa-city"></i> <strong>Población:</strong> <?= htmlspecialchars($asociado['poblacion']) ?></li>
-                <li><i class="fas fa-home"></i> <strong>Dirección:</strong> <?= htmlspecialchars($asociado['direccion']) ?></li>
-                <li><i class="fas fa-mail-bulk"></i> <strong>Código Postal:</strong> <?= htmlspecialchars($asociado['codigo_postal']) ?></li>
-                <li><i class="fas fa-phone"></i> <strong>Teléfono:</strong> <?= htmlspecialchars($asociado['telefono']) ?></li>
-                <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <?= htmlspecialchars($asociado['email']) ?></li>
+                <li><i class="fas fa-map"></i> <strong>Provincia:</strong> <?= html_entity_decode($asociado['provincia'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></li>
+                <li><i class="fas fa-city"></i> <strong>Población:</strong> <?= html_entity_decode($asociado['poblacion'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></li>
+                <li><i class="fas fa-home"></i> <strong>Dirección:</strong> <?= html_entity_decode($asociado['direccion'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></li>
+                <li><i class="fas fa-mail-bulk"></i> <strong>Código Postal:</strong> <?= html_entity_decode($asociado['codigo_postal'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></li>
+                <li><i class="fas fa-phone"></i> <strong>Teléfono:</strong> <?= html_entity_decode($asociado['telefono'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></li>
+                <li><i class="fas fa-envelope"></i> <strong>Email:</strong> <?= html_entity_decode($asociado['email'], ENT_QUOTES | ENT_HTML5, 'UTF-8') ?></li>
                 <li><i class="fas fa-tags"></i> <strong>Categorias:</strong></li>
                 <div class="competition-subcategories">
                    <p>
